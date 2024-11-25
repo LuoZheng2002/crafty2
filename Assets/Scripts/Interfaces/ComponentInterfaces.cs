@@ -108,12 +108,13 @@ public abstract class VehicleComponent : MonoBehaviour
             particle_system.gameObject.SetActive(true);
             particle_system.Play();
         }
+        AudioPlayer.Inst.PlayCrash();
 	}
 	public ParticleSystem particle_system;
 	IEnumerator JointBreakTutorial()
 	{
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Oh no! Our car breaks! We cannot rebuild our vehicle in place anymore.", null);
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "However, we can still go back to the latest checkpoint.", null);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Oh no! Our car breaks! We cannot rebuild our vehicle in place anymore.", null, Util.VoiceLine.oh_no_our_car);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "However, we can still go back to the latest checkpoint.", null, Util.VoiceLine.however);
         LineCanvas.Top.Hide();
         Retry.Inst.StartScale();
 	}

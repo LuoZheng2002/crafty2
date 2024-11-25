@@ -72,6 +72,9 @@ public class StoryCanvas : MonoBehaviour
 	{
 		container.SetActive(true);
 	}
+	public void HideSideQuests() {
+		container.SetActive(false);
+	}
 	private void Start()
 	{
 		Debug.Assert(inst == null);
@@ -106,6 +109,14 @@ public class StoryCanvas : MonoBehaviour
 		(Util.WaypointName retry_waypoint, Util.WaypointName goal_waypoint) = GameSave.Progresses[CurrentQuestName];
 		Debug.Assert(retry_waypoint != Util.WaypointName.None);
 		GameState.Inst.UpdateRetryAndGoal(retry_waypoint, goal_waypoint);
+		if (CurrentQuestName == Util.QuestName.PiggylandCenter)
+		{
+			CarCore.Inst.AutoRotation = true;
+		}
+		else
+		{
+			CarCore.Inst.AutoRotation = false;
+		}
 		switch (CurrentQuestName)
 		{
 			case Util.QuestName.MainStory:

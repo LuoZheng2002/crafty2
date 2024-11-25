@@ -101,6 +101,7 @@ public class GameState : MonoBehaviour
 			BlackoutCanvas.Inst.BlackoutAsync(3.0f, 1.0f, 0.0f);
 			PlayCanvas.Inst.HideStory();
 			TransitionToStory(Util.StoryName.Crash);
+			StoryCanvas.Inst.HideSideQuests();
 		}
 		else
 		{
@@ -182,10 +183,10 @@ public class GameState : MonoBehaviour
 	IEnumerator AtTownWaypoint()
 	{
 		CarCore.Inst.DampStart();
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "You've reached a permanent waypoint!", null);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "It seems we've reached a permanet waypoint.", null, Util.VoiceLine.it_seems);
 		MapImage.Inst.Show();
 		MapImage.Inst.StartScale();
-		yield return LineCanvas.Top.DisplayLineAndWaitForEvent("Shirley", "Click on the map to see the whole region!", (MapImageClickedEvent e) => true);
+		yield return LineCanvas.Top.DisplayLineAndWaitForEvent("Shirley", "Let's click on the map to see the whole region.", (MapImageClickedEvent e) => true, Util.VoiceLine.lets_click);
 		LineCanvas.Top.Hide();
 		CarCore.Inst.DampStop();
 	}
@@ -238,9 +239,11 @@ public class GameState : MonoBehaviour
 					break;
 				case WaypointName.Lake:
 					UpdateRetryAndGoal(WaypointName.Lake, WaypointName.TownEntrance);
+					LineCanvas.Bottom.DisplayLineAsync("Shirley", "The town is in sight! Rush towards it!", 2.0f, Util.VoiceLine.the_town_is);
 					break;
 				case WaypointName.TownEntrance:
 					UpdateRetryAndGoal(WaypointName.TownEntrance, WaypointName.TownWaypoint);
+					LineCanvas.Bottom.DisplayLineAsync("Shirley", "Woohoo. We've arrived!", 2.0f, Util.VoiceLine.woohoo_weve);
 					break;
 				case WaypointName.TownWaypoint:
 					UpdateRetryAndGoal(WaypointName.TownWaypoint, WaypointName.TownStory);
@@ -283,6 +286,7 @@ public class GameState : MonoBehaviour
 					break;
 				case WaypointName.BeforeDesign3:
 					UpdateRetryAndGoal(WaypointName.BeforeDesign3, WaypointName.BeforeLeap);
+					StartCoroutine(HintDesign3());
 					break;
 				case WaypointName.BeforeLeap:
 					UpdateRetryAndGoal(WaypointName.BeforeLeap, WaypointName.Leap1);
@@ -307,19 +311,19 @@ public class GameState : MonoBehaviour
 					break;
 				case WaypointName.Center1:
 					UpdateRetryAndGoal(WaypointName.Center1, WaypointName.Center2);
-					LineCanvas.Top.DisplayLineAsync("Shirley", "20 turns to go.", 2.0f);
+					LineCanvas.Top.DisplayLineAsync("Shirley", "20 turns to go.", 2.0f, VoiceLine.twenty);
 					break;
 				case WaypointName.Center2:
 					UpdateRetryAndGoal(WaypointName.Center2, WaypointName.Center3);
-					LineCanvas.Top.DisplayLineAsync("Shirley", "15 turns to go.", 2.0f);
+					LineCanvas.Top.DisplayLineAsync("Shirley", "15 turns to go.", 2.0f, Util.VoiceLine.fifteen);
 					break;
 				case WaypointName.Center3:
 					UpdateRetryAndGoal(WaypointName.Center3, WaypointName.Center4);
-					LineCanvas.Top.DisplayLineAsync("Shirley", "10 turns to go.", 2.0f);
+					LineCanvas.Top.DisplayLineAsync("Shirley", "10 turns to go.", 2.0f, Util.VoiceLine.ten);
 					break;
 				case WaypointName.Center4:
 					UpdateRetryAndGoal(WaypointName.Center4, WaypointName.CenterTop);
-					LineCanvas.Top.DisplayLineAsync("Shirley", "5 turns to go.", 2.0f);
+					LineCanvas.Top.DisplayLineAsync("Shirley", "5 turns to go.", 2.0f, VoiceLine.five);
 					break;
 				case WaypointName.CenterTop:
 					UpdateRetryAndGoal(WaypointName.TownWaypoint, WaypointName.None);
@@ -331,7 +335,7 @@ public class GameState : MonoBehaviour
 					break;
 				case WaypointName.LoopStart:
 					UpdateRetryAndGoal(WaypointName.LoopStart, WaypointName.LoopEnd);
-					LineCanvas.Top.DisplayLineAsync("Shirley", "Let's go!", 1.0f);
+					LineCanvas.Top.DisplayLineAsync("Shirley", "Let's go!", 1.0f, VoiceLine.letsgo);
 					break;
 				case WaypointName.LoopEnd:
 					UpdateRetryAndGoal(WaypointName.TownWaypoint, WaypointName.None);
@@ -340,34 +344,45 @@ public class GameState : MonoBehaviour
 			}
 		});
 	}
+
+	IEnumerator HintDesign3()
+	{
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "This is a tricky one.", null, VoiceLine.this_is);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "But I've already come up with some evil thoughts.", null, VoiceLine.but);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Hint: the goal is pretty close to the wall.", null, VoiceLine.hint);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Haha, I saw you blushed.", null, VoiceLine.haha);
+		LineCanvas.Top.Hide();
+	}
 	public IEnumerator IntroduceSpace()
 	{
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Now there's an **important** feature that comes in handy.", null);
-		yield return LineCanvas.Top.DisplayLineAndWaitForEvent("Shirley", "**Press \"Space\" to toggle build layers.**", (SwitchLayerEvent e) => true);
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Perfect! Since your build space is incrementing, it would be hard to locate a cell without specifying layers.", null);
-		yield return LineCanvas.Top.DisplayLineAndWaitForEvent("Shirley", "Now, press \"Space\" a few more times to go back to the full layer mode.", (FullLayerEvent e) => true);
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Great! Let's move on!", null);
+		ConfirmButton.Inst.EnableConfirm = false;
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Now there's an **important** feature that comes in handy.", null, VoiceLine.now_there);
+		yield return LineCanvas.Top.DisplayLineAndWaitForEvent("Shirley", "**Press \"Space\" to toggle build layers.**", (SwitchLayerEvent e) => true, VoiceLine.press_space);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Perfect! Since your build space is incrementing, it would be hard to locate a cell without specifying layers.", null, VoiceLine.perfect_since);
+		yield return LineCanvas.Top.DisplayLineAndWaitForEvent("Shirley", "Now, press \"Space\" a few more times to go back to the full layer mode.", (FullLayerEvent e) => true, VoiceLine.now_press);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Great! Let's move on!", null, VoiceLine.great);
 		LineCanvas.Top.Hide();
+		ConfirmButton.Inst.EnableConfirm = true;
 	}
 
 	IEnumerator OnCenterEntrance()
 	{
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "a journey of a thousand miles begins with a single step.", null);
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Let's climb!", null);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "A journey of a thousand miles begins with a single step.", null, VoiceLine.A_journey);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Let's climb!", null, VoiceLine.lets_climb);
 		LineCanvas.Top.Hide();
 		yield return DisplayChapter("Side Quest I", "A Bird's Eye View", "Started");
 	}
 	IEnumerator OnCenterTop()
 	{
 		PlayCanvas.Inst.SetStoryText("Select a Quest");
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Woohoo! We made it!", null);
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Although there is barely anything underneath to appreciate.", null);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Woohoo! We made it!", null, VoiceLine.woohoo_we_made);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Although there is barely anything underneath to appreciate.", null, VoiceLine.Although);
 		LineCanvas.Top.Hide();
 		yield return DisplayChapter("Side Quest I", "A Bird's Eye View", "Completed");
 	}
 	IEnumerator OnLoopStart()
 	{
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Don't be a coward, my darling.", null);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Don't be a coward, my darling.", null, VoiceLine.dont);
 		CarCore.Inst.DampStart();
 		yield return DisplayChapter("Side Quest II", "Loop", "Started");
 		CarCore.Inst.DampStop();
@@ -376,7 +391,7 @@ public class GameState : MonoBehaviour
 	IEnumerator OnLoopEnd()
 	{
 		PlayCanvas.Inst.SetStoryText("Select a Quest");
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Awwwww! That's more scary than I anticipated.", null);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Awwwww! That's more scary than I anticipated.", null, VoiceLine.awwww);
 		LineCanvas.Top.Hide();
 		yield return DisplayChapter("Side Quest II", "Loop", "Completed");
 	}
@@ -387,8 +402,8 @@ public class GameState : MonoBehaviour
 		PlayCanvas.Inst.HideStory();
 		VehicleComponent.Damp = 100.0f;
 		CarCore.Inst.DampStart();
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "This must be the Adamantium we are looking for. We made it!", null);
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Now we can warp back to the town and prepare for the fight!", null);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "This must be the Adamantium we are looking for. We made it!", null, VoiceLine.this_must);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Now we can warp back to the town and prepare for the fight!", null, VoiceLine.now_we);
 		MapImage.Inst.StartScale();
 		CarCore.Inst.DampStop();
 		VehicleComponent.Damp = 2.0f;
@@ -620,7 +635,7 @@ public class GameState : MonoBehaviour
 	IEnumerator TransitionToStoryC1S1()
 	{
 		yield return MainCamera.Inst.WarpTo(TRef.Get(Util.TRefName.CameraC1S1), 1.0f);
-		yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("Shirley", "It seems you've recovered. Let's travel around and see if anyone knows about your girlfriend.", Character.Partner);
+		// yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("Shirley", "It seems you've recovered. Let's travel around and see if anyone knows about your girlfriend.", Character.Partner);
 		ChoiceCanvas.Inst.DisplayChoices(new() { ("Sure. Let's go!", Util.ChoiceName.DontCare), ("Definitely!", Util.ChoiceName.DontCare), ("Absolutely!", Util.ChoiceName.DontCare) });
 		Util.ChoiceObj choice_obj = new();
 		yield return WaitForChoice(choice_obj);
@@ -644,16 +659,16 @@ public class GameState : MonoBehaviour
 		// yield return LineCanvas.Bottom.DisplayLine("Shirley","Arrived!");
 		Character.Partner.WarpTo(TRef.Get(Util.TRefName.PartnerTownW));
 		yield return MainCamera.Inst.WarpTo(TRef.Get(Util.TRefName.CameraTownW1), 1.0f);
-		yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("Shirley", "Congratulations! You found the Waypoint of the town.", Character.Partner);
-		yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("Shirley", "Waypoints are scattered across the world that enables you to rebuild your vehicle.", Character.Partner);
-		yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("Shirley", "The waypoint in the town opens for free to you, but you will have to complete challenging challenges to unlock some of them in the wild.", Character.Partner);
-		yield return MainCamera.Inst.WarpTo(TRef.Get(Util.TRefName.CameraTownW2), 1.0f);
-		yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("Waypoint de New Sorpigal", "As long as you do not lose faith, the world will open to you.", null);
-		// Waypoint.Waypoints[Util.WaypointName.Town].ChangeToGreen();
-		yield return WaitForClick();
-		yield return MainCamera.Inst.WarpTo(TRef.Get(Util.TRefName.CameraTownW1), 1.0f);
-		yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("Shirley", "Let's try it out!", Character.Partner);
-		LineCanvas.Bottom.Hide();
+		//yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("Shirley", "Congratulations! You found the Waypoint of the town.", Character.Partner);
+		//yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("Shirley", "Waypoints are scattered across the world that enables you to rebuild your vehicle.", Character.Partner);
+		//yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("Shirley", "The waypoint in the town opens for free to you, but you will have to complete challenging challenges to unlock some of them in the wild.", Character.Partner);
+		//yield return MainCamera.Inst.WarpTo(TRef.Get(Util.TRefName.CameraTownW2), 1.0f);
+		//yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("Waypoint de New Sorpigal", "As long as you do not lose faith, the world will open to you.", null);
+		//// Waypoint.Waypoints[Util.WaypointName.Town].ChangeToGreen();
+		//yield return WaitForClick();
+		//yield return MainCamera.Inst.WarpTo(TRef.Get(Util.TRefName.CameraTownW1), 1.0f);
+		//yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("Shirley", "Let's try it out!", Character.Partner);
+		//LineCanvas.Bottom.Hide();
 		Character.Partner.WarpTo(TRef.Get(Util.TRefName.Origin));
 		// TransitionToBuild(Util.WaypointName.Town, Util.GoalName.None);
 	}
@@ -669,6 +684,11 @@ public class GameState : MonoBehaviour
 			ToastManager.Toast($"{e.Message}\n{e.StackTrace}");
 		}
 	}
+	IEnumerator PlayCrash()
+	{
+		yield return new WaitForSeconds(2.0f);
+		AudioPlayer.Inst.PlayCrash();
+	}
 	IEnumerator TransitionToStoryCrash()
 	{
 		
@@ -680,6 +700,7 @@ public class GameState : MonoBehaviour
 		{
 			MainCamera.Inst.WarpTo(TRef.Get(Util.TRefName.CameraPrestory1_1));
 		});
+		StartCoroutine(PlayCrash());
 		yield return LineCanvas.Bottom.WaitForEvent((PigfallAnimationEndEvent e) => true);
 		Character.Piggy.WarpTo(TRef.Get(TRefName.PigPrestory1));
 		Character.Partner.WarpTo(TRef.Get(TRefName.PartnerPrestory1));
@@ -688,9 +709,9 @@ public class GameState : MonoBehaviour
 			Character.Piggy.WarpTo(TRef.Get(TRefName.PigPrestory2), 0.5f),
 			Character.Partner.WarpTo(TRef.Get(TRefName.PartnerPrestory2), 0.5f)
 			);
-		yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("Shirley", "Honey, I didn't see our rocket engines. They may have been stolen.", Character.Partner);
-		yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("You", "Without them, we can't leave this planet.", Character.Piggy);
-		yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("Shirley", "Let's travel around and find some clues.", Character.Partner);
+		yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("Shirley", "Honey, I didn't see our rocket engines. They may have been stolen.", Character.Partner, VoiceLine.honey);
+		yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("You", "Without them, we can't leave this planet.", Character.Piggy, VoiceLine.without);
+		yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("Shirley", "Let's travel around and find some clues.", Character.Partner, VoiceLine.lets_travel);
 		LineCanvas.Bottom.Hide();
 		Character.Piggy.WarpTo(TRef.Get(TRefName.Origin));
 		Character.Partner.WarpTo(TRef.Get(TRefName.Origin));
@@ -783,49 +804,11 @@ public class GameState : MonoBehaviour
 		PlayCanvas.Inst.SetStoryText("Go to the town");
 		StoryCanvas.Inst.SetMainStory(MainStoryName.GoToTown);
 
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Oh, no! We turned over!", null);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Oh, no! We turned over!", null, VoiceLine.ohno);
 		RebuildButton.Inst.Show();
 		RebuildButton.Inst.StartScale();
-		yield return LineCanvas.Top.DisplayLineAndWaitForEvent("Shirley", "Press the wrench icon to rebuild.", (RebuildButtonClickedEvent e) => true);
+		yield return LineCanvas.Top.DisplayLineAndWaitForEvent("Shirley", "Press the wrench icon to rebuild.", (RebuildButtonClickedEvent e) => true, VoiceLine.press_the);
 		LineCanvas.Top.Hide();
-		//Character.Piggy.WarpTo(TRef.Get(Util.TRefName.PigPrestory2));
-		//Character.Partner.WarpTo(TRef.Get(Util.TRefName.PartnerPrestory2));
-		//MainCamera.Inst.WarpTo(TRef.Get(Util.TRefName.CameraPrestory2_1));
-		//yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("Shirley", "Awww. That hurts!", Character.Partner);
-		//yield return MainCamera.Inst.Transition(TRef.Get(Util.TRefName.CameraPrestory2_1), TRef.Get(Util.TRefName.CameraPrestory2_2), 1.0f);
-		//yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("You", "Yes.", Character.Piggy);
-		//yield return MainCamera.Inst.Transition(TRef.Get(Util.TRefName.CameraPrestory2_2), TRef.Get(Util.TRefName.CameraPrestory2_1), 1.0f);
-		//yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("Shirley", "A car without control is like the West without Jerusalem.", Character.Partner);
-		//yield return AtTheSameTime(
-		//	LineCanvas.Bottom.DisplayLineAndWaitForClick("Shirley", "Fortunately, there is a garage nearby that stores what we want.", Character.Partner),
-		//	MainCamera.Inst.Transition(TRef.Get(Util.TRefName.CameraPrestory2_1), TRef.Get(Util.TRefName.CameraPrestory2_3), 1.5f)
-		//	);
-		//yield return AtTheSameTime(
-		//	LineCanvas.Bottom.DisplayLineAndWaitForClick("Shirley", "The turning wheels and the motor wheels.", Character.Partner),
-		//	MainCamera.Inst.Transition(TRef.Get(Util.TRefName.CameraPrestory2_3), TRef.Get(Util.TRefName.CameraPrestory2_4), 1.5f)
-		//	);
-		//yield return MainCamera.Inst.Transition(TRef.Get(Util.TRefName.CameraPrestory2_4), TRef.Get(Util.TRefName.CameraPrestory2_1), 1.5f);
-		//yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("Shirley", "With them, we can steer the car easily.", Character.Partner);
-
-		//yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("Shirley", "This time, would you like to try it yourself?", Character.Partner);
-		//ChoiceCanvas.Inst.DisplayChoices(new() { ("Let me try it!", Util.ChoiceName.DontNeedHelp), ("I need help!", Util.ChoiceName.NeedHelp) });
-		//Util.ChoiceObj choice_obj = new();
-		//last_choice_name = choice_obj.choice_name;
-		//yield return WaitForChoice(choice_obj);
-		//// choice_name = choice_obj.choice_name;
-		//if (choice_obj.choice_name == Util.ChoiceName.DontNeedHelp)
-		//{
-		//	yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("Shirley", "I admire your courage. Good luck!", Character.Partner);
-		//}
-		//else
-		//{
-		//	yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("Shirley", "I admire your modesty. Let's figure it out together.", Character.Partner);
-		//}
-		//Character.Piggy.WarpTo(TRef.Get(Util.TRefName.Origin));
-		//Character.Partner.WarpTo(TRef.Get(Util.TRefName.Origin));
-		//LineCanvas.Bottom.Hide();
-		//Util.BuildInfo build_info = choice_obj.choice_name == Util.ChoiceName.DontNeedHelp? Util.BuildInfo.DontNeedHelp: Util.BuildInfo.NeedHelp;
-		//TransitionToBuild(Util.WaypointName.PreStory2, Util.GoalName.PreStory2, build_info);
 	}
 	IEnumerator WaitForChoice(Util.ChoiceObj choice_obj)
 	{
@@ -966,20 +949,20 @@ public class GameState : MonoBehaviour
 	IEnumerator VolcanoBuild()
 	{
 		yield return new WaitForSeconds(1.5f);
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "The volcano is too tall, so we have to take a detour.", null);
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "The destination is deep, so be prepared.", null);
+		// yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "The volcano is too tall, so we have to take a detour.", null);
+		// yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "The destination is deep, so be prepared.", null);
 		LineCanvas.Top.Hide();
 	}
 	IEnumerator VolcBottomBuild()
 	{
 		yield return new WaitForSeconds(1.5f);
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "The incline is too steep. We can't make it with only wheels.", null);
+		// yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "The incline is too steep. We can't make it with only wheels.", null);
 		LineCanvas.Top.Hide();
 	}
 	IEnumerator VolcTopBuild()
 	{
 		yield return new WaitForSeconds(1.5f);
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Let's take a leap of faith.", null);
+		// yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Let's take a leap of faith.", null);
 		LineCanvas.Top.Hide();
 	}
 	bool town_waypoint_met = false;
@@ -992,40 +975,40 @@ public class GameState : MonoBehaviour
 		Retry.Inst.Hide();
 
 		Trash.Inst.gameObject.SetActive(false);
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Hope you still remember how to use the grid building system.", null);
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Oh! There is a mess! Let's clean it up using the eraser!", null);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Hope you still remember how to use the grid building system.", null, VoiceLine.hopeyou);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Oh! There is a mess! Let's clean it up using the eraser!", null, VoiceLine.oh_there);
 		EraserImage.Inst.StartScale();
 		//// to do: display line and wait for event
 
 		yield return LineCanvas.Top.DisplayLineAndWaitForEvent("Shirley", "Start by clicking the eraser.", (ToolClickedEvent e) =>
 		{
 			return e.cursor_mode == Util.CursorMode.Erase;
-		});
+		}, VoiceLine.start_by);
 		EraserImage.Inst.EndScale();
 		yield return LineCanvas.Top.DisplayLineAndWaitForEvent("Shirley", "Good! Hover your mouse on the grid and click to erase a component.",
-			(ItemErasedEvent e) => true);
+			(ItemErasedEvent e) => true, VoiceLine.good);
 		Trash.Inst.gameObject.SetActive(true);
 		Trash.Inst.StartScale();
 		yield return LineCanvas.Top.DisplayLineAndWaitForEvent("Shirley", "Perfect! Now let's use the trashcan to remove all the components at once!",
-			(ResetCountEvent e) => true);
+			(ResetCountEvent e) => true, VoiceLine.perfect_now_lets);
 		Trash.Inst.EndScale();
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Perfect! Now we have a clear space to build our vehicle!", null);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Perfect! Now we have a clear space to build our vehicle!", null, VoiceLine.perfect_now_we);
 		// GridMatrix.Current.ShowDesign();
 
 		// force design
 		GridMatrix.Inst.ShowDesign(Util.DesignPrestory1());
 		GridMatrix.Inst.ForceDesign = true;
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Let's first use the standard vehicle design.", null);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Let's first use the standard vehicle design.", null, VoiceLine.lets_first);
 		DragImage.StartScaleAll();
 		yield return LineCanvas.Top.DisplayLineAndWaitForEvent("Shirley", "Start by clicking on a component icon.",
-			(DragImageClickedEvent e) => true);
+			(DragImageClickedEvent e) => true, VoiceLine.start_by_clicking);
 		DragImage.EndScaleAll();
 		yield return LineCanvas.Top.DisplayLineAndWaitForEvent("Shirley", "Perfect! Hover your mouse on the grid and click to place a component.",
-			(ComponentAddedEvent e) => true);
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Perfect! Let's place the rest of the components.", null);
+			(ComponentAddedEvent e) => true, VoiceLine.prefect_hover);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Perfect! Let's place the rest of the components.", null, VoiceLine.perfect_lets);
 		yield return LineCanvas.Top.WaitForEvent((ReadyToGoEvent e) => true);
 		yield return LineCanvas.Top.DisplayLineAndWaitForEvent("Shirley", "You are learning fast! Now click the confirm button to start our journey!",
-			(ConfirmSuccessEvent e) => true);
+			(ConfirmSuccessEvent e) => true, VoiceLine.you_are_learning);
 		LineCanvas.Top.Hide();
 	}
 
@@ -1038,19 +1021,19 @@ public class GameState : MonoBehaviour
 			case Util.BuildInfo.NeedHelp:
 				{
 					ConfirmButton.Inst.EnableConfirm = false;
-					yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Follow the design to build the vehicle.", null);
+					// yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Follow the design to build the vehicle.", null);
 					LineCanvas.Top.Hide();
 					ConfirmButton.Inst.EnableConfirm = true;
 					yield return LineCanvas.Top.WaitForEvent((ReadyToGoEvent e) => true);
-					yield return LineCanvas.Top.DisplayLineAndWaitForEvent("Shirley", "Let's roll!",
-						(ConfirmSuccessEvent e) => true);
+					// yield return LineCanvas.Top.DisplayLineAndWaitForEvent("Shirley", "Let's roll!",
+					// 	(ConfirmSuccessEvent e) => true);
 					LineCanvas.Top.Hide();
 				}
 				break;
 			case Util.BuildInfo.DontNeedHelp:
 				{
 					ConfirmButton.Inst.EnableConfirm = false;
-					yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Try to build the vehicle yourself!", null);
+					// yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Try to build the vehicle yourself!", null);
 					LineCanvas.Top.Hide();
 					ConfirmButton.Inst.EnableConfirm = true;
 					// yield return LineCanvas.Top.WaitForEvent((ConfirmSuccessEvent e) => true);
@@ -1059,20 +1042,20 @@ public class GameState : MonoBehaviour
 			case Util.BuildInfo.DontNeedHelpButRetry:
 				{
 					ConfirmButton.Inst.EnableConfirm = false;
-					yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "It seems you had a rough time. Would you like to get some hint?", null);
+					// yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "It seems you had a rough time. Would you like to get some hint?", null);
 					ChoiceCanvas.Inst.DisplayChoices(new() { ("Ok, I need some help.", Util.ChoiceName.NeedHelp), ("No way. Let me try it myself!", Util.ChoiceName.DontNeedHelp) });
 					Util.ChoiceObj choice_obj = new();
 					last_choice_name = choice_obj.choice_name;
 					yield return WaitForChoice(choice_obj);
 					if (choice_obj.choice_name == Util.ChoiceName.DontNeedHelp)
 					{
-						yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "All right. Good luck!", null);
+						// yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "All right. Good luck!", null);
 						LineCanvas.Top.Hide();
 						ConfirmButton.Inst.EnableConfirm = true;
 					}
 					else
 					{
-						yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Good Choice! Let's figure it out together!", null);
+						// yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Good Choice! Let's figure it out together!", null);
 						LineCanvas.Top.Hide();
 						ConfirmButton.Inst.EnableConfirm = true;
 						// TransitionToBuild(Util.WaypointName.PreStory2, Util.GoalName.PreStory2, Util.BuildInfo.NeedHelp);
@@ -1087,13 +1070,13 @@ public class GameState : MonoBehaviour
 		ConfirmButton.Inst.EnableConfirm = false;
 		yield return new WaitForSeconds(1.5f);
 
-		yield return LineCanvas.Top.DisplayLineAndWaitForEvent("Shirley", "**Drag the screen to view the grid**", (CanvasDragEvent e) => true);
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Perfect! Now there's an **important** feature that you want to learn", null);
-		yield return LineCanvas.Top.DisplayLineAndWaitForEvent("Shirley", "**Press \"Space\" to toggle build layers.**", (SwitchLayerEvent e) => true);
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Perfect! Without previous design constraints, it would be hard to locate a cell without specifying layers.", null);
-		yield return LineCanvas.Top.DisplayLineAndWaitForEvent("Shirley", "Now, press \"Space\" a few more times to go back to the full layer mode.", (FullLayerEvent e) => true);
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Awesome! Feel free to explore the world!", null);
-		LineCanvas.Top.Hide();
+		//yield return LineCanvas.Top.DisplayLineAndWaitForEvent("Shirley", "**Drag the screen to view the grid**", (CanvasDragEvent e) => true);
+		//yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Perfect! Now there's an **important** feature that you want to learn", null);
+		//yield return LineCanvas.Top.DisplayLineAndWaitForEvent("Shirley", "**Press \"Space\" to toggle build layers.**", (SwitchLayerEvent e) => true);
+		//yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Perfect! Without previous design constraints, it would be hard to locate a cell without specifying layers.", null);
+		//yield return LineCanvas.Top.DisplayLineAndWaitForEvent("Shirley", "Now, press \"Space\" a few more times to go back to the full layer mode.", (FullLayerEvent e) => true);
+		//yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Awesome! Feel free to explore the world!", null);
+		//LineCanvas.Top.Hide();
 		Goal.Activate(Util.GoalName.C1S1);
 		Character.Partner.WarpTo(TRef.Get(Util.TRefName.PartnerC1S1));
 		ConfirmButton.Inst.EnableConfirm = true;
@@ -1186,16 +1169,17 @@ public class GameState : MonoBehaviour
 	{
 		yield return null;
 		CarCore.Inst.DampStart();
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Woohoo! We returned safely with the Adamantium.", null);
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "I can't wait to start a new adventure.", null);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Woohoo! We returned safely with the Adamantium.", null, VoiceLine.woohoo);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "I can't wait to start a new adventure.", null, VoiceLine.i_cant_wait);
 		LineCanvas.Top.Hide();
 		StoryCanvas.Inst.SetMainStory(MainStoryName.BossFight);
 		yield return DisplayChapter("Main Story Quest: Act 1", "Treasures in the Flaming Mountain", "Completed");
 		yield return WaitForClick();
 		yield return new WaitForSeconds(1.5f);
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Now, would you like to have some fun in the town, or continue our journey home?", null);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Now, would you like to have some fun in the town, or continue our journey for home?", null, VoiceLine.now_would);
 		LineCanvas.Top.Hide();
 		PlayCanvas.Inst.ShowStory();
+		StoryCanvas.Inst.ShowSideQuests();
 		PlayCanvas.Inst.SetStoryText("Select a Quest");
 		PlayCanvas.Inst.ScaleStory();
 		CarCore.Inst.DampStop();
@@ -1238,7 +1222,7 @@ public class GameState : MonoBehaviour
 		yield return new WaitForSeconds(1.0f);
 		Retry.Inst.Show();
 		FirstPerson.Inst.Show();
-		yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("Shirley", "Drive straight into the winding valley. That's the shortest path.", null);
+		// yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("Shirley", "Drive straight into the winding valley. That's the shortest path.", null);
 		LineCanvas.Bottom.Hide();
 	}
 }

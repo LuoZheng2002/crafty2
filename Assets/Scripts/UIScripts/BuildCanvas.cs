@@ -4,6 +4,8 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
+public class NumberClickedEvent { }
+
 public class BuildCanvas : MonoBehaviour
 {
     public static BuildCanvas Inst
@@ -34,6 +36,7 @@ public class BuildCanvas : MonoBehaviour
         {
             GameState.Inst.IntroducePreset = false;
 			// TODO for Gabriel: introduce preset
+            StartCoroutine(PresetIntroduction());
 		}
         if (GameState.Inst.introduce_space)
         {
@@ -41,7 +44,21 @@ public class BuildCanvas : MonoBehaviour
             StartCoroutine(GameState.Inst.IntroduceSpace());
         }
 	}
-    public void Hide()
+	public IEnumerator PresetIntroduction()
+	{
+        ConfirmButton.Inst.EnableConfirm = false;
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "It seems for the incoming challenges, we need different vehicle designs.", null, Util.VoiceLine.it_seems_for_the);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "It would be beneficial to save your current design for future retrieval.", null, Util.VoiceLine.it_would_be);
+        button_scale_2.ScaleStart();
+		yield return LineCanvas.Top.DisplayLineAndWaitForEvent("Shirley", "Click on the number buttons on the top to switch between designs.", (NumberClickedEvent e)=>true, Util.VoiceLine.click_on_the_number);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Perfect! By building in the second slot, you can preserve your previous build.", null, Util.VoiceLine.perfect_by);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Let's move on!", null, Util.VoiceLine.lets_move_on);
+		LineCanvas.Top.Hide();
+        ConfirmButton.Inst.EnableConfirm = true;
+	}
+
+    public ButtonScale button_scale_2;
+	public void Hide()
     {
         gameObject.SetActive(false);
     }
@@ -146,6 +163,7 @@ public class BuildCanvas : MonoBehaviour
 		two_image.sprite = two_selected;
 		three_image.sprite = three_idle;
 		OnNumberClicked(1);
+        button_scale_2.ScaleStop();
 	}
     public void OnThreeClicked()
     {
@@ -157,6 +175,7 @@ public class BuildCanvas : MonoBehaviour
     void OnNumberClicked(int number)
     {
         EventBus.Publish(new OtherItemSelectedEvent());
+        EventBus.Publish(new NumberClickedEvent());
         Util.Delay(this, () =>
         {
             GameSave.CurrentMemory.Memorize();

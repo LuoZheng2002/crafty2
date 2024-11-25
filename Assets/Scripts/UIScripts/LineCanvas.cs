@@ -71,14 +71,16 @@ public class LineCanvas : MonoBehaviour
 		yield return new WaitForSeconds(seconds);
 		Hide();
 	}
-	public void DisplayLineAsync(string name_str, string line_str, float seconds)
+	public void DisplayLineAsync(string name_str, string line_str, float seconds, Util.VoiceLine voice_line)
 	{
 		gameObject.SetActive(true);
+		VA.Inst.PlayAudio(voice_line);
 		StartCoroutine(AsyncHelper(name_str, line_str, seconds));
 	}
-	public IEnumerator DisplayLineAndWaitForClick(string name_str, string line_str, Character talking_char)
+	public IEnumerator DisplayLineAndWaitForClick(string name_str, string line_str, Character talking_char, Util.VoiceLine voice_line)
 	{
 		gameObject.SetActive(true);
+		VA.Inst.PlayAudio(voice_line);
 		n.text = name_str;
 		line.text = "";
 		if (talking_char != null)
@@ -115,9 +117,10 @@ public class LineCanvas : MonoBehaviour
 		yield return null;
 	}
 
-	public IEnumerator DisplayLineAndWaitForEvent<Event_>(string name_str, string line_str, Func<Event_, bool> handler)
+	public IEnumerator DisplayLineAndWaitForEvent<Event_>(string name_str, string line_str, Func<Event_, bool> handler, Util.VoiceLine voice_line)
 	{
 		gameObject.SetActive(true);
+		VA.Inst.PlayAudio(voice_line);
 		n.text = name_str;
 		line.text = "";
 		int frame_index = 0;

@@ -15,6 +15,7 @@ public class AudioPlayer : MonoBehaviour
     public AudioClip rocket;
     public AudioClip explosion;
     public AudioClip warning;
+    public AudioClip crash;
     AudioSource musicSource;
     AudioSource soundEffectSource;
     public float min_snore_interval = 10.0f;
@@ -53,6 +54,17 @@ public class AudioPlayer : MonoBehaviour
             StartCoroutine(DelayWarning());
 		}
     }
+    public void PlayCrash()
+    {
+		soundEffectSource.volume = 1.0f;
+		if (soundEffectSource.isPlaying)
+		{
+			soundEffectSource.Stop();
+		}
+		soundEffectSource.clip = crash;
+		soundEffectSource.loop = false;
+		soundEffectSource.Play();
+	}
     IEnumerator DelayScream()
     {
         yield return new WaitForSeconds(0.2f);

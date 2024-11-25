@@ -26,6 +26,18 @@ public class ConfirmButton : MonoBehaviour
 		transparentColor = new Color(1, 1, 1, 0.2f);
 		solidColor = Color.white;
 		image.color = transparentColor;
+		Util.Delay(this, () =>
+		{
+			GameState.Inst.StartCoroutine(CheckGridStatus());
+		});
+	}
+	IEnumerator CheckGridStatus()
+	{
+		while (true)
+		{
+			yield return new WaitForSeconds(1.0f);
+			OnGridStateChanged();
+		}
 	}
 	private void OnDestroy()
 	{
@@ -39,6 +51,7 @@ public class ConfirmButton : MonoBehaviour
 	bool can_start = false;
 	public void OnGridStateChanged()
 	{
+		bool previous_can_start = can_start;
 		if (GridMatrix.Inst.ForceDesign)
 		{
 			can_start = true;
@@ -66,13 +79,13 @@ public class ConfirmButton : MonoBehaviour
 			}
 		}
 
-		if (can_start)
+		if (!previous_can_start && can_start)
 		{
 			EventBus.Publish(new ReadyToGoEvent());
 			image.color = solidColor;
 			buttonScale.ScaleStart();
 		}
-		else
+		else if (!can_start)
 		{
 			image.color = transparentColor;
 			buttonScale.ScaleStop();
