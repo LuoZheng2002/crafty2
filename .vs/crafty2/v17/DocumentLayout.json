@@ -1,0 +1,103 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{23219369-5B4F-8C8D-171E-4782C6CDCAFD}|Assembly-CSharp.csproj|C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\assets\\alterhealthontouch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23219369-5B4F-8C8D-171E-4782C6CDCAFD}|Assembly-CSharp.csproj|solutionrelative:assets\\alterhealthontouch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23219369-5B4F-8C8D-171E-4782C6CDCAFD}|Assembly-CSharp.csproj|C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\assets\\hashealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23219369-5B4F-8C8D-171E-4782C6CDCAFD}|Assembly-CSharp.csproj|solutionrelative:assets\\hashealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23219369-5B4F-8C8D-171E-4782C6CDCAFD}|Assembly-CSharp.csproj|c:\\users\\lucre\\documents\\unity projects\\crafty2\\assets\\healthui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23219369-5B4F-8C8D-171E-4782C6CDCAFD}|Assembly-CSharp.csproj|solutionrelative:assets\\healthui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23219369-5B4F-8C8D-171E-4782C6CDCAFD}|Assembly-CSharp.csproj|C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\assets\\scripts\\carcomponents\\accessory\\boosterpreview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23219369-5B4F-8C8D-171E-4782C6CDCAFD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\carcomponents\\accessory\\boosterpreview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23219369-5B4F-8C8D-171E-4782C6CDCAFD}|Assembly-CSharp.csproj|C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\assets\\scripts\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23219369-5B4F-8C8D-171E-4782C6CDCAFD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BoosterPreview.cs",
+              "DocumentMoniker": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\Assets\\Scripts\\CarComponents\\Accessory\\BoosterPreview.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CarComponents\\Accessory\\BoosterPreview.cs",
+              "ToolTip": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\Assets\\Scripts\\CarComponents\\Accessory\\BoosterPreview.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CarComponents\\Accessory\\BoosterPreview.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T11:07:12.627Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HealthUI.cs",
+              "DocumentMoniker": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\Assets\\HealthUI.cs",
+              "RelativeDocumentMoniker": "Assets\\HealthUI.cs",
+              "ToolTip": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\Assets\\HealthUI.cs",
+              "RelativeToolTip": "Assets\\HealthUI.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T10:49:30.153Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AlterHealthOnTouch.cs",
+              "DocumentMoniker": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\Assets\\AlterHealthOnTouch.cs",
+              "RelativeDocumentMoniker": "Assets\\AlterHealthOnTouch.cs",
+              "ToolTip": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\Assets\\AlterHealthOnTouch.cs",
+              "RelativeToolTip": "Assets\\AlterHealthOnTouch.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T10:03:32.25Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HasHealth.cs",
+              "DocumentMoniker": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\Assets\\HasHealth.cs",
+              "RelativeDocumentMoniker": "Assets\\HasHealth.cs",
+              "ToolTip": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\Assets\\HasHealth.cs",
+              "RelativeToolTip": "Assets\\HasHealth.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAABgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T09:55:18.195Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GameState.cs",
+              "DocumentMoniker": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\Assets\\Scripts\\GameState.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameState.cs",
+              "ToolTip": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\Assets\\Scripts\\GameState.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T08:38:06.769Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

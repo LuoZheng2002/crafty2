@@ -91,10 +91,10 @@ public class GameState : MonoBehaviour
 	//{
 	//	StartCoroutine(MoveCameraToGrid(false));
 	//}
-	bool official_start = true;
+	bool official_start = false;
 	void Yikai()
 	{
-		Util.unbreakable = true;
+		Util.unbreakable = false;
 		
 		if (official_start)
 		{
@@ -105,7 +105,7 @@ public class GameState : MonoBehaviour
 		}
 		else
 		{
-			Util.unbreakable = false;
+			Util.unbreakable = true;
 			GameSave.IncrementGridSize(1, 1, 0);
 			GameSave.CurrentMemory.MemCrates[1, 0, 0] = Util.Component.WoodenCrate;
 			GameSave.CurrentMemory.MemAccessories[1, 0, 1] = Util.Component.Rocket;
@@ -133,7 +133,7 @@ public class GameState : MonoBehaviour
 			PlayCanvas.Inst.ShowStory();
 			PlayCanvas.Inst.SetStoryText("Test");
 
-			GoToCheckpointAsync(Util.WaypointName.Obsidian, true);
+			GoToCheckpointAsync(Util.WaypointName.TurnWheel, true);
 		}
 		// TransitionToFirstBuild();
 		
@@ -230,7 +230,7 @@ public class GameState : MonoBehaviour
 					UpdateRetryAndGoal(WaypointName.TurnWheel, WaypointName.Turn1);
 					GameSave.Inventory[Util.Component.TurnWheel] = 2;
 					GameSave.Inventory[Util.Component.WoodenCrate] += 3;
-					ObtainCanvas.Inst.Show(Util.Component.TurnWheel);
+					//ObtainCanvas.Inst.Show(Util.Component.TurnWheel);
 					RebuildButton.Inst.StartScale();
 					GameSave.IncrementGridSize(0, 1, 0);
 					break;
