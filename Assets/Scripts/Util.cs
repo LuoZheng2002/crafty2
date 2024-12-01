@@ -78,7 +78,14 @@ public static class Util
 		CameraC1S2_1,
 		CameraC1S2_2,
 		CameraC1S2_3,
-		CameraC1S2_4
+		CameraC1S2_4,
+		CaveCamera1,
+		CaveCamera2,
+		CaveCamera3,
+		FinalStoryCamera1,
+		FinalStoryCamera2,
+		FinalStoryCamera3,
+		FinalStoryCamera4,
 	}
 	public enum CharacterName
 	{
@@ -156,16 +163,6 @@ public static class Util
         (Quaternion.Euler(0.0f, 0.0f, 180.0f),new RotationInfo(new Vec3(1, 0, 0))),
     };
 
-    public static Dictionary<WaypointName, List<(Component,int)>> WaypointItems = new()
-	{
-		{WaypointName.PreStory1, new(){(Component.Pig, 1), (Component.Partner, 1), (Component.WoodenCrate, 6), (Component.Wheel, 4)} },
-		//{WaypointName.PreStory2, new(){(Component.Pig, 1), (Component.Partner, 1), (Component.WoodenCrate, 9), (Component.TurnWheel, 2), (Component.MotorWheel, 2)} },
-		//{WaypointName.C1S1, new(){ (Component.Pig, 1), (Component.Partner, 1), (Component.WoodenCrate, 9), (Component.TurnWheel, 2), (Component.MotorWheel, 2) } },
-		//{WaypointName.Volcano, new(){ (Component.Pig, 1), (Component.Partner, 1), (Component.WoodenCrate, 9), (Component.TurnWheel, 2), (Component.MotorWheel, 2), (Component.Umbrella, 4), (Component.Rocket, 6) } },
-		//{WaypointName.VolcBottom, new(){ (Component.Pig, 1), (Component.Partner, 1), (Component.WoodenCrate, 9), (Component.TurnWheel, 2), (Component.MotorWheel, 2), (Component.Umbrella, 4), (Component.Rocket, 6) } },
-		//{WaypointName.VolcTop, new(){ (Component.Pig, 1), (Component.Partner, 1), (Component.WoodenCrate, 9), (Component.TurnWheel, 2), (Component.MotorWheel, 2), (Component.Umbrella, 4), (Component.Rocket, 6) } },
-
-	};
 
 	public static Dictionary<Component, ComponentType> ContentInfos = new()
 	{
@@ -255,7 +252,12 @@ public static class Util
 		CenterTop,
 		LoopEntrance,
 		LoopStart,
-		LoopEnd
+		LoopEnd,
+		CaveEntrance,
+		CaveRoom1,
+		CaveRoom2,
+		CaveTrap,
+		BossStart,
 	}
 
 	public static (Component[,,], Component[,,], Component[,,]) DesignPrestory1()

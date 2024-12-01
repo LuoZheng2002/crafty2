@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 24659782996458136}
   - component: {fileID: 5050495277675379974}
   - component: {fileID: 8760748465878147776}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Lava
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -64,6 +64,11 @@ public class BlackoutCanvas : MonoBehaviour
 		}
 		SetTextAlpha(end_alpha);
 	}
+    public IEnumerator DisplaySubAndFade(string sub, float time1, float time2)
+    {
+        yield return DisplaySub(sub, time1, 0.0f, 1.0f);
+		yield return DisplaySub(sub, time2, 1.0f, 0.0f);
+	}
     public IEnumerator Blackout(float time, float start_alpha, float end_alpha)
     {
         gameObject.SetActive(true);

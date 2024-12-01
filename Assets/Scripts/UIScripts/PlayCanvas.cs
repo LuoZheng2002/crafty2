@@ -12,6 +12,7 @@ public class PlayCanvas : MonoBehaviour
     public float RocketFuel { get; set; } = 1;
     public float rocket_consumption_speed = 0.2f;
     public ButtonScale button_scale;
+    public bool AutoFill { get; set; } = false;
     public void ScaleStory()
     {
         button_scale.ScaleStart();
@@ -71,6 +72,11 @@ public class PlayCanvas : MonoBehaviour
 			RocketFuel -= rocket_consumption_speed * Time.deltaTime;
 			SetRocketFill(RocketFuel);
 
+		}
+        if (AutoFill && RocketFuel < 1.0f)
+        {
+            RocketFuel += rocket_consumption_speed*1.0f/3.0f * Time.deltaTime;
+            SetRocketFill(RocketFuel);
 		}
 	}
 

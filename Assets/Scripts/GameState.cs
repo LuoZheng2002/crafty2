@@ -6,6 +6,14 @@ using System.Reflection;
 using UnityEngine;
 using static Util;
 
+public class GameStateChangedEvent
+{
+	public bool is_play = false;
+	public GameStateChangedEvent(bool is_play)
+	{
+		this.is_play = is_play;
+	}
+}
 public class InvisibleStateUpdateEvent
 {
 }
@@ -91,7 +99,7 @@ public class GameState : MonoBehaviour
 	//{
 	//	StartCoroutine(MoveCameraToGrid(false));
 	//}
-	bool official_start = true;
+	bool official_start = false;
 	void Yikai()
 	{
 		Util.unbreakable = true;
@@ -132,8 +140,11 @@ public class GameState : MonoBehaviour
 			MapCanvas.Inst.PermWaypoints.Add(Util.WaypointName.TownWaypoint);
 			PlayCanvas.Inst.ShowStory();
 			PlayCanvas.Inst.SetStoryText("Test");
+			Walls.Inst.WarpImmediately();
+			CarCore.Inst.VerticalOffset = 2.0f;
 
-			GoToCheckpointAsync(Util.WaypointName.Obsidian, true);
+
+			GoToCheckpointAsync(Util.WaypointName.BossStart, true);
 		}
 		// TransitionToFirstBuild();
 		
@@ -341,10 +352,114 @@ public class GameState : MonoBehaviour
 					UpdateRetryAndGoal(WaypointName.TownWaypoint, WaypointName.None);
 					StartCoroutine(OnLoopEnd());
 					break;
+				case WaypointName.CaveEntrance:
+					UpdateRetryAndGoal(WaypointName.CaveEntrance, WaypointName.CaveRoom1);
+					break;
+				case WaypointName.CaveRoom1:
+					UpdateRetryAndGoal(WaypointName.CaveRoom1, WaypointName.CaveRoom2);
+					break;
+				case WaypointName.CaveRoom2:
+					UpdateRetryAndGoal(WaypointName.CaveRoom2, WaypointName.CaveTrap);
+					break;
+				case WaypointName.CaveTrap:
+					Walls.Inst.TryingWall = true;
+					UpdateRetryAndGoal(WaypointName.CaveRoom2, WaypointName.BossStart);
+					StartCoroutine(DoTrap());
+					break;
+				case WaypointName.BossStart:
+					Walls.Inst.TryingWall = false;
+					UpdateRetryAndGoal(WaypointName.BossStart, WaypointName.None);
+					StartCoroutine(HandleBossStart());
+					break;
 			}
 		});
 	}
-
+	public Transform platform;
+	public Vector3 platform_pos;
+	IEnumerator HandleBossStart()
+	{
+		CarCore.Inst.DampStart();
+		MainCamera.Inst.Stop();
+		yield return MainCamera.Inst.WarpTo(TRef.Get(TRefName.CaveCamera2), 2.0f);
+		yield return Door.Inst.Close();
+		LineCanvas.Bottom.DisplayLineAsync("Shirley", "Oh no! We are trapped!", 1.5f, VoiceLine.None);
+		yield return new WaitForSeconds(1.0f);
+		yield return MainCamera.Inst.WarpTo(TRef.Get(TRefName.CaveCamera3), 1.0f);
+		LineCanvas.Bottom.DisplayLineAsync("Boss", "I have been waiting for you, piggies!", 2.0f, VoiceLine.None);
+		Boss.Inst.Roar();
+		yield return new WaitForSeconds(2.0f);
+		Boss.Inst.Idle();
+		MainCamera.Inst.MoveAndStickTo(CarCore.Inst.CameraEnd);
+		HealthBar.Inst.Show();
+		CarCore.Inst.DampStop();
+		Boss.Inst.BossStartCoroutine = StartCoroutine(Boss.Inst.BossStart());
+	}
+	public IEnumerator HandleEnding()
+	{
+		yield return new WaitForSeconds(2.0f);
+		yield return BlackoutCanvas.Inst.Blackout(1.0f, 0.0f, 1.0f);
+		yield return new WaitForSeconds(1.0f);
+		PlayCanvas.Inst.Hide();
+		BuildCanvas.Inst.Hide();
+		new_spacecraft.gameObject.SetActive(true);
+		MainCamera.Inst.Stop();
+		MainCamera.Inst.WarpTo(TRef.Get(TRefName.FinalStoryCamera1));
+		yield return BlackoutCanvas.Inst.Blackout(1.0f, 1.0f, 0.0f);
+		yield return new WaitForSeconds(0.5f);
+		yield return MainCamera.Inst.WarpTo(TRef.Get(TRefName.FinalStoryCamera2), 1.0f);
+		yield return MainCamera.Inst.WarpTo(TRef.Get(TRefName.FinalStoryCamera3), 2.0f);
+		StartCoroutine(FlyRocket());
+		yield return new WaitForSeconds(0.7f);
+		yield return MainCamera.Inst.WarpTo(TRef.Get(TRefName.FinalStoryCamera4), 2.0f);
+		yield return new WaitForSeconds(4.0f);
+		yield return BlackoutCanvas.Inst.Blackout(2.0f, 0.0f, 1.0f);
+		yield return BlackoutCanvas.Inst.DisplaySubAndFade("The End.", 1.0f, 1.0f);
+		yield return BlackoutCanvas.Inst.DisplaySubAndFade("Crafty Piggies 3D\n\nPresented by EECS494 Studio 1", 2.0f, 1.0f);
+		yield return BlackoutCanvas.Inst.DisplaySubAndFade("Zheng Luo", 1.0f, 1.0f);
+		yield return BlackoutCanvas.Inst.DisplaySubAndFade("Yikai Li", 1.0f, 1.0f);
+		yield return BlackoutCanvas.Inst.DisplaySubAndFade("Gabriel Froehner", 1.0f, 1.0f);
+		yield return BlackoutCanvas.Inst.DisplaySubAndFade("Javier Guerrero", 1.0f, 1.0f);
+		yield return BlackoutCanvas.Inst.DisplaySubAndFade("Thanks for Playing", 2.0f, 2.0f);
+		yield return GoToCheckpoint(WaypointName.TownEntrance, true);
+		yield return BlackoutCanvas.Inst.Blackout(1.0f, 1.0f, 0.0f);
+	}
+	float fly_acceleration = 5.0f;
+	public IEnumerator FlyRocket()
+	{
+		float start_time = Time.time;
+		Vector3 initial_position = new_spacecraft.position;
+		while (true)
+		{
+			float new_y = initial_position.y + (Time.time - start_time) * (Time.time - start_time) * fly_acceleration;
+			new_spacecraft.position = new Vector3(initial_position.x, new_y, initial_position.z);
+			yield return null;
+		}
+	}
+	public Transform new_spacecraft;
+	IEnumerator SinkPlatform()
+	{
+		float start_time = Time.time;
+		float duration = 2.0f;
+		Vector3 start_pos = platform.transform.position;
+		Vector3 end_pos = start_pos - new Vector3(0, 10, 0);
+		while (Time.time - start_time < duration)
+		{
+			platform.transform.position = Vector3.Lerp(start_pos, end_pos, (Time.time - start_time) / duration);
+			yield return null;
+		}
+	}
+	IEnumerator DoTrap()
+	{
+		CarCore.Inst.DampStart();
+		MainCamera.Inst.Stop();
+		yield return MainCamera.Inst.WarpTo(TRef.Get(Util.TRefName.CaveCamera1), 1.5f);
+		LineCanvas.Bottom.DisplayLineAsync("Shirley", "Oh no! We are trapped!", 1.5f, VoiceLine.None);
+		StartCoroutine(SinkPlatform());
+		yield return new WaitForSeconds(1.0f);
+		MainCamera.Inst.MoveAndStickTo(CarCore.Inst.CameraEnd);
+		CarCore.Inst.DampStop();
+		Walls.Inst.StartWarp();
+	}
 	IEnumerator HintDesign3()
 	{
 		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "This is a tricky one.", null, VoiceLine.this_is);
@@ -412,6 +527,7 @@ public class GameState : MonoBehaviour
 	}
 	private void Start()
 	{
+		platform_pos = platform.position;
 		// temporary shut down
 		Debug.Assert(inst == null, "Game State already instantiated");
 		inst = this;
@@ -428,8 +544,13 @@ public class GameState : MonoBehaviour
 		EventBus.Subscribe<ScanSuccessEvent>(OnScanSuccess);
 		EventBus.Subscribe<ScanFailEvent>(OnScanFail);
 		EventBus.Subscribe<CheckpointReachedEvent>(OnCheckpointReached);
-
+		EventBus.Subscribe<WallRetryEvent>(OnWallRetry);
 		Util.Delay(this, 1, ()=> { MapCanvas.Inst.Deactivate(); });
+	}
+
+	void OnWallRetry(WallRetryEvent e)
+	{
+		platform.position = platform_pos;
 	}
 	IEnumerator ScanSuccessHelper()
 	{
@@ -519,7 +640,10 @@ public class GameState : MonoBehaviour
 		//Util.BuildInfo build_info = last_choice_name == Util.ChoiceName.NeedHelp ? Util.BuildInfo.NeedHelp : Util.BuildInfo.DontNeedHelpButRetry;
 		//TransitionToBuild(retry_waypoint, retry_goal, build_info);
 		GoToCheckpointAsync(GameSave.CurrentCheckpoint);
-	
+		if (Walls.Inst.TryingWall)
+		{
+			EventBus.Publish(new WallRetryEvent());
+		}
 	}
 	private void Update()
 	{
@@ -551,11 +675,26 @@ public class GameState : MonoBehaviour
 		//}
 		if (Input.GetKeyDown(KeyCode.P))
 		{
-			StartCoroutine(DisplayChapter("Main Story Quest: Act 1", "Treasures in the Flaming Mountain", "Started"));
+			StartCoroutine(HandleEnding());
 		}
 		if (Input.GetKeyDown(KeyCode.O))
 		{
 			StoryCanvas.Inst.Show();
+		}
+		if (Input.GetKeyDown(KeyCode.L))
+		{
+			HealthBar.Inst.Health -= 0.1f;
+		}
+		for(int i = 0;i < 7;i++)
+		{
+			List<Action> funcs = new()
+			{
+				Boss.Inst.Rush, Boss.Inst.Pant, Boss.Inst.Smash, Boss.Inst.Spell, Boss.Inst.Knockout, Boss.Inst.Hit, Boss.Inst.Roar
+			};
+			if (Input.GetKeyDown((KeyCode)((int)(KeyCode.Alpha1) + i)))
+			{
+				funcs[i]();
+			}
 		}
 	}
 	public void GoToMap()
@@ -1173,6 +1312,7 @@ public class GameState : MonoBehaviour
 		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "I can't wait to start a new adventure.", null, VoiceLine.i_cant_wait);
 		LineCanvas.Top.Hide();
 		StoryCanvas.Inst.SetMainStory(MainStoryName.BossFight);
+		GameSave.Progresses[Util.QuestName.MainStory] = (Util.WaypointName.TownWaypoint, WaypointName.CaveEntrance);
 		yield return DisplayChapter("Main Story Quest: Act 1", "Treasures in the Flaming Mountain", "Completed");
 		yield return WaitForClick();
 		yield return new WaitForSeconds(1.5f);

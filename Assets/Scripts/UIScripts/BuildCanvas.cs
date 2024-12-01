@@ -31,6 +31,7 @@ public class BuildCanvas : MonoBehaviour
     }
     public void Show()
     {
+        EventBus.Publish(new GameStateChangedEvent(false));
         gameObject.SetActive(true);
         if (GameState.Inst.IntroducePreset)
         {

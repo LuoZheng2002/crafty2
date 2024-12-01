@@ -15,25 +15,25 @@ public class LevelCanvas : MonoBehaviour
         {
             Destroy(panel.GetChild(i).gameObject);
         }
-		for (int i = 1;i <= Util.WaypointItems.Count;i++)
-        {
-            GameObject button = Instantiate(levelButtonPrefab);
-            button.transform.SetParent(panel);
-            Text text = button.transform.Find("Text").GetComponent<Text>();
-            text.text = $"Level {i}";
-            Debug.Assert(text != null);
-            if (i <= GameState.unlocked_levels)
-            {
-                text.color = Color.black;
-            }
-            else
-            {
-                text.color = Color.gray;
-            }
-            LevelButton levelButton = button.GetComponent<LevelButton>();
-            Debug.Assert(levelButton != null);
-            levelButton.level_num = i;
-        }
+		//for (int i = 1;i <= Util.WaypointItems.Count;i++)
+  //      {
+  //          GameObject button = Instantiate(levelButtonPrefab);
+  //          button.transform.SetParent(panel);
+  //          Text text = button.transform.Find("Text").GetComponent<Text>();
+  //          text.text = $"Level {i}";
+  //          Debug.Assert(text != null);
+  //          if (i <= GameState.unlocked_levels)
+  //          {
+  //              text.color = Color.black;
+  //          }
+  //          else
+  //          {
+  //              text.color = Color.gray;
+  //          }
+  //          LevelButton levelButton = button.GetComponent<LevelButton>();
+  //          Debug.Assert(levelButton != null);
+  //          levelButton.level_num = i;
+  //      }
     }
    
 }

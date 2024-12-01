@@ -83,6 +83,25 @@ public abstract class VehicleComponent : MonoBehaviour
     {
         RB.MoveRotation(transform.parent.rotation);
     }
+
+    public void EnableUnbreakable()
+    {
+        var joints = GetComponents<ConfigurableJoint>();
+        foreach (var joint in joints)
+        {
+            joint.breakForce = Mathf.Infinity;
+			joint.breakTorque = Mathf.Infinity;
+		}
+    }
+    public void DisableUnbreakable()
+    {
+		var joints = GetComponents<ConfigurableJoint>();
+		foreach (var joint in joints)
+		{
+			joint.breakForce = Util.break_force;
+			joint.breakTorque = Util.break_torque;
+		}
+	}
 	public abstract Util.Component Component { get; }
     //void Awake()
     //{

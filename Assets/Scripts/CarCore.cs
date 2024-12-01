@@ -7,7 +7,7 @@ public class CarCore : MonoBehaviour
 {
 	static CarCore inst;
 	public static CarCore Inst { get { Debug.Assert(inst != null); return inst; } }
-	Rigidbody rb;
+	public Rigidbody RB { get; private set; }
 	public FixedJoint joint;
 	public FixedJoint fix_joint;
 	[SerializeField]
@@ -24,6 +24,9 @@ public class CarCore : MonoBehaviour
 	float pivot_distance = 5.0f;
 	public float min_dist = 3.0f;
 	public float max_dist = 7.0f;
+	public float Velocity1 { get; set; }
+	public float Velocity2 { get; set; }
+	public float Velocity3 { get; set; }
 	float PivotDistance
 	{
 		get { return pivot_distance; }
@@ -40,16 +43,36 @@ public class CarCore : MonoBehaviour
 	{
 		Debug.Assert(inst == null);
 		inst = this;
-		rb = GetComponent<Rigidbody>();
+		RB = GetComponent<Rigidbody>();
 		EventBus.Subscribe<CanvasDragEvent>(OnCanvasDrag);
 		// joint = transform.AddComponent<FixedJoint>();
+		EventBus.Subscribe<GameStateChangedEvent>(OnGameStateChanged);
+	}
+	void OnGameStateChanged(GameStateChangedEvent e)
+	{
+		if (e.is_play)
+		{
+			camera_pivot.transform.localPosition = new Vector3(0, VerticalOffset, 0);
+		}
+		else
+		{
+			camera_pivot.transform.localPosition = new Vector3(0, 0, 0);
+		}
 	}
 	private void OnDestroy()
 	{
 		inst = null;
 	}
+	float cooldown = 0.0f;
 	private void Update()
 	{
+		Velocity1 = Velocity2;
+		Velocity2 = Velocity3;
+		Velocity3 = RB.velocity.magnitude;
+		if (cooldown > 0.0f)
+		{
+			cooldown -= Time.deltaTime;
+		}
 		if (Input.mouseScrollDelta.y != 0)
 		{
 			PivotDistance = Mathf.Clamp(PivotDistance - Input.mouseScrollDelta.y * zoom_speed, min_dist, max_dist);
@@ -72,6 +95,28 @@ public class CarCore : MonoBehaviour
 	//	joint = transform.AddComponent<FixedJoint>();
 	//	joint.connectedBody = PiggyPreview.Inst.RB;
 	//}
+	private void OnTriggerEnter(Collider other)
+	{
+		Debug.Log("Trigger entered1 !");
+		if (cooldown > 0.0f)
+		{
+			return;
+		}
+		Debug.Log("Trigger entered2 !");
+		cooldown = 5.0f;
+		if (other.gameObject.layer == LayerMask.NameToLayer("Explosion"))
+		{
+			AddRandomImpulse();
+		}
+	}
+	public void AddRandomImpulse()
+	{
+		foreach (Transform child in container)
+		{
+			VehicleComponent vehicle_component = child.GetComponent<VehicleComponent>();
+			vehicle_component.RB.AddForce(Random.insideUnitSphere * 3000.0f, ForceMode.Impulse);
+		}
+	}
 	public void Fix()
 	{
 		Debug.Assert(fix_joint == null);
@@ -113,7 +158,7 @@ public class CarCore : MonoBehaviour
 	}
 	public void Move()
 	{
-		rb.velocity = new Vector3(0.5f, 0.0f, 0.0f);
+		RB.velocity = new Vector3(0.5f, 0.0f, 0.0f);
 	}
 	public void DestroyComponents()
 	{
@@ -165,25 +210,41 @@ public class CarCore : MonoBehaviour
 			vehicle_component.DampStop();
 		}
 	}
+	public void EnableUnbreakable()
+	{
+		foreach (Transform child in container)
+		{
+			VehicleComponent vehicleComponent = child.GetComponent<VehicleComponent>();
+			vehicleComponent.EnableUnbreakable();
+		}
+	}
+	public void DisableUnbreakable()
+	{
+		foreach (Transform child in container)
+		{
+			VehicleComponent vehicleComponent = child.GetComponent<VehicleComponent>();
+			vehicleComponent.DisableUnbreakable();
+		}
+	}
 	public void AlignToGridMatrixAsync()
 	{
-		rb.MovePosition(GridMatrix.Inst.transform.position + GridMatrix.Inst.transform.rotation* GridMatrix.Inst.ProbeTargetPos);
-		rb.MoveRotation(GridMatrix.Inst.transform.rotation);
+		RB.MovePosition(GridMatrix.Inst.transform.position + GridMatrix.Inst.transform.rotation* GridMatrix.Inst.ProbeTargetPos);
+		RB.MoveRotation(GridMatrix.Inst.transform.rotation);
 	}
-
+	public float VerticalOffset { get; set; } = 0.0f;
 	public IEnumerator AlignToGridMatrix()
 	{
 		Vector3 target_pos = GridMatrix.Inst.transform.position + GridMatrix.Inst.transform.rotation * GridMatrix.Inst.ProbeTargetPos;
 		Quaternion target_rotation = GridMatrix.Inst.transform.rotation;
 		// Debug.Log($"Target pos: {target_pos}");
 		// Debug.Log($"Target rotation: {target_rotation}");
-		rb.MovePosition(target_pos);
-		rb.MoveRotation(target_rotation);
+		RB.MovePosition(target_pos);
+		RB.MoveRotation(target_rotation);
 		while((transform.position - target_pos).magnitude > 0.01f || Quaternion.Angle(transform.rotation, target_rotation)>1.0f)
 		{
 			// Debug.Log("Yield return!");
-			rb.MovePosition(target_pos);
-			rb.MoveRotation(target_rotation);
+			RB.MovePosition(target_pos);
+			RB.MoveRotation(target_rotation);
 			yield return null;
 		}
 		// Debug.Log("Test completed!");
