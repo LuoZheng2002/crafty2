@@ -28,4 +28,15 @@ public class ChangeOnTouch : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnTriggerEnter(Collider coll)
+    {
+        int layer_index = coll.gameObject.layer;
+
+        if (LayerMask.LayerToName(layer_index) == layer_name)
+        {
+            Instantiate(broken_wall, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+    }
 }

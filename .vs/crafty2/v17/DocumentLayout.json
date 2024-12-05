@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{23219369-5B4F-8C8D-171E-4782C6CDCAFD}|Assembly-CSharp.csproj|C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\assets\\changeontouch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{23219369-5B4F-8C8D-171E-4782C6CDCAFD}|Assembly-CSharp.csproj|c:\\users\\lucre\\documents\\unity projects\\crafty2\\assets\\changeontouch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{23219369-5B4F-8C8D-171E-4782C6CDCAFD}|Assembly-CSharp.csproj|solutionrelative:assets\\changeontouch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -11,7 +11,7 @@
       "RelativeMoniker": "D:0:0:{23219369-5B4F-8C8D-171E-4782C6CDCAFD}|Assembly-CSharp.csproj|solutionrelative:assets\\fallsontouch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{23219369-5B4F-8C8D-171E-4782C6CDCAFD}|Assembly-CSharp.csproj|c:\\users\\lucre\\documents\\unity projects\\crafty2\\assets\\shootprojectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{23219369-5B4F-8C8D-171E-4782C6CDCAFD}|Assembly-CSharp.csproj|C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\assets\\shootprojectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{23219369-5B4F-8C8D-171E-4782C6CDCAFD}|Assembly-CSharp.csproj|solutionrelative:assets\\shootprojectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -58,8 +58,7 @@
               "RelativeToolTip": "Assets\\ShootProjectile.cs",
               "ViewState": "AgIAADMAAAAAAAAAAAAYwE0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T21:38:44.264Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-30T21:38:44.264Z"
             },
             {
               "$type": "Document",
@@ -69,7 +68,7 @@
               "RelativeDocumentMoniker": "Assets\\ChangeOnTouch.cs",
               "ToolTip": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\Assets\\ChangeOnTouch.cs",
               "RelativeToolTip": "Assets\\ChangeOnTouch.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAcwB0AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAcwCEAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-30T09:04:00.124Z",
               "EditorCaption": ""
@@ -96,8 +95,7 @@
               "RelativeToolTip": "Assets\\FallsOnTouch.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAAwB4AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T07:14:24.24Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-29T07:14:24.24Z"
             },
             {
               "$type": "Document",

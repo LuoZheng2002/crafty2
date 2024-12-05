@@ -14143,7 +14143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f996eb8a87de3e94881bf12e64e73e9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 12.5
+  speed: 17.5
   wait_time: 5
 --- !u!114 &692613310
 MonoBehaviour:
@@ -14158,16 +14158,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 8990384875432325413, guid: f64f2b2b5375389429585b3cd3e58320, type: 3}
-  launchForce: 50
+  launchForce: 90
   y_axis_addition: 60
-  shootInterval: 3
+  shootInterval: 2
   targetPositions:
-  - {x: -392.5, y: 40, z: -262.5}
   - {x: -397.5, y: 40, z: -227.5}
-  - {x: -407.5, y: 40, z: -174.5}
+  - {x: -392.5, y: 40, z: -262.5}
   - {x: -413.5, y: 40, z: -144.5}
+  - {x: -407.5, y: 40, z: -174.5}
   - {x: -393.5, y: 40, z: -111.5}
-  - {x: -401.5, y: 40, z: -73.5}
+  - {x: -403.5, y: 40, z: -73.5}
   - {x: -410.5, y: 40, z: -42.5}
   wait_time: 5
 --- !u!1001 &693991131
