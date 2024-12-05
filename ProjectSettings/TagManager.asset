@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Groundhog
   layers:
   - Default
   - TransparentFX
@@ -23,8 +24,8 @@ TagManager:
   - Missile
   - Lava
   - CarCore
-  - 
-  - 
+  - HoleMaker
+  - CarTrigger
   - 
   - 
   - 

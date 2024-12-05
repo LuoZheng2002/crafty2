@@ -258,6 +258,9 @@ public static class Util
 		CaveRoom2,
 		CaveTrap,
 		BossStart,
+		TrackEntrance,
+		TrackStart,
+		TrackDest
 	}
 
 	public static (Component[,,], Component[,,], Component[,,]) DesignPrestory1()

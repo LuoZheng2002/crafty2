@@ -154,7 +154,7 @@ public class GameState : MonoBehaviour
 			// CarCore.Inst.VerticalOffset = 2.0f;
 
 
-			GoToCheckpointAsync(Util.WaypointName.Obsidian, true);
+			GoToCheckpointAsync(Util.WaypointName.TrackEntrance, true);
 		}
 		// TransitionToFirstBuild();
 		
