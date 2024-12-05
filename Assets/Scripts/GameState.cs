@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -100,16 +101,25 @@ public class GameState : MonoBehaviour
 	//	StartCoroutine(MoveCameraToGrid(false));
 	//}
 	bool official_start = false;
+	bool is_trailer = false;
 	void Yikai()
 	{
 		Util.unbreakable = true;
 		
 		if (official_start)
 		{
-			BlackoutCanvas.Inst.BlackoutAsync(3.0f, 1.0f, 0.0f);
-			PlayCanvas.Inst.HideStory();
-			TransitionToStory(Util.StoryName.Crash);
-			StoryCanvas.Inst.HideSideQuests();
+			
+			if (is_trailer)
+			{
+				StartCoroutine(TrailerBuild());
+			}
+			else
+			{
+				BlackoutCanvas.Inst.BlackoutAsync(3.0f, 1.0f, 0.0f);
+				PlayCanvas.Inst.HideStory();
+				TransitionToStory(Util.StoryName.Crash);
+				StoryCanvas.Inst.HideSideQuests();
+			}
 		}
 		else
 		{
@@ -130,21 +140,21 @@ public class GameState : MonoBehaviour
 			GameSave.CurrentMemory.MemAccessories[0, 0, 2] = Util.Component.TurnWheel;
 			GameSave.CurrentMemory.MemAccessories[0, 2, 0] = Util.Component.MotorWheel;
 			GameSave.CurrentMemory.MemAccessories[0, 2, 2] = Util.Component.TurnWheel;
-			GameSave.Inventory[Util.Component.MotorWheel] += 2;
-			GameSave.Inventory[Util.Component.TurnWheel] += 2;
-			GameSave.Inventory[Util.Component.WoodenCrate] = 9;
-			GameSave.Inventory[Util.Component.Rocket] = 9;
-			GameSave.Inventory[Util.Component.Umbrella] = 9;
+			GameSave.Inventory[Util.Component.MotorWheel] += 100;
+			GameSave.Inventory[Util.Component.TurnWheel] += 100;
+			GameSave.Inventory[Util.Component.WoodenCrate] = 100;
+			GameSave.Inventory[Util.Component.Rocket] = 100;
+			GameSave.Inventory[Util.Component.Umbrella] = 100;
 			BuildCanvas.Inst.ShowDesignNumbers();
 
 			MapCanvas.Inst.PermWaypoints.Add(Util.WaypointName.TownWaypoint);
 			PlayCanvas.Inst.ShowStory();
 			PlayCanvas.Inst.SetStoryText("Test");
 			Walls.Inst.WarpImmediately();
-			CarCore.Inst.VerticalOffset = 2.0f;
+			// CarCore.Inst.VerticalOffset = 2.0f;
 
 
-			GoToCheckpointAsync(Util.WaypointName.BossStart, true);
+			GoToCheckpointAsync(Util.WaypointName.Obsidian, true);
 		}
 		// TransitionToFirstBuild();
 		
@@ -654,7 +664,9 @@ public class GameState : MonoBehaviour
 		}
 		CheatCode();
 	}
-	
+
+	bool play_canvas_hided = false;
+	public TrailerMenu trailer_menu;
 	void CheatCode()
 	{
 		//if (Input.GetKeyDown(KeyCode.Y))
@@ -673,9 +685,42 @@ public class GameState : MonoBehaviour
 		//{
 		//	GoToMap();
 		//}
+		if (Input.GetKeyDown(KeyCode.R))
+		{
+			OnRetry();
+		}
+		
+		if (Input.GetKeyDown(KeyCode.C))
+		{
+			trailer_menu.ShowTitle();
+		}
+		if (Input.GetKeyDown(KeyCode.V))
+		{
+			trailer_menu.ShowText1();
+		}
+		if (Input.GetKeyDown(KeyCode.B))
+		{
+			trailer_menu.ShowText2();
+		}
+		if (Input.GetKeyDown(KeyCode.U))
+		{
+			trailer_menu.HideAll();
+		}
 		if (Input.GetKeyDown(KeyCode.P))
 		{
 			StartCoroutine(HandleEnding());
+		}
+		if (Input.GetKeyDown(KeyCode.H))
+		{
+			play_canvas_hided = !play_canvas_hided;
+			if (play_canvas_hided)
+			{
+				PlayCanvas.Inst.Hide();
+			}
+			else
+			{
+				PlayCanvas.Inst.Show();
+			}
 		}
 		if (Input.GetKeyDown(KeyCode.O))
 		{
@@ -1025,6 +1070,7 @@ public class GameState : MonoBehaviour
 			StartCoroutine(Prestory1Build());
 		});
 	}
+
 	//void TransitionToBuild(Util.WaypointName waypoint_name, Util.GoalName goal_name, Util.BuildInfo build_info = Util.BuildInfo.NeedHelp)
 	//{
 	//	AudioPlayer.Inst.TransitionToStory();
@@ -1033,7 +1079,7 @@ public class GameState : MonoBehaviour
 	//	retry_goal = goal_name;
 	//	//if (can_retry_waypoints.Contains(waypoint_name))
 	//	//{
-			
+
 	//	//}
 	//	//else
 	//	//{
@@ -1105,6 +1151,13 @@ public class GameState : MonoBehaviour
 		LineCanvas.Top.Hide();
 	}
 	bool town_waypoint_met = false;
+	IEnumerator TrailerBuild()
+	{
+		yield return GoToCheckpoint(Util.WaypointName.PreStory1, true);
+		MapImage.Inst.Hide();
+		RebuildButton.Inst.Hide();
+		Retry.Inst.Hide();
+	}
 	IEnumerator Prestory1Build()
 	{
 		yield return new WaitForSeconds(1.5f);

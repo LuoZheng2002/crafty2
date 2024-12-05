@@ -45,16 +45,16 @@ public class MenuCanvas : MonoBehaviour
 		SetQuitTextAlpha(0);
 		StartCoroutine(StartHelper());
 	}
-	public Text name;
+	public Image name_image;
 	public Text play_text;
 	public Image play_image;
 	public Text quit_text;
 	public Image quit_image;
 	public void SetNameAlpha(float alpha)
 	{
-		Color c = name.color;
+		Color c = name_image.color;
 		c.a = alpha;
-		name.color = c;
+		name_image.color = c;
 	}
 	public void SetPlayImageAlpha(float alpha)
 	{
