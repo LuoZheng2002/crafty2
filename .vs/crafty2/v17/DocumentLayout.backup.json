@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{23219369-5B4F-8C8D-171E-4782C6CDCAFD}|Assembly-CSharp.csproj|c:\\users\\lucre\\documents\\unity projects\\crafty2\\assets\\scripts\\customcursor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23219369-5B4F-8C8D-171E-4782C6CDCAFD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\customcursor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{23219369-5B4F-8C8D-171E-4782C6CDCAFD}|Assembly-CSharp.csproj|c:\\users\\lucre\\documents\\unity projects\\crafty2\\assets\\scripts\\shatterontouch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{23219369-5B4F-8C8D-171E-4782C6CDCAFD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\shatterontouch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -65,11 +69,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "CustomCursor.cs",
+              "DocumentMoniker": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\Assets\\Scripts\\CustomCursor.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CustomCursor.cs",
+              "ToolTip": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\Assets\\Scripts\\CustomCursor.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CustomCursor.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAABQAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T07:43:44.463Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Pushable.cs",
               "DocumentMoniker": "C:\\Users\\lucre\\Documents\\Unity Projects\\ZeldaGold\\Assets\\Scripts\\Pushable.cs",
               "RelativeDocumentMoniker": "..\\ZeldaGold\\Assets\\Scripts\\Pushable.cs",
@@ -77,12 +94,11 @@
               "RelativeToolTip": "..\\ZeldaGold\\Assets\\Scripts\\Pushable.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAABYAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T07:34:08.884Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-06T07:34:08.884Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "AudioPlayer.cs",
               "DocumentMoniker": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\Assets\\Scripts\\AudioPlayer.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AudioPlayer.cs",
@@ -94,7 +110,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "IntroCanvas.cs",
               "DocumentMoniker": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\Assets\\Scripts\\UIScripts\\IntroCanvas.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UIScripts\\IntroCanvas.cs",
@@ -106,7 +122,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Timer.cs",
               "DocumentMoniker": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\Assets\\Timer.cs",
               "RelativeDocumentMoniker": "Assets\\Timer.cs",
@@ -118,7 +134,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ShatterOnTouch.cs",
               "DocumentMoniker": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\Assets\\Scripts\\ShatterOnTouch.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ShatterOnTouch.cs",
@@ -131,7 +147,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "ShootProjectile.cs",
               "DocumentMoniker": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\Assets\\ShootProjectile.cs",
               "RelativeDocumentMoniker": "Assets\\ShootProjectile.cs",
@@ -143,7 +159,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "ChangeOnTouch.cs",
               "DocumentMoniker": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\Assets\\ChangeOnTouch.cs",
               "RelativeDocumentMoniker": "Assets\\ChangeOnTouch.cs",
@@ -155,7 +171,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "MoveForward.cs",
               "DocumentMoniker": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\Assets\\MoveForward.cs",
               "RelativeDocumentMoniker": "Assets\\MoveForward.cs",
@@ -167,7 +183,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "FallsOnTouch.cs",
               "DocumentMoniker": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\Assets\\FallsOnTouch.cs",
               "RelativeDocumentMoniker": "Assets\\FallsOnTouch.cs",
@@ -179,7 +195,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "BoosterPreview.cs",
               "DocumentMoniker": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\Assets\\Scripts\\CarComponents\\Accessory\\BoosterPreview.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CarComponents\\Accessory\\BoosterPreview.cs",
@@ -191,7 +207,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "HealthUI.cs",
               "DocumentMoniker": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\Assets\\HealthUI.cs",
               "RelativeDocumentMoniker": "Assets\\HealthUI.cs",
@@ -203,7 +219,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "AlterHealthOnTouch.cs",
               "DocumentMoniker": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\Assets\\AlterHealthOnTouch.cs",
               "RelativeDocumentMoniker": "Assets\\AlterHealthOnTouch.cs",
@@ -215,7 +231,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "HasHealth.cs",
               "DocumentMoniker": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\Assets\\HasHealth.cs",
               "RelativeDocumentMoniker": "Assets\\HasHealth.cs",
@@ -227,7 +243,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "GameState.cs",
               "DocumentMoniker": "C:\\Users\\lucre\\Documents\\Unity Projects\\crafty2\\Assets\\Scripts\\GameState.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\GameState.cs",
