@@ -2228,6 +2228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fragments: {fileID: 4434505283068141906}
+  rubble_audio_clip: {fileID: 8300000, guid: 775baf1cdb6194644803ccf655048374, type: 3}
 --- !u!1 &5658306841970143967 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8547712469990843575, guid: 7fcdb3ce8dbfa7441b6e8f369ba8038b, type: 3}
