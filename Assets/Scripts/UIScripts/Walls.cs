@@ -58,6 +58,7 @@ public class Walls : MonoBehaviour
 	}
 	void OnWallRetry(WallRetryEvent e)
 	{
+		Debug.Log("Wall retried");
 		if (coroutine != null)
 		{
 			StopCoroutine(coroutine);

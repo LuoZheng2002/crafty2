@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class IntroCanvas : MonoBehaviour
 {
     static IntroCanvas inst;
-    Text crafty_text;
-    Text _3d_text;
+    Image crafty_text;
+    Image _3d_text;
     public static IntroCanvas Inst
     {
         get { Debug.Assert(inst != null); return inst; }
@@ -18,8 +18,8 @@ public class IntroCanvas : MonoBehaviour
         Debug.Assert(inst == null);
         inst = this;
         gameObject.SetActive(false);
-        crafty_text = transform.Find("CraftyPiggies").GetComponent<Text>();
-        _3d_text = transform.Find("3D").GetComponent<Text>();
+        crafty_text = transform.Find("CraftyPiggies").GetComponent<Image>();
+        _3d_text = transform.Find("3D").GetComponent<Image>();
         Debug.Assert(crafty_text != null);
         Debug.Assert(_3d_text != null);
 		UnityEngine.Color color = crafty_text.color;

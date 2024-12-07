@@ -16,8 +16,16 @@ public class AudioPlayer : MonoBehaviour
     public AudioClip explosion;
     public AudioClip warning;
     public AudioClip crash;
+	public AudioClip title;
+	public AudioClip free_build;
+	public AudioClip free_play;
+	public AudioClip boss;
+	public AudioClip yaju_short;
+	public AudioClip yaju_long;
+	public AudioClip sie;
     AudioSource musicSource;
     AudioSource soundEffectSource;
+	AudioSource bossSource;
     public float min_snore_interval = 10.0f;
     public float max_snore_interval = 30.0f;
     bool can_snore = false;
@@ -37,6 +45,7 @@ public class AudioPlayer : MonoBehaviour
         var audioSources = GetComponents<AudioSource>();
         musicSource = audioSources[0];
         soundEffectSource = audioSources[1];
+		bossSource = audioSources[2];
         musicSource.volume = 0.5f;
         soundEffectSource.volume = 0.2f;
         EventBus.Subscribe<ScreamEvent>(Scream);
@@ -54,6 +63,17 @@ public class AudioPlayer : MonoBehaviour
             StartCoroutine(DelayWarning());
 		}
     }
+	public void PlaySie()
+	{
+		bossSource.volume = 1.0f;
+		if (bossSource.isPlaying)
+		{
+			bossSource.Stop();
+		}
+		bossSource.clip = sie;
+		bossSource.loop = false;
+		bossSource.Play();
+	}
     public void PlayCrash()
     {
 		soundEffectSource.volume = 1.0f;
@@ -94,6 +114,8 @@ public class AudioPlayer : MonoBehaviour
         soundEffectSource.loop = false;
         soundEffectSource.Play();
     }
+
+
     public void Wilhelm()
     {
 		if (soundEffectSource.isPlaying)
@@ -104,16 +126,37 @@ public class AudioPlayer : MonoBehaviour
 		soundEffectSource.loop = false;
 		soundEffectSource.Play();
 	}
+
+	public void YajuLong()
+	{
+		if (bossSource.isPlaying)
+		{
+			bossSource.Stop();
+		}
+		bossSource.clip = yaju_long;
+		bossSource.loop = false;
+		bossSource.Play();
+	}
+	public void YajuShort()
+	{
+		if (bossSource.isPlaying)
+		{
+			bossSource.Stop();
+		}
+		bossSource.clip = yaju_short;
+		bossSource.loop = false;
+		bossSource.Play();
+	}
 	public void Explode()
 	{
-		if (soundEffectSource.isPlaying)
+		if (bossSource.isPlaying)
 		{
-			soundEffectSource.Stop();
+			bossSource.Stop();
 		}
-        soundEffectSource.volume = 1.0f;
-		soundEffectSource.clip = explosion;
-		soundEffectSource.loop = false;
-		soundEffectSource.Play();
+        bossSource.volume = 1.0f;
+		bossSource.clip = explosion;
+		bossSource.loop = false;
+		bossSource.Play();
 	}
 	public void Warning()
 	{
@@ -149,8 +192,11 @@ public class AudioPlayer : MonoBehaviour
 	}
     public void StopSoundEffect()
     {
-        soundEffectSource.Stop();
-        soundEffectSource.volume = 0.2f;
+		if (soundEffectSource.clip != yaju_long)
+		{
+			soundEffectSource.Stop();
+			soundEffectSource.volume = 0.2f;
+		}
     }
     IEnumerator Snore()
     {
@@ -180,7 +226,18 @@ public class AudioPlayer : MonoBehaviour
 		musicSource.loop = true;
 		musicSource.Play();
 	}
-    public void TransitionToStory()
+	public void TransitionToTitle()
+	{
+		can_snore = false;
+		if (musicSource.isPlaying)
+		{
+			musicSource.Stop();
+		}
+		musicSource.clip = title;
+		musicSource.loop = false;
+		musicSource.Play();
+	}
+	public void TransitionToStory()
     {
 		if (musicSource.isPlaying)
 		{
@@ -190,24 +247,43 @@ public class AudioPlayer : MonoBehaviour
 		musicSource.loop = true;
 		musicSource.Play();
 	}
+	bool flag = false;
     public void TransitionToPlay()
     {
 		if (musicSource.isPlaying)
 		{
 			musicSource.Stop();
 		}
-		musicSource.clip = playClip;
+		flag = !flag;
+		if (flag)
+		{
+			musicSource.clip = free_play;
+		}
+		else
+		{
+			musicSource.clip = playClip;
+		}
 		musicSource.loop = true;
 		musicSource.Play();
 	}
-    public void TransitionToOutro()
-    {
+	public void TransitionToBuild()
+	{
 		if (musicSource.isPlaying)
 		{
 			musicSource.Stop();
 		}
-		musicSource.clip = clearClip;
-		musicSource.loop = false;
+		musicSource.clip = free_build;
+		musicSource.loop = true;
 		musicSource.Play();
+	}
+	public void PlayCheckpoint()
+    {
+		if (bossSource.isPlaying)
+		{
+			bossSource.Stop();
+		}
+		bossSource.clip = clearClip;
+		bossSource.loop = false;
+		bossSource.Play();
 	}
 }

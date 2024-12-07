@@ -10,12 +10,11 @@ public class MoveForward : MonoBehaviour
 
     private void Start()
     {
-        EventBus.Subscribe<ConfirmSuccessEvent>(OnConfirmClicked);
+        // EventBus.Subscribe<ConfirmSuccessEvent>(OnConfirmClicked);
     }
     void OnConfirmClicked(ConfirmSuccessEvent e)
     {
         StartCoroutine(WaitForDelay());
-        GameObject.Find("MenuCanvas").SetActive(false);
     }
 
     void Update()

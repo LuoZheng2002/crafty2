@@ -36,6 +36,29 @@ public class MainCamera : Warp
 		float time = 1.0f;
 		StartCoroutine(MoveAndStickToHelper(time, target_transform));
 	}
+	public void Shake(float duration, float intensity)
+	{
+		StartCoroutine(ShakeHelper(duration, intensity));
+	}
+	IEnumerator ShakeHelper(float duration, float intensity)
+	{
+		Vector3 original_position = MainCamera.Inst.transform.position;
+		Vector3 ref_position = transformToFollow != null? transformToFollow.position : original_position;
+		float elapsedTime = 0f;
+		while (elapsedTime < duration)
+		{
+			// Calculate vibration offset using Perlin noise
+			float x = (Mathf.PerlinNoise(Time.time * 10, 0) - 0.5f) * 2 * intensity;
+			float y = (Mathf.PerlinNoise(0, Time.time * 10) - 0.5f) * 2 * intensity;
+
+			// Apply vibration offset to the original position
+			ref_position = transformToFollow != null ? transformToFollow.position : original_position;
+			MainCamera.Inst.transform.position = ref_position + new Vector3(x, y, 0);
+
+			elapsedTime += Time.deltaTime;
+			yield return null; // Wait for the next frame
+		}
+	}
 	IEnumerator MoveAndStickToHelper(float time, Transform target_transform)
 	{
 		// Transform target_transform = CarCore.Inst.CameraEnd;

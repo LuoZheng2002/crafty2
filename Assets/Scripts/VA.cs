@@ -79,6 +79,8 @@ public class VA : MonoBehaviour
 	{
 		if (audio_source.isPlaying)
 			audio_source.Stop();
+		if (voice_line == Util.VoiceLine.None)
+			return;
 		switch (voice_line)
 		{
 			case Util.VoiceLine.None:

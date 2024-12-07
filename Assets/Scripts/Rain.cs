@@ -26,6 +26,8 @@ public class Rain : MonoBehaviour
 			tnt.localPosition = new Vector3(0, y, 0);
 			yield return null;
 		}
+		MainCamera.Inst.Shake(0.2f, 1.0f);
+		AudioPlayer.Inst.Explode();
 		sphere_collider.enabled = true;
 		tnt.gameObject.SetActive(false);
 		particle_system.Play();

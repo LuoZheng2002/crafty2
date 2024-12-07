@@ -122,14 +122,14 @@ public partial class GridMatrix: MonoBehaviour
 			{
 				for (int k = 0; k < l; k++)
 				{
-					if (mem_accessories[i, j, k] != Util.Component.None)
+					if (mem_accessories[i, j, k] != Util.Component.None && DragImage.DragImages[mem_accessories[i, j, k]].Count > 0)
 					{
 						Util.Component component = mem_accessories[i, j, k];
 						var inst = DragImage.DragImages[component].InstantiateComponent(grids[i, j, k].transform.localPosition, true, accessory_directions[i, j, k]) as AccessoryComponent;
 						AddComponent(grids[i, j, k], Util.ComponentType.Accessory, inst);
 						DragImage.DragImages[component].Count--;
 					}
-					if (mem_loads[i, j, k] != Util.Component.None)
+					if (mem_loads[i, j, k] != Util.Component.None && DragImage.DragImages[mem_loads[i, j, k]].Count > 0)
 					{
 						Debug.Assert(mem_loads != null);
 						Util.Component content = mem_loads[i, j, k];
@@ -140,7 +140,7 @@ public partial class GridMatrix: MonoBehaviour
 						AddComponent(grids[i, j, k], Util.ComponentType.Load, inst);
 						DragImage.DragImages[content].Count--;
 					}
-					if (mem_crates[i, j, k] != Util.Component.None)
+					if (mem_crates[i, j, k] != Util.Component.None && DragImage.DragImages[mem_crates[i, j, k]].Count > 0)
 					{
 						Util.Component content = mem_crates[i, j, k];
 						var inst = DragImage.DragImages[content].InstantiateComponent(grids[i, j, k].transform.localPosition, true, 0) as CrateComponent;

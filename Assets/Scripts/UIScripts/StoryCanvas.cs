@@ -96,11 +96,6 @@ public class StoryCanvas : MonoBehaviour
 	{
 		inst = null;
 	}
-	IEnumerator BossFightPrompt()
-	{
-		yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("Shirley", "Let's start our journey to the boss hive!", null, Util.VoiceLine.None);
-		LineCanvas.Bottom.Hide();
-	}
 	public void OnConfirmClicked()
 	{
 		if (CurrentQuestName == Util.QuestName.TourDePiggyland)
@@ -125,10 +120,6 @@ public class StoryCanvas : MonoBehaviour
 		{
 			case Util.QuestName.MainStory:
 				PlayCanvas.Inst.SetStoryText(main_story_text.text);
-				if (MainStoryName == Util.MainStoryName.BossFight)
-				{
-					GameState.Inst.StartCoroutine(BossFightPrompt());
-				}
 				break;
 			case Util.QuestName.PiggylandCenter:
 				PlayCanvas.Inst.SetStoryText("A Bird's Eye View");

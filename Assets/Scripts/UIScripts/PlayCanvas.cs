@@ -9,10 +9,31 @@ public class PlayCanvas : MonoBehaviour
     public GameObject rocket;
 	public GameObject umbrella;
 
+    public Image death_image;
+    public Text death_text;
     public float RocketFuel { get; set; } = 1;
     public float rocket_consumption_speed = 0.2f;
     public ButtonScale button_scale;
     public bool AutoFill { get; set; } = false;
+    Subscription<RetryEvent> retry_subscription;
+    int death_count = 0;
+	public void ShowAndResetDeathCount()
+    {
+        death_image.gameObject.SetActive(true);
+        death_count = 0;
+        death_text.text = "0";
+        retry_subscription = EventBus.Subscribe<RetryEvent>(OnRetry);
+	}
+    void OnRetry(RetryEvent e)
+    {
+        death_count++;
+        death_text.text = death_count.ToString();
+	}
+    public void HideDeathCount()
+    {
+        death_image.gameObject.SetActive(false);
+        EventBus.Unsubscribe(retry_subscription);
+	}
     public void ScaleStory()
     {
         button_scale.ScaleStart();

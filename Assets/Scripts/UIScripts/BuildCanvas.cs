@@ -44,6 +44,7 @@ public class BuildCanvas : MonoBehaviour
             GameState.Inst.introduce_space = false;
             StartCoroutine(GameState.Inst.IntroduceSpace());
         }
+        AudioPlayer.Inst.TransitionToBuild();
 	}
 	public IEnumerator PresetIntroduction()
 	{
@@ -75,11 +76,15 @@ public class BuildCanvas : MonoBehaviour
             if (i + items_offset < nonzero_images.Count)
             {
                 nonzero_images[i + items_offset].transform.SetParent(itemBar);
-            }
+				nonzero_images[i + items_offset].transform.localScale = Vector3.one;
+
+			}
             else
             {
                 Debug.Assert(emptyImages.Count > 0);
-                emptyImages.Dequeue().transform.SetParent(itemBar);
+                var img = emptyImages.Dequeue();
+                img.transform.SetParent(itemBar);
+                img.transform.localScale = Vector3.one;
             }
         }
         rightButton.SetParent(itemBar);

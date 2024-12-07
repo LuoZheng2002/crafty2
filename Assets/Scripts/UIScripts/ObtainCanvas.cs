@@ -7,6 +7,7 @@ public class ObtainCanvas : MonoBehaviour
 {
     static ObtainCanvas inst;
 	public Image img;
+	public Sprite wheel_sprite;
 	public Sprite motor_wheel_sprite;
 	public Sprite turn_wheel_sprite;
 	public Sprite umbrella_sprite;
@@ -27,6 +28,7 @@ public class ObtainCanvas : MonoBehaviour
 		inst = this;
 		dict = new()
 		{
+			{Util.Component.Wheel, (wheel_sprite, "Wheel")},
 			{Util.Component.MotorWheel, (motor_wheel_sprite, "Motor Wheel")},
 			{Util.Component.TurnWheel, (turn_wheel_sprite, "Turn Wheel")},
 			{Util.Component.Umbrella, (umbrella_sprite, "Umbrella")},

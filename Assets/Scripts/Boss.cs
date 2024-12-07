@@ -71,7 +71,9 @@ public class Boss : MonoBehaviour
 		PlayCanvas.Inst.Hide();
 		LineCanvas.Bottom.DisplayLineAsync("Boss", "You these filthy little piggies! I'm going to use my full strength!", 2.0f, Util.VoiceLine.None);
 		Roar();
-		yield return new WaitForSeconds(1.5f);
+		yield return new WaitForSeconds(0.5f);
+		AudioPlayer.Inst.PlaySie();
+		yield return new WaitForSeconds(1.0f);
 		Smash();
 		yield return new WaitForSeconds(0.5f);
 		Roar();
@@ -88,8 +90,9 @@ public class Boss : MonoBehaviour
 	{
 		Vector3 start_position = transform.position;
 		Invulnerable = true;
-		player_protection = false;
+		
 		Rush();
+		AudioPlayer.Inst.PlaySie();
 		Vector3 dir = CarCore.Inst.transform.position - transform.position;
 		Quaternion rotation = Quaternion.LookRotation(dir, new Vector3(0, 1, 0));
 		Vector3 euler_angles = rotation.eulerAngles;
@@ -121,6 +124,7 @@ public class Boss : MonoBehaviour
 		}
 		duration = 1.5f;
 		start_time = Time.time;
+		player_protection = false;
 		while (Time.time - start_time < duration)
 		{
 			float t = (Time.time - start_time) / duration;
@@ -179,11 +183,12 @@ public class Boss : MonoBehaviour
 	}
 	IEnumerator DeathAnim()
 	{
+		AudioPlayer.Inst.YajuLong();
 		PlayCanvas.Inst.Hide();
 		MainCamera.Inst.Stop();
 		MainCamera.Inst.WarpTo(TRef.Get(Util.TRefName.CaveCamera3), 1.0f);
 		Death();
-		yield return new WaitForSeconds(4.0f);
+		yield return new WaitForSeconds(6.0f);
 		MainCamera.Inst.MoveAndStickTo(CarCore.Inst.CameraEnd);
 		Vector3 position = transform.position;
 		position.y += 1.0f;
@@ -197,7 +202,7 @@ public class Boss : MonoBehaviour
 	private void OnCollisionEnter(Collision other)
 	{
 		if (player_protection)
-			StartCoroutine(TempUnbreakable());
+			GameState.Inst.StartCoroutine(TempUnbreakable());
 		if (!Invulnerable && cooldown <=0.0f)
 		{
 			HealthBar.Inst.Health -= CarCore.Inst.Velocity1 * 0.005f;
@@ -213,6 +218,10 @@ public class Boss : MonoBehaviour
 			{
 				second_stage = true;
 				StartCoroutine(SecondStageCutscene());
+			}
+			else
+			{
+				AudioPlayer.Inst.YajuShort();
 			}
 			cooldown = 2.0f;
 			Hit();
@@ -230,6 +239,7 @@ public class Boss : MonoBehaviour
 		float duration1 = 1.0f;
 		float duration2 = 3.0f;
 		float start_time = Time.time;	
+		LineCanvas.Bottom.DisplayLineAsync("Shirley", "The boss is going to smash us! Stay away!", 2.0f, Util.VoiceLine.None);
 		while (Time.time - start_time < duration1)
 		{
 			Color color = mesh_renderer.material.color;
@@ -255,6 +265,8 @@ public class Boss : MonoBehaviour
 			sphere_collider.radius = Mathf.Lerp(0.0f, max_radius, (Time.time - start_time) / duration_3);
 			yield return null;
 		}
+		MainCamera.Inst.Shake(0.5f, 1.0f);
+		AudioPlayer.Inst.Explode();
 		sphere_collider.radius = max_radius;
 		yield return null;
 		sphere_collider.radius = 0.01f;
@@ -266,6 +278,7 @@ public class Boss : MonoBehaviour
 	{
 		Invulnerable = true;
 		Spell();
+		LineCanvas.Bottom.DisplayLineAsync("Shirley", "Watch out the TNTs!", 2.0f, Util.VoiceLine.None);
 		yield return new WaitForSeconds(1.0f);
 		for(int i = 0;i < 5;i++)
 		{
@@ -279,6 +292,7 @@ public class Boss : MonoBehaviour
 	}
 	IEnumerator Rest()
 	{
+		LineCanvas.Bottom.DisplayLineAsync("Shirley", "The boss is tired! Now is our chance!", 2.0f, Util.VoiceLine.None);
 		Invulnerable = false;
 		Pant();
 		yield return new WaitForSeconds(10.0f);

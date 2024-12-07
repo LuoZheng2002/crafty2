@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 570473382681446296, guid: 9e7fe0958c863594984ff87607418022, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c4e144de3ac01c546ae37ce43ee007d4, type: 2}
     - target: {fileID: 952300870215091305, guid: 9e7fe0958c863594984ff87607418022, type: 3}
       propertyPath: m_Name
       value: PiggyTransp

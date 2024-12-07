@@ -86,6 +86,7 @@ public static class Util
 		FinalStoryCamera2,
 		FinalStoryCamera3,
 		FinalStoryCamera4,
+		VolcanoCamera,
 	}
 	public enum CharacterName
 	{

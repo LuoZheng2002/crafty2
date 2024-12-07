@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public class RetryEvent { }
 public class Retry : MonoBehaviour
 {
 	static Retry inst;
@@ -63,7 +64,8 @@ public class Retry : MonoBehaviour
 		GameState.Inst.OnRetry();
 		GameState.shown_retry = true;
 		RebuildButton.Inst.CarBroken = false;
-    }
+		EventBus.Publish(new RetryEvent());
+	}
 	public void StartScale()
 	{
 		button_scale.ScaleStart();
