@@ -55,7 +55,7 @@
       "RelativeMoniker": "D:0:0:{FB654AD6-F807-402F-22A6-788757BC0A9C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\uiscripts\\walls.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB654AD6-F807-402F-22A6-788757BC0A9C}|Assembly-CSharp.csproj|c:\\users\\luo20\\desktop\\unityprojects\\crafty\\assets\\scripts\\lavasink.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FB654AD6-F807-402F-22A6-788757BC0A9C}|Assembly-CSharp.csproj|C:\\Users\\luo20\\Desktop\\UnityProjects\\crafty\\assets\\scripts\\lavasink.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FB654AD6-F807-402F-22A6-788757BC0A9C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\lavasink.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -530,8 +530,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 272,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -546,10 +550,6 @@
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Boss.cs",
@@ -559,8 +559,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Boss.cs",
               "ViewState": "AgIAAA4BAAAAAAAAAAAYwBgBAABgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T01:35:25.721Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-01T01:35:25.721Z"
             },
             {
               "$type": "Document",
@@ -572,8 +571,7 @@
               "RelativeToolTip": "Assets\\Scripts\\GridMatrix.cs",
               "ViewState": "AgIAAG8AAAAAAAAAAAAIwHwAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T02:58:38.027Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T02:58:38.027Z"
             },
             {
               "$type": "Document",
@@ -585,8 +583,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Rain.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAYwB0AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T03:10:49.992Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-01T03:10:49.992Z"
             },
             {
               "$type": "Document",
@@ -598,8 +595,7 @@
               "RelativeToolTip": "Assets\\Scripts\\AudioPlayer.cs",
               "ViewState": "AgIAAMcAAAAAAAAAAAAAAMgAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-05T22:23:51.054Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-05T22:23:51.054Z"
             },
             {
               "$type": "Document",
@@ -611,8 +607,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\PlayCanvas.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAqwCIAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T03:20:35.943Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T03:20:35.943Z"
             },
             {
               "$type": "Document",
@@ -624,8 +619,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\Retry.cs",
               "ViewState": "AgIAADoAAAAAAAAAAADwv0IAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T03:10:37.85Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-24T03:10:37.85Z"
             },
             {
               "$type": "Document",
@@ -637,8 +631,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\LineCanvas.cs",
               "ViewState": "AgIAAEMAAAAAAAAAAAA5wEwAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-03T22:12:34.801Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-03T22:12:34.801Z"
             },
             {
               "$type": "Document",
@@ -650,8 +643,7 @@
               "RelativeToolTip": "Assets\\Scripts\\VA.cs",
               "ViewState": "AgIAAEkAAAAAAAAAAAA7wFEAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T05:50:36.056Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-25T05:50:36.056Z"
             },
             {
               "$type": "Document",
@@ -663,8 +655,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\StoryCanvas.cs",
               "ViewState": "AgIAAFsAAAAAAAAAAAAYwGIAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T04:39:35.632Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-22T04:39:35.632Z"
             },
             {
               "$type": "Document",
@@ -676,8 +667,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\ObtainCanvas.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAswAkAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T20:20:43.957Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-15T20:20:43.957Z"
             },
             {
               "$type": "Document",
@@ -689,8 +679,7 @@
               "RelativeToolTip": "Assets\\Scripts\\MainCamera.cs",
               "ViewState": "AgIAACQAAAAAAAAAAAAQwCcAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T01:07:03.884Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T01:07:03.884Z"
             },
             {
               "$type": "Document",
@@ -702,8 +691,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\Walls.cs",
               "ViewState": "AgIAACoAAAAAAAAAAAAwwDAAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T21:53:06.876Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-29T21:53:06.876Z"
             },
             {
               "$type": "Document",
@@ -715,8 +703,7 @@
               "RelativeToolTip": "Assets\\Scripts\\LavaSink.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAmwBIAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-07T02:05:41.29Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-07T02:05:41.29Z"
             },
             {
               "$type": "Document",
@@ -728,8 +715,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\BuildCanvas.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAFYAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T01:34:42.566Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T01:34:42.566Z"
             },
             {
               "$type": "Document",
@@ -741,8 +727,7 @@
               "RelativeToolTip": "Assets\\Scripts\\HoleMakerTrigger.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T21:37:46.569Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-05T21:37:46.569Z"
             },
             {
               "$type": "Document",
@@ -754,8 +739,7 @@
               "RelativeToolTip": "Assets\\FallsOnTouch.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAuwA8AAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T21:31:43.141Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-05T21:31:43.141Z"
             },
             {
               "$type": "Document",
@@ -767,8 +751,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Checkpoint.cs",
               "ViewState": "AgIAACkAAAAAAAAAAAAIwDgAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T02:25:50.712Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-24T02:25:50.712Z"
             },
             {
               "$type": "Document",
@@ -780,8 +763,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Util.cs",
               "ViewState": "AgIAAEkAAAAAAAAAAAAUwFgAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T18:54:29.157Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-13T18:54:29.157Z"
             },
             {
               "$type": "Document",
@@ -793,8 +775,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\IntroCanvas.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAAwBIAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T21:50:34.066Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-01T21:50:34.066Z"
             },
             {
               "$type": "Document",
@@ -806,8 +787,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Interfaces\\ComponentInterfaces.cs",
               "ViewState": "AgIAAFUAAAAAAAAAAAAIwGUAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T07:04:00.15Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-25T07:04:00.15Z"
             },
             {
               "$type": "Document",
@@ -819,8 +799,7 @@
               "RelativeToolTip": "Assets\\Scripts\\CarCore.cs",
               "ViewState": "AgIAANAAAAAAAAAAAAAIwNQAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T05:15:17.403Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-14T05:15:17.403Z"
             },
             {
               "$type": "Document",
@@ -832,8 +811,7 @@
               "RelativeToolTip": "Assets\\Scripts\\HoleMaker.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAUwBwAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T21:24:18.143Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-05T21:24:18.143Z"
             },
             {
               "$type": "Document",
@@ -845,8 +823,7 @@
               "RelativeToolTip": "Assets\\MoveForward.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAAwAwAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T21:45:53.586Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-05T21:45:53.586Z"
             },
             {
               "$type": "Document",
@@ -858,8 +835,7 @@
               "RelativeToolTip": "Assets\\Scripts\\TrailerMenu.cs",
               "ViewState": "AgIAAFIAAAAAAAAAAAAAwGgAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-02T03:37:01.511Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-02T03:37:01.511Z"
             },
             {
               "$type": "Document",
@@ -871,8 +847,7 @@
               "RelativeToolTip": "Assets\\Scripts\\ShatterOnTouch.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T20:49:33.421Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-05T20:49:33.421Z"
             },
             {
               "$type": "Document",
@@ -884,8 +859,7 @@
               "RelativeToolTip": "Assets\\Scripts\\CarComponents\\Load\\PiggyPreview.cs",
               "ViewState": "AgIAADMAAAAAAAAAAAAewD8AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T18:16:35.665Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T18:16:35.665Z"
             },
             {
               "$type": "Document",
@@ -897,8 +871,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\PlayCanvasDrag.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T02:05:41.673Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T02:05:41.673Z"
             },
             {
               "$type": "Document",
@@ -910,8 +883,7 @@
               "RelativeToolTip": "Assets\\Scripts\\MenuAnimation.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAQwA0AAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T01:04:22.203Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-23T01:04:22.203Z"
             },
             {
               "$type": "Document",
@@ -923,8 +895,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\BlackoutCanvas.cs",
               "ViewState": "AgIAACQAAAAAAAAAAAAwwDAAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T00:35:26.361Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T00:35:26.361Z"
             },
             {
               "$type": "Document",
@@ -936,8 +907,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\ConfirmButton.cs",
               "ViewState": "AgIAAGAAAAAAAAAAAAAvwHAAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T20:00:26.35Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-01T20:00:26.35Z"
             },
             {
               "$type": "Document",
@@ -949,8 +919,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\HealthBar.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAuwAoAAAB3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T23:33:32.808Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-29T23:33:32.808Z"
             },
             {
               "$type": "Document",
@@ -962,8 +931,7 @@
               "RelativeToolTip": "Assets\\Scripts\\CarComponents\\Accessory\\WheelMotor.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAAwBYAAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T22:01:52.058Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T22:01:52.058Z"
             },
             {
               "$type": "Document",
@@ -975,8 +943,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\Trash.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAmwBcAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T01:41:54.326Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-24T01:41:54.326Z"
             },
             {
               "$type": "Document",
@@ -988,8 +955,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Lava.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAzwAQAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-11T06:43:47.313Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-11T06:43:47.313Z"
             },
             {
               "$type": "Document",
@@ -1001,8 +967,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Door.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAqwBoAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T23:06:07.782Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-29T23:06:07.782Z"
             },
             {
               "$type": "Document",
@@ -1014,8 +979,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\LevelCanvas.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAxwCMAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-05T16:33:59.045Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-05T16:33:59.045Z"
             },
             {
               "$type": "Document",
@@ -1027,8 +991,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\CanvasLoader.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAAwBcAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T22:03:10.316Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-29T22:03:10.316Z"
             },
             {
               "$type": "Document",
@@ -1040,8 +1003,7 @@
               "RelativeToolTip": "Assets\\Scripts\\GameSave.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAAxwAcAAAB5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T03:48:00.474Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-14T03:48:00.474Z"
             },
             {
               "$type": "Document",
@@ -1053,8 +1015,7 @@
               "RelativeToolTip": "Assets\\Scripts\\TRef.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAIBQwAoAAABuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-09T21:59:36.349Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-09T21:59:36.349Z"
             },
             {
               "$type": "Document",
@@ -1066,8 +1027,7 @@
               "RelativeToolTip": "Assets\\Scripts\\GridMatrixEX.cs",
               "ViewState": "AgIAABwBAAAAAAAAAAAewCcBAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T03:16:42.428Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-14T03:16:42.428Z"
             },
             {
               "$type": "Document",
@@ -1079,8 +1039,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\WaypointButton.cs",
               "ViewState": "AgIAABoAAAAAAAAAAAAgwBgAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T17:22:21.767Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-15T17:22:21.767Z"
             },
             {
               "$type": "Document",
@@ -1092,8 +1051,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\MapCanvas.cs",
               "ViewState": "AgIAAB0AAAAAAAAAAAAMwCsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T17:24:55.399Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-15T17:24:55.399Z"
             },
             {
               "$type": "Document",
@@ -1105,8 +1063,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\SideQuest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAIAwwAgAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T03:49:06.41Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-24T03:49:06.41Z"
             },
             {
               "$type": "Document",
@@ -1118,8 +1075,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\ButtonScale.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAewB0AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-11T05:09:55.363Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-11T05:09:55.363Z"
             },
             {
               "$type": "Document",
@@ -1131,8 +1087,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\GoalCanvas.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAIA2wBMAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T15:40:02.015Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-15T15:40:02.015Z"
             },
             {
               "$type": "Document",
@@ -1144,8 +1099,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\ChapterCanvas.cs",
               "ViewState": "AgIAAB8AAAAAAAAAAAAjwCkAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T03:55:52.751Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-22T03:55:52.751Z"
             },
             {
               "$type": "Document",
@@ -1157,8 +1111,7 @@
               "RelativeToolTip": "Assets\\Scripts\\CheckpointGoal.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAAwBAAAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-16T22:25:10.603Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-16T22:25:10.603Z"
             },
             {
               "$type": "Document",
@@ -1170,8 +1123,7 @@
               "RelativeToolTip": "Assets\\Scripts\\CarComponents\\Accessory\\Umbrella.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAAwBUAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-09T18:30:39.078Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-09T18:30:39.078Z"
             },
             {
               "$type": "Document",
@@ -1183,8 +1135,7 @@
               "RelativeToolTip": "Assets\\Scripts\\TouchSphere.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAIBJwA0AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T02:20:27.446Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-23T02:20:27.446Z"
             },
             {
               "$type": "Document",
@@ -1196,8 +1147,7 @@
               "RelativeToolTip": "Assets\\Scripts\\MenuTNT.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAAqwCYAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T02:32:06.4Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-23T02:32:06.4Z"
             },
             {
               "$type": "Document",
@@ -1209,8 +1159,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\RebuildButton.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAewCcAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T00:01:05.976Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-15T00:01:05.976Z"
             },
             {
               "$type": "Document",
@@ -1222,8 +1171,7 @@
               "RelativeToolTip": "Assets\\Scripts\\PigfallAnimation.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T04:55:53.014Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-23T04:55:53.014Z"
             },
             {
               "$type": "Document",
@@ -1235,8 +1183,7 @@
               "RelativeToolTip": "Assets\\Scripts\\MenuRocket.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAAwBQAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T02:23:54.499Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-23T02:23:54.499Z"
             },
             {
               "$type": "Document",
@@ -1248,8 +1195,7 @@
               "RelativeToolTip": "Assets\\Scripts\\JointBreak.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T03:57:49.646Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T03:57:49.646Z"
             },
             {
               "$type": "Document",
@@ -1261,8 +1207,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\Eraser.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAAmwBwAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T03:21:02.756Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-13T03:21:02.756Z"
             },
             {
               "$type": "Document",
@@ -1274,8 +1219,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\PlayButtonsDisplayer.cs",
               "ViewState": "AgIAAEoAAAAAAAAAAAAmwFAAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T04:47:45.28Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-06T04:47:45.28Z"
             },
             {
               "$type": "Document",
@@ -1287,8 +1231,7 @@
               "RelativeToolTip": "Assets\\Scripts\\CarComponents\\Accessory\\Rocket.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-09T20:07:10.36Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-09T20:07:10.36Z"
             },
             {
               "$type": "Document",
@@ -1300,8 +1243,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\DragImage.cs",
               "ViewState": "AgIAADIBAAAAAAAAAAAiwDMBAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T03:33:37.136Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-24T03:33:37.136Z"
             },
             {
               "$type": "Document",
@@ -1313,8 +1255,7 @@
               "RelativeToolTip": "Assets\\Scripts\\CarComponents\\Accessory\\WheelPreview.cs",
               "ViewState": "AgIAAC8AAAAAAAAAAAAcwDMAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T20:22:56.453Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-25T20:22:56.453Z"
             },
             {
               "$type": "Document",
@@ -1326,8 +1267,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\BackButton.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T22:33:18.779Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-21T22:33:18.779Z"
             },
             {
               "$type": "Document",
@@ -1339,8 +1279,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\MiniMapFollowPlayer.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAAwBYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T04:10:45.947Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T04:10:45.947Z"
             },
             {
               "$type": "Document",
@@ -1352,8 +1291,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\ToastManager.cs",
               "ViewState": "AgIAAC0AAAAAAAAAAAAuwD4AAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T04:06:07.366Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-13T04:06:07.366Z"
             },
             {
               "$type": "Document",
@@ -1365,8 +1303,7 @@
               "RelativeToolTip": "Assets\\Scripts\\CarComponents\\Crate\\WoodenCrate.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T23:45:56.37Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T23:45:56.37Z"
             },
             {
               "$type": "Document",
@@ -1378,8 +1315,7 @@
               "RelativeToolTip": "Assets\\Scripts\\CarComponents\\Crate\\CrateBase.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAQwBwAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T23:48:16.889Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T23:48:16.889Z"
             },
             {
               "$type": "Document",
@@ -1391,8 +1327,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\MapImage.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAAYwBsAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T05:01:21.766Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T05:01:21.766Z"
             },
             {
               "$type": "Document",
@@ -1404,8 +1339,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Probe.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAjwBYAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T06:14:29.445Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-14T06:14:29.445Z"
             },
             {
               "$type": "Document",
@@ -1417,8 +1351,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Hammer.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAAwBgAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T03:01:03.254Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T03:01:03.254Z"
             },
             {
               "$type": "Document",
@@ -1430,8 +1363,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\Tooltip.cs [Read Only]",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T04:07:24.952Z",
-              "EditorCaption": " [Read Only]"
+              "WhenOpened": "2024-11-18T04:07:24.952Z"
             },
             {
               "$type": "Document",
@@ -1443,8 +1375,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\TooltipManager.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAYwCkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T04:12:50.027Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T04:12:50.027Z"
             },
             {
               "$type": "Document",
@@ -1456,8 +1387,7 @@
               "RelativeToolTip": "Assets\\Scripts\\VehicleSpawner.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAowDEAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-05T19:02:30.442Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-05T19:02:30.442Z"
             },
             {
               "$type": "Document",
@@ -1469,8 +1399,7 @@
               "RelativeToolTip": "Assets\\Scripts\\CarComponents\\Accessory\\TurnWheelPreview.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T05:32:06.567Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T05:32:06.567Z"
             },
             {
               "$type": "Document",
@@ -1482,8 +1411,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Goal.cs",
               "ViewState": "AgIAADwAAAAAAAAAAAArwEgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T05:31:45.126Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T05:31:45.126Z"
             },
             {
               "$type": "Document",
@@ -1495,8 +1423,7 @@
               "RelativeToolTip": "Assets\\Scripts\\BigMapCamera.cs",
               "ViewState": "AgIAACkAAAAAAAAAAAAqwDIAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T16:20:41.095Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-15T16:20:41.095Z"
             },
             {
               "$type": "Document",
@@ -1508,8 +1435,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\CanvasDrag.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAQwBkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T03:31:49.076Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-24T03:31:49.076Z"
             },
             {
               "$type": "Document",
@@ -1521,8 +1447,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\FirstPerson.cs",
               "ViewState": "AgIAAB8AAAAAAAAAAAAuwCoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T23:50:04.318Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-03T23:50:04.318Z"
             },
             {
               "$type": "Document",
@@ -1534,8 +1459,7 @@
               "RelativeToolTip": "Assets\\Scripts\\PiggyCameraPivot.cs",
               "ViewState": "AgIAAGgAAAAAAAAAAAAUwGwAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T17:35:02.954Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-03T17:35:02.954Z"
             },
             {
               "$type": "Document",
@@ -1547,8 +1471,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\ToolImage.cs",
               "ViewState": "AgIAACQAAAAAAAAAAAAowCoAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T04:33:13.09Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T04:33:13.09Z"
             },
             {
               "$type": "Document",
@@ -1560,8 +1483,7 @@
               "RelativeToolTip": "Assets\\Scripts\\PiggyNose.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAlwBAAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T04:06:08.928Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T04:06:08.928Z"
             },
             {
               "$type": "Document",
@@ -1573,8 +1495,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\ChoiceCanvas.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T20:40:28.271Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-10T20:40:28.271Z"
             },
             {
               "$type": "Document",
@@ -1586,8 +1507,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\Choice.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAkwBMAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T20:37:33.199Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-10T20:37:33.199Z"
             },
             {
               "$type": "Document",
@@ -1599,8 +1519,7 @@
               "RelativeToolTip": "Assets\\Scripts\\GridCell.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T03:58:21.631Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-13T03:58:21.631Z"
             },
             {
               "$type": "Document",
@@ -1612,8 +1531,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\Help.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAgwBgAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T03:44:03.458Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-06T03:44:03.458Z"
             },
             {
               "$type": "Document",
@@ -1625,8 +1543,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Obsidian.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAAwA0AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-11T04:44:40.664Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-11T04:44:40.664Z"
             },
             {
               "$type": "Document",
@@ -1638,8 +1555,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Warp.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAAwA0AAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-09T23:24:29.072Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-09T23:24:29.072Z"
             },
             {
               "$type": "Document",
@@ -1651,8 +1567,7 @@
               "RelativeToolTip": "Assets\\Scripts\\StoryAnimation.cs",
               "ViewState": "AgIAAFcAAAAAAAAAAAAowGEAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T19:50:40.778Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T19:50:40.778Z"
             },
             {
               "$type": "Document",
@@ -1664,8 +1579,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Character.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAAswCMAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-09T22:34:08.979Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-09T22:34:08.979Z"
             },
             {
               "$type": "Document",
@@ -1677,8 +1591,7 @@
               "RelativeToolTip": "Assets\\Scripts\\CarComponents\\Accessory\\WheelTurner.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAnwBYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T20:22:34.782Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-25T20:22:34.782Z"
             },
             {
               "$type": "Document",
@@ -1690,8 +1603,7 @@
               "RelativeToolTip": "Assets\\Scripts\\CarComponents\\Load\\Partner.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAwwBAAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T18:15:42.497Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T18:15:42.497Z"
             },
             {
               "$type": "Document",
@@ -1703,8 +1615,7 @@
               "RelativeToolTip": "Assets\\Scripts\\CarComponents\\Accessory\\MotorWheelPreview.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T20:49:11.462Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-25T20:49:11.462Z"
             },
             {
               "$type": "Document",
@@ -1716,8 +1627,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\ImageContainer.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAqwA8AAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T03:32:05.994Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-24T03:32:05.994Z"
             },
             {
               "$type": "Document",
@@ -1729,8 +1639,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\MenuConfirm.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T16:32:57.094Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-13T16:32:57.094Z"
             },
             {
               "$type": "Document",
@@ -1742,8 +1651,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\Menu.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAAwBUAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-05T16:57:22.898Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-05T16:57:22.898Z"
             },
             {
               "$type": "Document",
@@ -1755,8 +1663,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Starbox.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-04T05:36:29.707Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-04T05:36:29.707Z"
             },
             {
               "$type": "Document",
@@ -1768,8 +1675,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\StarDisplayer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-04T05:41:32.937Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-04T05:41:32.937Z"
             },
             {
               "$type": "Document",
@@ -1781,8 +1687,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Waypoint.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-04T04:55:11.231Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-04T04:55:11.231Z"
             },
             {
               "$type": "Document",
@@ -1794,8 +1699,7 @@
               "RelativeToolTip": "Assets\\Scripts\\DrawGizmos.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T00:37:32.616Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T00:37:32.616Z"
             },
             {
               "$type": "Document",
@@ -1807,8 +1711,7 @@
               "RelativeToolTip": "Assets\\Scripts\\CameraAnimation.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAIBJwAcAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-05T04:33:00.244Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-05T04:33:00.244Z"
             },
             {
               "$type": "Document",
@@ -1820,8 +1723,7 @@
               "RelativeToolTip": "Assets\\Scripts\\IntroCamera.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAIBJwA8AAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T21:40:25.728Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-01T21:40:25.728Z"
             },
             {
               "$type": "Document",
@@ -1833,8 +1735,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\EraserImage.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAxwBkAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T16:40:40.584Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-01T16:40:40.584Z"
             },
             {
               "$type": "Document",
@@ -1858,8 +1759,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\Replay.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T00:48:34.729Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-06T00:48:34.729Z"
             },
             {
               "$type": "Document",
@@ -1871,8 +1771,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\ViewCanvasDrag.cs",
               "ViewState": "AgIAACYAAAAAAAAAAIAwwDYAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T04:51:59.441Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-25T04:51:59.441Z"
             },
             {
               "$type": "Document",
@@ -1884,8 +1783,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Test\\TestScript.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T00:40:26.46Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T00:40:26.46Z"
             },
             {
               "$type": "Document",
@@ -1897,8 +1795,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Test\\CameraCheatCode.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAIBJwAkAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T02:33:05.343Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T02:33:05.343Z"
             },
             {
               "$type": "Document",
@@ -1910,8 +1807,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\CanvasSwitch.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAIBJwBEAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T02:22:44.947Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-24T02:22:44.947Z"
             },
             {
               "$type": "Document",
@@ -1923,8 +1819,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\View.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAlwBMAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T17:55:10.113Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-13T17:55:10.113Z"
             },
             {
               "$type": "Document",
@@ -1936,8 +1831,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\Layers.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAxwBIAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T04:08:37.125Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-13T04:08:37.125Z"
             },
             {
               "$type": "Document",
@@ -1961,8 +1855,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\LevelButton.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-05T16:44:52.713Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-05T16:44:52.713Z"
             },
             {
               "$type": "Document",
@@ -1974,8 +1867,7 @@
               "RelativeToolTip": "Assets\\Scripts\\MenuGoalReached.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-05T19:30:47.685Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-05T19:30:47.685Z"
             },
             {
               "$type": "Document",
@@ -2022,8 +1914,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\Next.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T18:33:34.938Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-04T18:33:34.938Z"
             },
             {
               "$type": "Document",
@@ -2035,8 +1926,7 @@
               "RelativeToolTip": "Assets\\Scripts\\StateMachineBehavior\\CameraAnimExit.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-05T05:42:20.432Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-05T05:42:20.432Z"
             },
             {
               "$type": "Document",
@@ -2070,8 +1960,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Level.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T02:11:41.63Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-04T02:11:41.63Z"
             },
             {
               "$type": "Document",
@@ -2083,8 +1972,7 @@
               "RelativeToolTip": "Assets\\Scripts\\NewTutorialPlayer.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAAgwCgAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T18:53:07.517Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-13T18:53:07.517Z"
             },
             {
               "$type": "Document",
@@ -2118,8 +2006,7 @@
               "RelativeToolTip": "Assets\\Scripts\\LoadScene.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAqwAwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T01:19:10.723Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-03T01:19:10.723Z"
             },
             {
               "$type": "Document",
@@ -2175,8 +2062,7 @@
               "RelativeToolTip": "Assets\\Scripts\\QuitGame.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T05:07:43.393Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-06T05:07:43.393Z"
             },
             {
               "$type": "Document",
@@ -2188,8 +2074,7 @@
               "RelativeToolTip": "Assets\\Scripts\\TimedDestroy.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-05T19:04:22.622Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-05T19:04:22.622Z"
             },
             {
               "$type": "Document",
