@@ -91,6 +91,17 @@ public partial class GridMatrix: MonoBehaviour
 
 		});
 	}
+
+	public void Cleanup()
+	{
+		foreach(Transform child in transform)
+		{
+			if (child.GetComponent<VehicleComponent>() != null)
+			{
+				Destroy(child.gameObject);
+			}
+		}
+	}
 	private void OnDestroy()
 	{
 		// grid_matrices.Clear();

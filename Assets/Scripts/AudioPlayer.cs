@@ -196,10 +196,7 @@ public class AudioPlayer : MonoBehaviour
     }
 	public void StopMusic()
 	{
-		if (musicSource.clip != yaju_long)
-		{
-			musicSource.Stop();
-		}
+		musicSource.Stop();
 	}
     IEnumerator Snore()
     {

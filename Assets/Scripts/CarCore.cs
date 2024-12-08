@@ -150,7 +150,7 @@ public class CarCore : MonoBehaviour
 		joint = transform.AddComponent<FixedJoint>();
 		joint.connectedBody = PiggyPreview.Inst.RB;
 	}
-	void UnbindPig()
+	public void UnbindPig()
 	{
 		Debug.Assert(joint != null);
 		Destroy(joint);

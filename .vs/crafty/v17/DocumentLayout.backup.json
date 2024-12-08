@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\luo20\\Desktop\\UnityProjects\\crafty\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FB654AD6-F807-402F-22A6-788757BC0A9C}|Assembly-CSharp.csproj|c:\\users\\luo20\\desktop\\unityprojects\\crafty\\assets\\scripts\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FB654AD6-F807-402F-22A6-788757BC0A9C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FB654AD6-F807-402F-22A6-788757BC0A9C}|Assembly-CSharp.csproj|C:\\Users\\luo20\\Desktop\\UnityProjects\\crafty\\assets\\scripts\\carcore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FB654AD6-F807-402F-22A6-788757BC0A9C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\carcore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB654AD6-F807-402F-22A6-788757BC0A9C}|Assembly-CSharp.csproj|c:\\users\\luo20\\desktop\\unityprojects\\crafty\\assets\\scripts\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB654AD6-F807-402F-22A6-788757BC0A9C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FB654AD6-F807-402F-22A6-788757BC0A9C}|Assembly-CSharp.csproj|C:\\Users\\luo20\\Desktop\\UnityProjects\\crafty\\assets\\scripts\\uiscripts\\playcanvas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -538,7 +538,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 272,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -582,13 +582,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "CarCore.cs",
               "DocumentMoniker": "C:\\Users\\luo20\\Desktop\\UnityProjects\\crafty\\Assets\\Scripts\\CarCore.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CarCore.cs",
               "ToolTip": "C:\\Users\\luo20\\Desktop\\UnityProjects\\crafty\\Assets\\Scripts\\CarCore.cs",
               "RelativeToolTip": "Assets\\Scripts\\CarCore.cs",
-              "ViewState": "AgIAAHQAAAAAAAAAAAAowJkAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAJUAAAAAAAAAAADgv50AAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-08T04:55:35.117Z",
               "EditorCaption": ""
@@ -643,13 +643,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "GameState.cs",
               "DocumentMoniker": "C:\\Users\\luo20\\Desktop\\UnityProjects\\crafty\\Assets\\Scripts\\GameState.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\GameState.cs",
               "ToolTip": "C:\\Users\\luo20\\Desktop\\UnityProjects\\crafty\\Assets\\Scripts\\GameState.cs",
               "RelativeToolTip": "Assets\\Scripts\\GameState.cs",
-              "ViewState": "AgIAAIwDAAAAAAAAAAAEwJwDAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAI8DAAAAAAAAAAAEwJ8DAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-30T04:46:36.939Z",
               "EditorCaption": ""
@@ -879,8 +879,7 @@
               "ToolTip": "C:\\Users\\luo20\\Desktop\\UnityProjects\\crafty\\Assets\\Scripts\\ContentPreviews\\Accessory\\WheelTurner.cs",
               "RelativeToolTip": "Assets\\Scripts\\ContentPreviews\\Accessory\\WheelTurner.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-02T22:54:10.643Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-02T22:54:10.643Z"
             },
             {
               "$type": "Document",
@@ -1792,8 +1791,7 @@
               "RelativeToolTip": "Assets\\Scripts\\CarComponents\\Content\\PiggyPreview.cs",
               "ViewState": "AgIAADwAAAAAAAAAAAAAAEEAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T20:44:43.119Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-25T20:44:43.119Z"
             },
             {
               "$type": "Document",
@@ -1889,8 +1887,7 @@
               "RelativeToolTip": "Assets\\Scripts\\CustomCursor.cs",
               "ViewState": "AgIAAEUAAAAAAAAAAAAowEoAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T03:46:48.931Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-25T03:46:48.931Z"
             },
             {
               "$type": "Document",
@@ -1926,8 +1923,7 @@
               "RelativeToolTip": "Assets\\Scripts\\TutorialPlayer.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAqwBEAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T18:53:13.56Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-13T18:53:13.56Z"
             },
             {
               "$type": "Document",
@@ -1938,8 +1934,7 @@
               "ToolTip": "C:\\Users\\luo20\\Desktop\\UnityProjects\\crafty\\Assets\\Scripts\\Retry.cs",
               "RelativeToolTip": "Assets\\Scripts\\Retry.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T02:05:19.03Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-04T02:05:19.03Z"
             },
             {
               "$type": "Document",
@@ -1951,8 +1946,7 @@
               "RelativeToolTip": "Assets\\Scripts\\UIScripts\\MenuCanvasSwitch.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAIBJwBEAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-05T17:08:17.033Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-05T17:08:17.033Z"
             },
             {
               "$type": "Document",
@@ -1987,8 +1981,7 @@
               "ToolTip": "C:\\Users\\luo20\\Desktop\\UnityProjects\\crafty\\Assets\\Scripts\\ContentPreviews\\Crate\\CrateBase.cs",
               "RelativeToolTip": "Assets\\Scripts\\ContentPreviews\\Crate\\CrateBase.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T23:49:10.33Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-29T23:49:10.33Z"
             },
             {
               "$type": "Document",
@@ -1999,8 +1992,7 @@
               "ToolTip": "C:\\Users\\luo20\\Desktop\\UnityProjects\\crafty\\Assets\\Scripts\\GoalReached.cs",
               "RelativeToolTip": "Assets\\Scripts\\GoalReached.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T03:08:47.868Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-03T03:08:47.868Z"
             },
             {
               "$type": "Document",
@@ -2035,8 +2027,7 @@
               "ToolTip": "C:\\Users\\luo20\\Desktop\\UnityProjects\\crafty\\Assets\\Scripts\\ContentPreviews\\Accessory\\WheelPreview.cs",
               "RelativeToolTip": "Assets\\Scripts\\ContentPreviews\\Accessory\\WheelPreview.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T03:42:51.755Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-13T03:42:51.755Z"
             },
             {
               "$type": "Document",
@@ -2047,8 +2038,7 @@
               "ToolTip": "C:\\Users\\luo20\\Desktop\\UnityProjects\\crafty\\Assets\\Scripts\\ImageDragHandler.cs",
               "RelativeToolTip": "Assets\\Scripts\\ImageDragHandler.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T21:09:39.721Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-29T21:09:39.721Z"
             },
             {
               "$type": "Document",
@@ -2071,8 +2061,7 @@
               "ToolTip": "C:\\Users\\luo20\\Desktop\\UnityProjects\\crafty\\Assets\\Scripts\\CustomInputModule.cs",
               "RelativeToolTip": "Assets\\Scripts\\CustomInputModule.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T17:04:14.275Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-13T17:04:14.275Z"
             },
             {
               "$type": "Document",
@@ -2083,8 +2072,7 @@
               "ToolTip": "C:\\Users\\luo20\\Desktop\\UnityProjects\\crafty\\Assets\\Scripts\\ContentPreviews\\Content\\PiggyPreview.cs",
               "RelativeToolTip": "Assets\\Scripts\\ContentPreviews\\Content\\PiggyPreview.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-30T00:08:05.554Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-30T00:08:05.554Z"
             },
             {
               "$type": "Document",
@@ -2095,8 +2083,7 @@
               "ToolTip": "C:\\Users\\luo20\\Desktop\\UnityProjects\\crafty\\Assets\\Scripts\\ContentPreviews\\Accessory\\TurnWheelPreview.cs",
               "RelativeToolTip": "Assets\\Scripts\\ContentPreviews\\Accessory\\TurnWheelPreview.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T03:43:22.811Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-13T03:43:22.811Z"
             },
             {
               "$type": "Document",
@@ -2107,8 +2094,7 @@
               "ToolTip": "C:\\Users\\luo20\\Desktop\\UnityProjects\\crafty\\Assets\\Scripts\\ContentPreviews\\Accessory\\MotorWheelPreview.cs",
               "RelativeToolTip": "Assets\\Scripts\\ContentPreviews\\Accessory\\MotorWheelPreview.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T03:43:37.085Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-13T03:43:37.085Z"
             },
             {
               "$type": "Document",

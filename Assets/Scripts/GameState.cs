@@ -102,7 +102,7 @@ public class GameState : MonoBehaviour
 	//{
 	//	StartCoroutine(MoveCameraToGrid(false));
 	//}
-	bool official_start = true;
+	bool official_start = false;
 	bool is_trailer = false;
 	void Yikai()
 	{
@@ -926,6 +926,8 @@ public class GameState : MonoBehaviour
 		{
 			CarCore.Inst.Unfix();
 			CarCore.Inst.DestroyComponents();
+			CarCore.Inst.UnbindPig();
+			GridMatrix.Inst.Cleanup();
 		}
 		//for(int i = 0;i < 7;i++)
 		//{

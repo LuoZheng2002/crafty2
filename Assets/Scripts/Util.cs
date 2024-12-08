@@ -19,8 +19,8 @@ public class RotationInfo
 
 public static class Util
 {
-	public static float position_spring = 500000.0f;
-	public static float position_damper = 50000.0f;
+	public static float position_spring = 2500000.0f;
+	public static float position_damper = 250000.0f;
 	// occupied type
 	// update
 	public enum ChoiceName
