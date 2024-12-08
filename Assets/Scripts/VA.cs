@@ -58,6 +58,31 @@ public class VA : MonoBehaviour
 	public AudioClip lets_move_on;
 	public AudioClip oh_no_our_car;
 	public AudioClip however;
+	public AudioClip what_adventure;
+	public AudioClip boss_hive;
+	public AudioClip oh_trapped;
+	public AudioClip boss_tired;
+	public AudioClip watch_out;
+	public AudioClip the_boss_is;
+	public AudioClip tourist_guess;
+	public AudioClip buckle_up;
+	public AudioClip tough_one;
+	public AudioClip chase_enter;
+	public AudioClip lets_march;
+	public AudioClip thank_you;
+	public AudioClip oh_i_saw;
+	public AudioClip excuse_me;
+	public AudioClip treasure_evil;
+	public AudioClip watch_out_wall;
+	public AudioClip you_never_get;
+	public AudioClip i_know_you;
+	public AudioClip tourist_help;
+	public AudioClip lets_explore;
+	public AudioClip loop;
+	public AudioClip celebrating;
+	public AudioClip teleporting;
+	public AudioClip ultimate;
+	public AudioClip pack;
 	public static VA Inst
 	{
 		get
@@ -240,6 +265,81 @@ public class VA : MonoBehaviour
 				break;
 			case Util.VoiceLine.however:
 				audio_source.clip = however;
+				break;
+			case Util.VoiceLine.what_adventure:
+				audio_source.clip = what_adventure;
+				break;
+			case Util.VoiceLine.boss_hive:
+				audio_source.clip = boss_hive;
+				break;
+			case Util.VoiceLine.oh_trapped:
+				audio_source.clip = oh_trapped;
+				break;
+			case Util.VoiceLine.boss_tired:
+				audio_source.clip = boss_tired;
+				break;
+			case Util.VoiceLine.watch_out:
+				audio_source.clip = watch_out;
+				break;
+			case Util.VoiceLine.the_boss_is:
+				audio_source.clip = the_boss_is;
+				break;
+			case Util.VoiceLine.tourist_guess:
+				audio_source.clip = tourist_guess;
+				break;
+			case Util.VoiceLine.buckle_up:
+				audio_source.clip = buckle_up;
+				break;
+			case Util.VoiceLine.tough_one:
+				audio_source.clip = tough_one;
+				break;
+			case Util.VoiceLine.chase_enter:
+				audio_source.clip = chase_enter;
+				break;
+			case Util.VoiceLine.lets_march:
+				audio_source.clip = lets_march;
+				break;
+			case Util.VoiceLine.thank_you:
+				audio_source.clip = thank_you;
+				break;
+			case Util.VoiceLine.oh_i_saw:
+				audio_source.clip = oh_i_saw;
+				break;
+			case Util.VoiceLine.excuse_me:
+				audio_source.clip = excuse_me;
+				break;
+			case Util.VoiceLine.treasure_evil:
+				audio_source.clip = treasure_evil;
+				break;
+			case Util.VoiceLine.watch_out_wall:
+				audio_source.clip = watch_out_wall;
+				break;
+			case Util.VoiceLine.you_never_get:
+				audio_source.clip = you_never_get;
+				break;
+			case Util.VoiceLine.i_know_you:
+				audio_source.clip = i_know_you;
+				break;
+			case Util.VoiceLine.tourist_help:
+				audio_source.clip = tourist_help;
+				break;
+			case Util.VoiceLine.lets_explore:
+				audio_source.clip = lets_explore;
+				break;
+			case Util.VoiceLine.loop:
+				audio_source.clip = loop;
+				break;
+			case Util.VoiceLine.celebrating:
+				audio_source.clip = celebrating;
+				break;
+			case Util.VoiceLine.teleporting:
+				audio_source.clip = teleporting;
+				break;
+			case Util.VoiceLine.ultimate:
+				audio_source.clip = ultimate;
+				break;
+			case Util.VoiceLine.pack:
+				audio_source.clip = pack;
 				break;
 		}
 		audio_source.loop = false;

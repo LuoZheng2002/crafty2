@@ -31,6 +31,7 @@ public class HoleMaker : MonoBehaviour
         particle_system.Play();
         tnt.gameObject.SetActive(false);
         sphere_collider.enabled = true;
+        AudioPlayer.Inst.Explode();
 		yield return new WaitForSeconds(1.0f);
         gameObject.SetActive(false);
 

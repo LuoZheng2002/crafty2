@@ -86,6 +86,7 @@ public partial class GridMatrix: MonoBehaviour
 			InitPhantom();
 			ProbeResize();
 			SpawnGrids();
+			SetAllLayerActive();
 			Deactivate();
 
 		});
@@ -333,11 +334,11 @@ public partial class GridMatrix: MonoBehaviour
 		{
 			GameState.Inst.Components.Add(load);
 			// mem_loads[h_idx, w_idx, l_idx] = load.Component;
-			load.Build();
 			if (crates[h_idx, w_idx, l_idx] != null)
 			{
 				Util.CreateJoint(load, crates[h_idx, w_idx, l_idx], Util.break_force, Util.break_torque);
 			}
+			Util.Delay(this, 1, () => { load.Build(); });
 		}
 	}
 	bool q = false;

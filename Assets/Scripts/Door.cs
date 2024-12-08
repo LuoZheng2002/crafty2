@@ -36,6 +36,7 @@ public class Door : MonoBehaviour
 	}
 	public IEnumerator Open()
 	{
+		LineCanvas.Bottom.DisplayLineAsync("Shirley", "It's time for the ultimate combat!", 1.0f, Util.VoiceLine.ultimate);
 		float start_time = Time.time;
 		while (Time.time - start_time < 1.0f)
 		{

@@ -26,6 +26,9 @@ public class StoryCanvas : MonoBehaviour
 			case Util.MainStoryName.BossFight:
 				main_story_text.text = "Defeat Groundhog the Juggernaut";
 				break;
+			case Util.MainStoryName.AllCompleted:
+				main_story_text.text = "Main Story Completed";
+				break;
 		}
 	}
 	public Util.QuestName CurrentQuestName
@@ -43,6 +46,8 @@ public class StoryCanvas : MonoBehaviour
 						Inst.SetVolcano();
 					else if (MainStoryName == Util.MainStoryName.BossFight)
 						Inst.SetBossFight();
+					else if (MainStoryName == Util.MainStoryName.AllCompleted)
+						Inst.SetAllCompleted();
 					break;
 				case Util.QuestName.PiggylandCenter:
 					SetPiggylandCenter();
@@ -52,6 +57,9 @@ public class StoryCanvas : MonoBehaviour
 					break;
 				case Util.QuestName.TourDePiggyland:
 					SetTour();
+					break;
+				case Util.QuestName.GroundhogFestival:
+					SetFestival();
 					break;
 			}
 			// to do
@@ -98,16 +106,23 @@ public class StoryCanvas : MonoBehaviour
 	}
 	public void OnConfirmClicked()
 	{
-		if (CurrentQuestName == Util.QuestName.TourDePiggyland)
-		{
-			ToastManager.Toast("Coming Soon! Please select other quests for now.");
-			return;
-		}
 		gameObject.SetActive(false);
 		Debug.Assert(GameSave.Progresses.ContainsKey(CurrentQuestName));
 		(Util.WaypointName retry_waypoint, Util.WaypointName goal_waypoint) = GameSave.Progresses[CurrentQuestName];
 		Debug.Assert(retry_waypoint != Util.WaypointName.None);
 		GameState.Inst.UpdateRetryAndGoal(retry_waypoint, goal_waypoint);
+
+		GameSave.Inventory[Util.Component.Tourist] = 0;
+
+		if (CurrentQuestName == Util.QuestName.GroundhogFestival)
+		{
+			track_sidequest.SetActive(true);
+		}
+		else
+		{
+			track_sidequest.SetActive(false);
+		}
+
 		if (CurrentQuestName == Util.QuestName.PiggylandCenter)
 		{
 			CarCore.Inst.AutoRotation = true;
@@ -123,16 +138,47 @@ public class StoryCanvas : MonoBehaviour
 				break;
 			case Util.QuestName.PiggylandCenter:
 				PlayCanvas.Inst.SetStoryText("A Bird's Eye View");
+				GameState.Inst.StartCoroutine(PiggylandCenterHint());
 				break;
 			case Util.QuestName.Loop:
 				PlayCanvas.Inst.SetStoryText("Loop");
+				GameState.Inst.StartCoroutine(LoopHint());
 				break;
 			case Util.QuestName.TourDePiggyland:
 				PlayCanvas.Inst.SetStoryText("Tour de Piggyland");
+				GameState.Inst.StartCoroutine(TourDePiggylandHint());
 				break;
-		}
-		
+			case Util.QuestName.GroundhogFestival:
+				PlayCanvas.Inst.SetStoryText("Groundhog Festival");
+				GameState.Inst.StartCoroutine(GroundhogFestivalHint());
+				break;
+		}		
 	}
+	public GameObject track_sidequest;
+	IEnumerator TourDePiggylandHint()
+	{
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "There are some tourists that want a ride. Let's help them!", null, Util.VoiceLine.tourist_help);
+		LineCanvas.Top.Hide();
+	}
+	IEnumerator PiggylandCenterHint()
+	{
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Let's explore the Piggyland Center in the town!", null, Util.VoiceLine.lets_explore);
+		LineCanvas.Top.Hide();
+	}
+	IEnumerator LoopHint()
+	{
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "I saw a loop at the lake. Let's try it out!", null, Util.VoiceLine.loop);
+		LineCanvas.Top.Hide();
+	}
+	IEnumerator GroundhogFestivalHint()
+	{
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "The villagers are celebrating the extermination of the Groundhog. Let's join them!", null, Util.VoiceLine.celebrating);
+		LineCanvas.Top.DisplayLineAsync("Shirley", "Teleporting in 3, 2, 1...", 2.0f, Util.VoiceLine.teleporting);
+		yield return new WaitForSeconds(2.0f);
+		GameState.Inst.GoToCheckpointAsync(Util.WaypointName.TrackEntrance);
+	}
+
+
 	public void OnBackClicked()
 	{
 		gameObject.SetActive(false);
@@ -176,6 +222,13 @@ public class StoryCanvas : MonoBehaviour
 			"The evil creature is taking away what are rightfully yours.\n" +
 			"Defeat him using the OVERPOWERED Admantium and claim your treasure!";
 	}
+	public Sprite all_completed_image;
+	public void SetAllCompleted()
+	{
+		description_image.sprite = all_completed_image;
+		description.text = "You have completed the main story!\n" +
+			"Go and have fun with interesting side quests!";
+	}
 	public Sprite center_image;
 	public void SetPiggylandCenter()
 	{
@@ -201,5 +254,14 @@ public class StoryCanvas : MonoBehaviour
 		description.text = "Tour de Piggyland\n" +
 			"You are sort of an environmentalist, and you find your vehicle is emitting too much CO2.\n" +
 			"What about taking more passengers? This will amortize the CO2 emission per capita.\n";
+	}
+	public Sprite festival_image;
+	public void SetFestival()
+	{
+		description_image.sprite = festival_image;
+		description.text = "Groundhog Festival\n" +
+			"To celebrate the extermination of the evil Groundhog, villagers are preparing an interesting festival activity.\n" +
+			"It aims at reproducing the heroic moments when two outlanders dodge the attack of the Groundhog.\n" +
+			"\"It looks much more sinister than the actual boss fight,\" said your girlfriend.\n";
 	}
 }

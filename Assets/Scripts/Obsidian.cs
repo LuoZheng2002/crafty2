@@ -11,7 +11,7 @@ public class Obsidian : MonoBehaviour
 	}
 	IEnumerator TriggerHelper()
 	{
-		yield return LineCanvas.Top.DisplayLine("Shirley", "Woohoo! We've got the enchanted obsidian!");
+		// yield return LineCanvas.Top.DisplayLine("Shirley", "Woohoo! We've got the enchanted obsidian!");
 		yield return new WaitForSeconds(4.0f);
 		LineCanvas.Bottom.Hide();
 	}

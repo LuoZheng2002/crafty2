@@ -15,6 +15,8 @@ public class GameStateChangedEvent
 		this.is_play = is_play;
 	}
 }
+
+public class TrackStartEvent { }
 public class InvisibleStateUpdateEvent
 {
 }
@@ -145,16 +147,18 @@ public class GameState : MonoBehaviour
 			GameSave.Inventory[Util.Component.WoodenCrate] = 100;
 			GameSave.Inventory[Util.Component.Rocket] = 100;
 			GameSave.Inventory[Util.Component.Umbrella] = 100;
+			// GameSave.Inventory[Util.Component.Tourist] += 100;
 			BuildCanvas.Inst.ShowDesignNumbers();
 
 			MapCanvas.Inst.PermWaypoints.Add(Util.WaypointName.TownWaypoint);
 			PlayCanvas.Inst.ShowStory();
 			PlayCanvas.Inst.SetStoryText("Test");
-			Walls.Inst.WarpImmediately();
+			// Walls.Inst.WarpImmediately();
 			// CarCore.Inst.VerticalOffset = 2.0f;
 
 
-			GoToCheckpointAsync(Util.WaypointName.BossStart, true);
+			GoToCheckpointAsync(Util.WaypointName.Obsidian, true);
+			// StartCoroutine(HandleEnding());
 		}
 		// TransitionToFirstBuild();
 		
@@ -176,29 +180,59 @@ public class GameState : MonoBehaviour
 		PlayCanvas.Inst.HideUmbrella();
 		PlayCanvas.Inst.HideRocket();
 	}
-
+	IEnumerator DelayPlayingAnimation()
+	{
+		yield return new WaitForSeconds(2.0f);
+		yield return MainCamera.Inst.WarpTo(TRef.Get(TRefName.CameraPrestory2_2), 1.0f);
+		story_animation.SetActive(true);
+	}
+	public GameObject post_process_volume;
 	IEnumerator OnTownStory()
 	{
-		yield return BlackoutCanvas.Inst.Blackout(1.0f, 0.0f, 1.0f);
+		// yield return BlackoutCanvas.Inst.Blackout(1.0f, 0.0f, 1.0f);
 		CarCore.Inst.DeactivateContainer();
 		CarCore.Inst.Fix();
-		yield return BlackoutCanvas.Inst.DisplaySub("You heard from the local that your rocket engines are likely to be stolen by the evil beast: Groundhog the Juggernaut.", 1.0f, 0.0f, 1.0f);
-		yield return WaitForClick();
-		yield return BlackoutCanvas.Inst.DisplaySub(null, 1.0f, 1.0f, 0.0f);
-		yield return BlackoutCanvas.Inst.DisplaySub("And the only way to defeat the beast is to obtain the undestructable Adamantium material lying in the heart of the volcano.", 1.0f, 0.0f, 1.0f);
-		yield return WaitForClick();
-		yield return BlackoutCanvas.Inst.DisplaySub(null, 1.0f, 1.0f, 0.0f);
-		yield return BlackoutCanvas.Inst.DisplaySub("So you decide to march towards the volcano.", 1.0f, 0.0f, 1.0f);
-		yield return WaitForClick();
-		yield return BlackoutCanvas.Inst.DisplaySub(null, 1.0f, 1.0f, 0.0f);
+
+
+		//yield return BlackoutCanvas.Inst.DisplaySub("You heard from the local that your rocket engines are likely to be stolen by the evil beast: Groundhog the Juggernaut.", 1.0f, 0.0f, 1.0f);
+		//yield return WaitForClick();
+		//yield return BlackoutCanvas.Inst.DisplaySub(null, 1.0f, 1.0f, 0.0f);
+		//yield return BlackoutCanvas.Inst.DisplaySub("And the only way to defeat the beast is to obtain the undestructable Adamantium material lying in the heart of the volcano.", 1.0f, 0.0f, 1.0f);
+		//yield return WaitForClick();
+		//yield return BlackoutCanvas.Inst.DisplaySub(null, 1.0f, 1.0f, 0.0f);
+		//yield return BlackoutCanvas.Inst.DisplaySub("So you decide to march towards the volcano.", 1.0f, 0.0f, 1.0f);
+		//yield return WaitForClick();
+		//yield return BlackoutCanvas.Inst.DisplaySub(null, 1.0f, 1.0f, 0.0f);
+		PlayCanvas.Inst.Hide();
+		MainCamera.Inst.Stop();
+		Character.Piggy.WarpTo(TRef.Get(TRefName.NPC1C1S2));
+		Character.Partner.WarpTo(TRef.Get(TRefName.NPC2C1S2));
+		AudioPlayer.Inst.TransitionToStory();
+		yield return MainCamera.Inst.WarpTo(TRef.Get(TRefName.CameraPrestory2_1), 1.0f);
+		yield return new WaitForSeconds(1.0f);
+		yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("Shirley", "Excuse me. We lost our rocket engines. Do you have any clues?", Character.GetCharacter(CharacterName.Partner), VoiceLine.excuse_me);
+		GoalCanvas.Inst.CheckpointToFollow = WaypointName.None;
+		StartCoroutine(DelayPlayingAnimation());
+		yield return LineCanvas.Bottom.DisplayLine("Villager", "Oh, I saw a big guy carrying two rocket engines towards the volcano.", Character.GetCharacter(CharacterName.NPC1), VoiceLine.oh_i_saw);
+		yield return new WaitForSeconds(7.0f);
+		post_process_volume.SetActive(false);
+		yield return MainCamera.Inst.WarpTo(TRef.Get(TRefName.CameraPrestory2_1), 1.0f);
+		yield return LineCanvas.Bottom.DisplayLineAndWaitForClick("Shirley", "Thank you! We will go to the volcano to retrieve our engines.", Character.GetCharacter(CharacterName.Partner), VoiceLine.thank_you);
+		LineCanvas.Bottom.Hide();
+		MainCamera.Inst.MoveAndStickTo(CarCore.Inst.CameraEnd);
+		Character.Piggy.WarpTo(TRef.Get(TRefName.Origin));
+		Character.Partner.WarpTo(TRef.Get(TRefName.Origin));
 		CarCore.Inst.Unfix();
 		CarCore.Inst.ActivateContainer();
-		ChapterCanvas.Inst.DisplayTextAsync("Main Story Quest: Act 1", "Treasures in the Flaming Mountain", "Started", 1.0f);
+		yield return new WaitForSeconds(1.0f);
+		AudioPlayer.Inst.TransitionToPlay();
+		yield return DisplayChapter("Main Story Quest: Act 1", "Treasures in the Flaming Mountain", "Started", () => { LineCanvas.Bottom.DisplayLineAsync("Shirley", "Let's march towards the volcano!", 2.0f, VoiceLine.lets_march); });
+		GoalCanvas.Inst.CheckpointToFollow = WaypointName.VolcanoGate;
 		PlayCanvas.Inst.SetStoryText("March to the volcano");
+		PlayCanvas.Inst.Show();
 		PlayCanvas.Inst.ShowStory();
 		StoryCanvas.Inst.SetMainStory(Util.MainStoryName.Volcano);
-		yield return BlackoutCanvas.Inst.Blackout(1.0f, 1.0f, 0.0f);
-		
+		// yield return BlackoutCanvas.Inst.Blackout(1.0f, 1.0f, 0.0f);
 	}
 
 	IEnumerator AtTownWaypoint()
@@ -211,10 +245,10 @@ public class GameState : MonoBehaviour
 		LineCanvas.Top.Hide();
 		CarCore.Inst.DampStop();
 	}
-	IEnumerator DisplayChapter(string type_str, string text_str, string state_str)
+	IEnumerator DisplayChapter(string type_str, string text_str, string state_str, Action callback)
 	{
 		yield return BlackoutCanvas.Inst.Blackout(1.0f, 0.0f, 1.0f);
-		ChapterCanvas.Inst.DisplayTextAsync(type_str, text_str, state_str, 0.5f);
+		ChapterCanvas.Inst.DisplayTextAsync(type_str, text_str, state_str, 0.5f, callback);
 		yield return BlackoutCanvas.Inst.Blackout(0.5f, 1.0f, 0.0f);
 	}
 	public bool IntroducePreset { get; set; } = false;
@@ -233,6 +267,13 @@ public class GameState : MonoBehaviour
 	public bool introduce_space = false;
 	public void OnCheckpointReached(CheckpointReachedEvent e)
 	{
+		if (e.waypoint_name != WaypointName.TownStory && e.waypoint_name != WaypointName.CaveTrap && e.waypoint_name != WaypointName.BossStart
+			&& e.waypoint_name != WaypointName.CenterEntrance &&
+			e.waypoint_name != WaypointName.LoopEntrance && e.waypoint_name != WaypointName.TourStart 
+			&& e.waypoint_name != WaypointName.TrackEntrance)
+		{
+			AudioPlayer.Inst.PlayCheckpoint();
+		}
 		Util.Delay(this, 1, () =>
 		{
 			switch (e.waypoint_name)
@@ -241,6 +282,8 @@ public class GameState : MonoBehaviour
 					UpdateRetryAndGoal(WaypointName.MotorWheel, WaypointName.TurnWheel);
 					GameSave.Inventory[Util.Component.MotorWheel] = 2;
 					GameSave.Inventory[Util.Component.Wheel] -= 2;
+					GameSave.CurrentMemory.MemAccessories[0, 0, 0] = Util.Component.None;
+					GameSave.CurrentMemory.MemAccessories[0, 1, 0] = Util.Component.None;
 					ObtainCanvas.Inst.Show(Util.Component.MotorWheel);
 					Retry.Inst.Show();
 					RebuildButton.Inst.Show();
@@ -388,11 +431,86 @@ public class GameState : MonoBehaviour
 					UpdateRetryAndGoal(WaypointName.BossStart, WaypointName.None);
 					StartCoroutine(HandleBossStart());
 					break;
+				case WaypointName.TrackEntrance:
+					UpdateRetryAndGoal(WaypointName.TrackEntrance, WaypointName.TrackStart);
+					StartCoroutine(HandleTrack());
+					break;
+				case WaypointName.TrackStart:
+					UpdateRetryAndGoal(WaypointName.TrackEntrance, WaypointName.TrackDest);
+					EventBus.Publish(new TrackStartEvent());
+					break;
+				case WaypointName.TrackDest:
+					UpdateRetryAndGoal(WaypointName.TownWaypoint, WaypointName.None);
+					StartCoroutine(HandleTrackEnd());
+					break;
+				case WaypointName.TourStart:
+					GameSave.Inventory[Util.Component.Tourist] = 20;
+					UpdateRetryAndGoal(WaypointName.TourStart, WaypointName.Tour1);
+					// StartCoroutine(HandleTourStart());
+					GoToCheckpointAsync(WaypointName.TourStart, true);
+					tour_mode = true;
+					tour_mode2 = true;
+					break;
+				case WaypointName.Tour1:
+					UpdateRetryAndGoal(WaypointName.Tour1, WaypointName.Tour2);
+					break;
+				case WaypointName.Tour2:
+					UpdateRetryAndGoal(WaypointName.Tour2, WaypointName.Tour3);
+					break;
+				case WaypointName.Tour3:
+					UpdateRetryAndGoal(WaypointName.Tour3, WaypointName.Tour4);
+					break;
+				case WaypointName.Tour4:
+					UpdateRetryAndGoal(WaypointName.Tour4, WaypointName.Tour5);
+					break;
+				case WaypointName.Tour5:
+					UpdateRetryAndGoal(WaypointName.Tour5, WaypointName.TourDest);
+					break;
+				case WaypointName.TourDest:
+					UpdateRetryAndGoal(WaypointName.TownWaypoint, WaypointName.None);
+					StartCoroutine(HandleTourEnd());
+					break;
 			}
 		});
 	}
 	public Transform platform;
 	public Vector3 platform_pos;
+
+	bool tour_mode = false;
+	public bool tour_mode2 = false;
+
+	IEnumerator HandleTrack()
+	{
+		VehicleComponent.Damp = 100;
+		CarCore.Inst.DampStart();
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "The boss will chase us once we enter the track.", null, VoiceLine.chase_enter);
+		LineCanvas.Top.Hide();
+		yield return DisplayChapter("Side Quest IV", "Groundhog Festival", "Started", null);
+		CarCore.Inst.DampStop();
+		VehicleComponent.Damp = 2;
+	}
+
+	IEnumerator HandleTrackEnd()
+	{
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "That was a tough one.", null, VoiceLine.tough_one);
+		LineCanvas.Top.Hide();
+		yield return DisplayChapter("Side Quest IV", "Groundhog Festival", "Completed", null);
+	}
+	IEnumerator HandleTourStart()
+	{
+		CarCore.Inst.DampStart();
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Buckle up, everyone.", null, VoiceLine.buckle_up);
+		LineCanvas.Top.Hide();
+		yield return DisplayChapter("Side Quest III", "Tour de Piggyland", "Started", null);
+		CarCore.Inst.DampStop();
+	}
+	IEnumerator HandleTourEnd()
+	{
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "The tourists enjoyed this trip, I guess.", null, VoiceLine.tourist_guess);
+		LineCanvas.Top.Hide();
+		yield return DisplayChapter("Side Quest III", "Tour de Piggyland", "Completed", null);
+	}
+
 	IEnumerator HandleBossStart()
 	{
 		PlayCanvas.Inst.Hide();
@@ -401,11 +519,11 @@ public class GameState : MonoBehaviour
 		yield return MainCamera.Inst.WarpTo(TRef.Get(TRefName.CaveCamera2), 2.0f);
 		yield return Door.Inst.Close();
 		MainCamera.Inst.Shake(1.0f, 1.0f);
-		LineCanvas.Bottom.DisplayLineAsync("Shirley", "Oh no! We are trapped!", 1.5f, VoiceLine.None);
-		yield return new WaitForSeconds(2.0f);
+		yield return LineCanvas.Bottom.DisplayLine("Shirley", "Oh no! We are trapped!", null, VoiceLine.oh_trapped);
+		yield return new WaitForSeconds(1.5f);
 		yield return MainCamera.Inst.WarpTo(TRef.Get(TRefName.CaveCamera3), 1.0f);
 		AudioPlayer.Inst.PlaySie();
-		LineCanvas.Bottom.DisplayLineAsync("Boss", "I have been waiting for you, piggies!", 2.0f, VoiceLine.None);
+		yield return LineCanvas.Bottom.DisplayLine("Groundhog the Juggernaut", "I have been waiting for you, piggies!", null, VoiceLine.None);
 		Boss.Inst.Roar();
 		yield return new WaitForSeconds(2.0f);
 		Boss.Inst.Idle();
@@ -418,8 +536,13 @@ public class GameState : MonoBehaviour
 	}
 	public IEnumerator HandleEnding()
 	{
+		PlayCanvas.Inst.SetStoryText("Main Story Completed");
+		PlayCanvas.Inst.ShowStory();
+		StoryCanvas.Inst.SetMainStory(Util.MainStoryName.AllCompleted);
+		GameSave.Progresses[Util.QuestName.MainStory] = (Util.WaypointName.TownWaypoint, WaypointName.None);
 		yield return new WaitForSeconds(2.0f);
 		yield return BlackoutCanvas.Inst.Blackout(1.0f, 0.0f, 1.0f);
+		AudioPlayer.Inst.TransitionToIntro();
 		yield return new WaitForSeconds(1.0f);
 		PlayCanvas.Inst.Hide();
 		BuildCanvas.Inst.Hide();
@@ -441,34 +564,47 @@ public class GameState : MonoBehaviour
 		yield return BlackoutCanvas.Inst.DisplaySubAndFade("Yikai Li", 1.0f, 1.0f);
 		yield return BlackoutCanvas.Inst.DisplaySubAndFade("Gabriel Froehner", 1.0f, 1.0f);
 		yield return BlackoutCanvas.Inst.DisplaySubAndFade("Javier Guerrero", 1.0f, 1.0f);
+		yield return BlackoutCanvas.Inst.DisplaySubAndFade("Special thanks to:\n\n Instructor Prof. Austin Yarger\n\n Music: Erika Chen", 2.0f, 2.0f);
 		yield return BlackoutCanvas.Inst.DisplaySubAndFade("Thanks for Playing", 2.0f, 2.0f);
-		yield return GoToCheckpoint(WaypointName.TownEntrance, true);
-		PlayCanvas.Inst.HideDeathCount();
-		yield return BlackoutCanvas.Inst.Blackout(1.0f, 1.0f, 0.0f);
+		yield return BeginSideQuest();		
+	}
+
+	IEnumerator BeginSideQuest()
+	{
+		PlayCanvas.Inst.HideDeathCount();		
 		side_quests_begin = true;
+		GameSave.SetGridSize(3, 4, 4);
+		GameSave.Inventory[Util.Component.WoodenCrate] = 100;
+		GameSave.Inventory[Util.Component.Wheel] = 100;
+		GameSave.Inventory[Util.Component.MotorWheel] = 100;
+		GameSave.Inventory[Util.Component.TurnWheel] = 100;
+		GameSave.Inventory[Util.Component.Rocket] = 100;
+		GameSave.Inventory[Util.Component.Umbrella] = 100;
+		yield return GoToCheckpoint(WaypointName.TownWaypoint, true);
+		yield return BlackoutCanvas.Inst.Blackout(1.0f, 1.0f, 0.0f);
 	}
 	bool side_quests_begin = false;
 
-	IEnumerator PromptSideQuest()
-	{
-		yield return null;
-		CarCore.Inst.DampStart();
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Woohoo! We returned safely with the Adamantium.", null, VoiceLine.woohoo);
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "I can't wait to start a new adventure.", null, VoiceLine.i_cant_wait);
-		LineCanvas.Top.Hide();
-		StoryCanvas.Inst.SetMainStory(MainStoryName.BossFight);
-		GameSave.Progresses[Util.QuestName.MainStory] = (Util.WaypointName.TownWaypoint, WaypointName.CaveEntrance);
-		yield return DisplayChapter("Main Story Quest: Act 1", "Treasures in the Flaming Mountain", "Completed");
-		yield return WaitForClick();
-		yield return new WaitForSeconds(1.5f);
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Now, would you like to have some fun in the town, or continue our journey for home?", null, VoiceLine.now_would);
-		LineCanvas.Top.Hide();
-		PlayCanvas.Inst.ShowStory();
-		StoryCanvas.Inst.ShowSideQuests();
-		PlayCanvas.Inst.SetStoryText("Select a Quest");
-		PlayCanvas.Inst.ScaleStory();
-		CarCore.Inst.DampStop();
-	}
+	//IEnumerator PromptSideQuest()
+	//{
+	//	yield return null;
+	//	CarCore.Inst.DampStart();
+	//	yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Woohoo! We returned safely with the Adamantium.", null, VoiceLine.woohoo);
+	//	yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "I can't wait to start a new adventure.", null, VoiceLine.i_cant_wait);
+	//	LineCanvas.Top.Hide();
+	//	StoryCanvas.Inst.SetMainStory(MainStoryName.BossFight);
+	//	GameSave.Progresses[Util.QuestName.MainStory] = (Util.WaypointName.TownWaypoint, WaypointName.CaveEntrance);
+	//	yield return DisplayChapter("Main Story Quest: Act 1", "Treasures in the Flaming Mountain", "Completed");
+	//	yield return WaitForClick();
+	//	yield return new WaitForSeconds(1.5f);
+	//	yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Now, would you like to have some fun in the town, or continue our journey for home?", null, VoiceLine.now_would);
+	//	LineCanvas.Top.Hide();
+	//	PlayCanvas.Inst.ShowStory();
+	//	StoryCanvas.Inst.ShowSideQuests();
+	//	PlayCanvas.Inst.SetStoryText("Select a Quest");
+	//	PlayCanvas.Inst.ScaleStory();
+	//	CarCore.Inst.DampStop();
+	//}
 
 	float fly_acceleration = 5.0f;
 	public IEnumerator FlyRocket()
@@ -501,12 +637,20 @@ public class GameState : MonoBehaviour
 		MainCamera.Inst.Stop();
 		yield return MainCamera.Inst.WarpTo(TRef.Get(Util.TRefName.CaveCamera1), 1.5f);
 		MainCamera.Inst.Shake(1.5f, 1.0f);
-		LineCanvas.Bottom.DisplayLineAsync("Shirley", "Oh no! We are trapped!", 1.5f, VoiceLine.None);
 		StartCoroutine(SinkPlatform());
+		yield return LineCanvas.Bottom.DisplayLine("Shirley", "Oh no! We are trapped!",null, VoiceLine.oh_trapped);
 		yield return new WaitForSeconds(1.0f);
 		MainCamera.Inst.MoveAndStickTo(CarCore.Inst.CameraEnd);
 		CarCore.Inst.DampStop();
 		Walls.Inst.StartWarp();
+		yield return new WaitForSeconds(1.0f);
+		yield return LineCanvas.Bottom.DisplayLine("Groundhog the Juggernaut", "I know you will come, poor little piggies!",null, VoiceLine.i_know_you);
+		yield return new WaitForSeconds(2.0f);
+		yield return LineCanvas.Bottom.DisplayLine("Groundhog the Juggernaut", "You'll never get what you want. Take this!",null, VoiceLine.you_never_get);
+		yield return new WaitForSeconds(2.0f);
+		yield return LineCanvas.Bottom.DisplayLine("Shirley", "Watch out the walls!",null, VoiceLine.watch_out_wall);
+		yield return new WaitForSeconds(2.0f);
+		LineCanvas.Bottom.Hide();
 	}
 	IEnumerator HintDesign3()
 	{
@@ -533,7 +677,7 @@ public class GameState : MonoBehaviour
 		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "A journey of a thousand miles begins with a single step.", null, VoiceLine.A_journey);
 		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Let's climb!", null, VoiceLine.lets_climb);
 		LineCanvas.Top.Hide();
-		yield return DisplayChapter("Side Quest I", "A Bird's Eye View", "Started");
+		yield return DisplayChapter("Side Quest I", "A Bird's Eye View", "Started", null);
 	}
 	IEnumerator OnCenterTop()
 	{
@@ -541,13 +685,13 @@ public class GameState : MonoBehaviour
 		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Woohoo! We made it!", null, VoiceLine.woohoo_we_made);
 		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Although there is barely anything underneath to appreciate.", null, VoiceLine.Although);
 		LineCanvas.Top.Hide();
-		yield return DisplayChapter("Side Quest I", "A Bird's Eye View", "Completed");
+		yield return DisplayChapter("Side Quest I", "A Bird's Eye View", "Completed", null);
 	}
 	IEnumerator OnLoopStart()
 	{
 		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Don't be a coward, my darling.", null, VoiceLine.dont);
 		CarCore.Inst.DampStart();
-		yield return DisplayChapter("Side Quest II", "Loop", "Started");
+		yield return DisplayChapter("Side Quest II", "Loop", "Started", null);
 		CarCore.Inst.DampStop();
 		LineCanvas.Top.Hide();
 	}
@@ -556,20 +700,22 @@ public class GameState : MonoBehaviour
 		PlayCanvas.Inst.SetStoryText("Select a Quest");
 		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Awwwww! That's more scary than I anticipated.", null, VoiceLine.awwww);
 		LineCanvas.Top.Hide();
-		yield return DisplayChapter("Side Quest II", "Loop", "Completed");
+		yield return DisplayChapter("Side Quest II", "Loop", "Completed", null);
 	}
 	bool prompt_choose_quest1 = false;
 	bool prompt_choose_quest2 = false;
+
+	public GameObject story_animation;
 	IEnumerator CollectedObsidian()
 	{
-		PlayCanvas.Inst.HideStory();
+		// PlayCanvas.Inst.HideStory();
 		VehicleComponent.Damp = 100.0f;
 		CarCore.Inst.DampStart();
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "This must be the Adamantium we are looking for. We made it!", null, VoiceLine.this_must);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "We found the treasure of the evil creature! Hooray!", null, VoiceLine.treasure_evil);
 		LineCanvas.Top.Hide();
 		StoryCanvas.Inst.SetMainStory(MainStoryName.BossFight);
 		GameSave.Progresses[Util.QuestName.MainStory] = (Util.WaypointName.TownWaypoint, WaypointName.CaveEntrance);
-		yield return DisplayChapter("Main Story Quest: Act 1", "Treasures in the Flaming Mountain", "Completed");
+		yield return DisplayChapter("Main Story Quest: Act 1", "Treasures in the Flaming Mountain", "Completed", null);
 		yield return WaitForClick();
 		// yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Now we can warp back to the town and prepare for the fight!", null, VoiceLine.now_we);
 		PlayCanvas.Inst.Hide();
@@ -579,11 +725,11 @@ public class GameState : MonoBehaviour
 		LavaSink.Inst.Sink();
 		MainCamera.Inst.Shake(2.0f, 1.0f);
 		yield return new WaitForSeconds(2.0f);
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "This must be the hive of the boss. Let's jump into it!", null, VoiceLine.None);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "This must be the hive of the boss. Let's jump into it!", null, VoiceLine.boss_hive);
 		LineCanvas.Top.Hide();
 		MainCamera.Inst.MoveAndStickTo(CarCore.Inst.CameraEnd);
 		CarCore.Inst.DampStop();
-		yield return DisplayChapter("Main Story Quest: Act II", "Defeat Groundhog the Juggernaut", "Started");
+		yield return DisplayChapter("Main Story Quest: Act II", "Defeat Groundhog the Juggernaut", "Started", null);
 		yield return WaitForClick();
 		yield return new WaitForSeconds(1.0f);
 		PlayCanvas.Inst.Show();
@@ -600,10 +746,7 @@ public class GameState : MonoBehaviour
 		Util.Delay(this, () =>
 		{
 			BuildCanvas.Inst.HideDesignNumbers();
-			
 			Yikai();
-			
-			
 		});
 		EventBus.Subscribe<GoalReachedEvent>(OnGoalReached);
 		EventBus.Subscribe<TouchLavaEvent>(OnTouchLava);
@@ -705,6 +848,10 @@ public class GameState : MonoBehaviour
 		//PiggyPermitInvisible = false;
 		//Util.BuildInfo build_info = last_choice_name == Util.ChoiceName.NeedHelp ? Util.BuildInfo.NeedHelp : Util.BuildInfo.DontNeedHelpButRetry;
 		//TransitionToBuild(retry_waypoint, retry_goal, build_info);
+		if (GameSave.CurrentCheckpoint == WaypointName.TrackEntrance)
+		{
+			Checkpoint.Checkpoints[WaypointName.TrackStart].Activate();
+		}
 		GoToCheckpointAsync(GameSave.CurrentCheckpoint);
 		if (Walls.Inst.TryingWall)
 		{
@@ -1063,18 +1210,19 @@ public class GameState : MonoBehaviour
 	}
 	IEnumerator TransitionToStoryInTown()
 	{
-		DampStart();
-		yield return MainCamera.Inst.WarpTo(TRef.Get(Util.TRefName.CameraInTown1), 1.5f);
-		yield return AtTheSameTime(
-			MainCamera.Inst.WarpTo(TRef.Get(Util.TRefName.CameraInTown2), 1.5f),
-			LineCanvas.Bottom.DisplayLine("Shirley", "We've arrived! Let's explore the town."));
-		yield return new WaitForSeconds(1.0f);
-		LineCanvas.Bottom.Hide();
-		DampStop();
-		// MainCamera.Inst.FollowStory();
-		yield return new WaitForSeconds(1.0f);
-		TransitionToPlay(false);
-		Goal.Activate(Util.GoalName.Town);
+		yield break;
+		//DampStart();
+		//yield return MainCamera.Inst.WarpTo(TRef.Get(Util.TRefName.CameraInTown1), 1.5f);
+		//yield return AtTheSameTime(
+		//	MainCamera.Inst.WarpTo(TRef.Get(Util.TRefName.CameraInTown2), 1.5f),
+		//	LineCanvas.Bottom.DisplayLine("Shirley", "We've arrived! Let's explore the town."));
+		//yield return new WaitForSeconds(1.0f);
+		//LineCanvas.Bottom.Hide();
+		//DampStop();
+		//// MainCamera.Inst.FollowStory();
+		//yield return new WaitForSeconds(1.0f);
+		//TransitionToPlay(false);
+		//Goal.Activate(Util.GoalName.Town);
 
 		//BlackoutCanvas.Inst.Blackout(3.0f, 3.0f, () =>
 		//{
@@ -1333,6 +1481,7 @@ public class GameState : MonoBehaviour
 	}
 	void OnGoalReached(GoalReachedEvent e)
 	{
+		
 		// Debug.LogError("Deprecated");
 		switch (e.goal_name)
 		{
@@ -1418,7 +1567,7 @@ public class GameState : MonoBehaviour
 	{
 		yield return null;
 		CarCore.Inst.DampStart();
-		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "What an adventure! Now, shall we go around and have some fun?", null, VoiceLine.None);
+		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "What an adventure! Now, shall we go around and have some fun?", null, VoiceLine.what_adventure);
 		LineCanvas.Top.Hide();
 		PlayCanvas.Inst.ShowStory();
 		StoryCanvas.Inst.ShowSideQuests();
@@ -1446,6 +1595,11 @@ public class GameState : MonoBehaviour
 		{
 			side_quests_begin = false;
 			StartCoroutine(PromptChooseQuest());
+		}
+		if (tour_mode)
+		{
+			tour_mode = false;
+			StartCoroutine(HandleTourStart());
 		}
 		// PiggyCameraPivot.Inst.StartFollow(Piggy);
 		// coroutine that moves camera to position

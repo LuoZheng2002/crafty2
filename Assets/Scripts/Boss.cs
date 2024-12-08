@@ -69,7 +69,7 @@ public class Boss : MonoBehaviour
 		MainCamera.Inst.WarpTo(TRef.Get(Util.TRefName.CaveCamera3), 1.0f);
 		Invulnerable = true;
 		PlayCanvas.Inst.Hide();
-		LineCanvas.Bottom.DisplayLineAsync("Boss", "You these filthy little piggies! I'm going to use my full strength!", 2.0f, Util.VoiceLine.None);
+		LineCanvas.Bottom.DisplayLineAsync("Groundhog the Juggernaut", "You these filthy little piggies! I'm going to use my full strength!", 3.0f, Util.VoiceLine.None);
 		Roar();
 		yield return new WaitForSeconds(0.5f);
 		AudioPlayer.Inst.PlaySie();
@@ -239,7 +239,7 @@ public class Boss : MonoBehaviour
 		float duration1 = 1.0f;
 		float duration2 = 3.0f;
 		float start_time = Time.time;	
-		LineCanvas.Bottom.DisplayLineAsync("Shirley", "The boss is going to smash us! Stay away!", 2.0f, Util.VoiceLine.None);
+		LineCanvas.Bottom.DisplayLineAsync("Shirley", "The boss is going to smash us! Stay away!", 2.0f, Util.VoiceLine.the_boss_is);
 		while (Time.time - start_time < duration1)
 		{
 			Color color = mesh_renderer.material.color;
@@ -278,7 +278,7 @@ public class Boss : MonoBehaviour
 	{
 		Invulnerable = true;
 		Spell();
-		LineCanvas.Bottom.DisplayLineAsync("Shirley", "Watch out the TNTs!", 2.0f, Util.VoiceLine.None);
+		LineCanvas.Bottom.DisplayLineAsync("Shirley", "Watch out the TNTs!", 2.0f, Util.VoiceLine.watch_out);
 		yield return new WaitForSeconds(1.0f);
 		for(int i = 0;i < 5;i++)
 		{
@@ -292,7 +292,7 @@ public class Boss : MonoBehaviour
 	}
 	IEnumerator Rest()
 	{
-		LineCanvas.Bottom.DisplayLineAsync("Shirley", "The boss is tired! Now is our chance!", 2.0f, Util.VoiceLine.None);
+		LineCanvas.Bottom.DisplayLineAsync("Shirley", "The boss is tired! Now is our chance!", 2.0f, Util.VoiceLine.boss_tired);
 		Invulnerable = false;
 		Pant();
 		yield return new WaitForSeconds(10.0f);

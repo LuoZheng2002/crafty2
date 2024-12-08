@@ -183,6 +183,7 @@ public static class Util
 		PiggylandCenter,
 		Loop,
 		TourDePiggyland,
+		GroundhogFestival
 	}
 
 	public enum StoryName
@@ -200,7 +201,8 @@ public static class Util
 	{
 		GoToTown,
 		Volcano,
-		BossFight
+		BossFight,
+		AllCompleted
 	}
 
 	public enum GoalName
@@ -261,7 +263,14 @@ public static class Util
 		BossStart,
 		TrackEntrance,
 		TrackStart,
-		TrackDest
+		TrackDest,
+		TourStart,
+		Tour1,
+		Tour2,
+		Tour3,
+		Tour4,
+		Tour5,
+		TourDest
 	}
 
 	public static (Component[,,], Component[,,], Component[,,]) DesignPrestory1()
@@ -370,6 +379,7 @@ public static class Util
 		// load
 		Motor,
 		Engine,
+		Tourist,
 	}
 	// IAccessoryPreview
 	// ILoadPreview
@@ -432,6 +442,8 @@ public static class Util
 
 		configurableJoint.breakForce = break_force;
 		configurableJoint.breakTorque = break_torque;
+		Debug.Log(configurableJoint.enableCollision);
+		configurableJoint.enableCollision = false;
 		if (unbreakable)
 		{
 			configurableJoint.breakForce = Mathf.Infinity;
@@ -519,6 +531,31 @@ public static class Util
 		perfect_by,
 		lets_move_on,
 		oh_no_our_car,
-		however
+		however,
+		what_adventure,
+		boss_hive,
+		oh_trapped,
+		boss_tired,
+		watch_out,
+		the_boss_is,
+		tourist_guess,
+		buckle_up,
+		tough_one,
+		chase_enter,
+		lets_march,
+		thank_you,
+		oh_i_saw,
+		excuse_me,
+		treasure_evil,
+		watch_out_wall,
+		you_never_get,
+		i_know_you,
+		tourist_help,
+		lets_explore,
+		loop,
+		celebrating,
+		teleporting,
+		ultimate,
+		pack
 	}
 }

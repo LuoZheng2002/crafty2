@@ -10,6 +10,8 @@ public static class GameSave
 		{ Util.QuestName.MainStory, (Util.WaypointName.None, Util.WaypointName.MotorWheel) } ,
 		{ Util.QuestName.PiggylandCenter, (Util.WaypointName.TownWaypoint, Util.WaypointName.CenterEntrance)},
 		{Util.QuestName.Loop, (Util.WaypointName.TownWaypoint, Util.WaypointName.LoopEntrance) },
+		{Util.QuestName.TourDePiggyland, (Util.WaypointName.TownWaypoint, Util.WaypointName.TourStart) },
+		{Util.QuestName.GroundhogFestival, (Util.WaypointName.TownWaypoint, Util.WaypointName.TrackEntrance) }
 	};
 	public class GridMemory
 	{
@@ -120,16 +122,24 @@ public static class GameSave
 		GridSize.h += delta_h;
 		EventBus.Publish(new GridMatrixSizeChangedEvent());
 	}
+	public static void SetGridSize(int h, int w, int l)
+	{
+		GridSize.l = l;
+		GridSize.w = w;
+		GridSize.h = h;
+		EventBus.Publish(new GridMatrixSizeChangedEvent());
+	}
 
 	public static Dictionary<Util.Component, int> Inventory { get; set; } = new()
 	{
 		{Util.Component.Pig, 1 },
+		{Util.Component.Tourist, 0 },
 		{Util.Component.WoodenCrate, 6 },
 		{Util.Component.Wheel, 4 },
 		{Util.Component.TurnWheel, 0 },
 		{Util.Component.MotorWheel, 0 },
 		{Util.Component.Rocket, 0 },
-		{Util.Component.Umbrella, 0 }
+		{Util.Component.Umbrella, 0 },
 	};
 	public static bool IsMainStory { get; set; } = true;
 	public  static Util.WaypointName CurrentCheckpoint { get; set; } = Util.WaypointName.None;

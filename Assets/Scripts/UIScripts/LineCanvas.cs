@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using UnityEngine;
 using UnityEngine.UI;
+using static Util;
 
 public class LineCanvas : MonoBehaviour
 {
@@ -47,8 +48,13 @@ public class LineCanvas : MonoBehaviour
 	{
 		topCanvas = null;
 	}
-	public IEnumerator DisplayLine(string name_str, string line_str)
+	public IEnumerator DisplayLine(string name_str, string line_str, Character talking_char, Util.VoiceLine voice_line)
 	{
+		if (talking_char != null)
+		{
+			talking_char.StartTalking();
+		}
+		VA.Inst.PlayAudio(voice_line);
 		gameObject.SetActive(true);
 		n.text = name_str;
 		line.text = "";
@@ -63,19 +69,22 @@ public class LineCanvas : MonoBehaviour
 			frame_index = (frame_index + 1) % frames_per_char;
 			yield return null;
 		}
+		if (talking_char != null)
+		{
+			talking_char.StopTalking();
+		}
 		line.text = line_str;
 	}
-	IEnumerator AsyncHelper(string name_str, string line_str, float seconds)
+	IEnumerator AsyncHelper(string name_str, string line_str, float seconds, Util.VoiceLine voice_line)
 	{
-		yield return DisplayLine(name_str, line_str);
+		yield return DisplayLine(name_str, line_str, null, voice_line);
 		yield return new WaitForSeconds(seconds);
 		Hide();
 	}
 	public void DisplayLineAsync(string name_str, string line_str, float seconds, Util.VoiceLine voice_line)
 	{
-		gameObject.SetActive(true);
-		VA.Inst.PlayAudio(voice_line);
-		StartCoroutine(AsyncHelper(name_str, line_str, seconds));
+		gameObject.SetActive(true);		
+		StartCoroutine(AsyncHelper(name_str, line_str, seconds, voice_line));
 	}
 	public IEnumerator DisplayLineAndWaitForClick(string name_str, string line_str, Character talking_char, Util.VoiceLine voice_line)
 	{

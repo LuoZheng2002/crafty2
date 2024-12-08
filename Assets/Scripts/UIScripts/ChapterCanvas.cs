@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,11 +36,11 @@ public class ChapterCanvas : MonoBehaviour
 	public Text type;
 	public Text text;
 	public Text state;
-	public void DisplayTextAsync(string type_str, string text_str, string state_str, float force_time)
+	public void DisplayTextAsync(string type_str, string text_str, string state_str, float force_time, Action callback)
 	{
-		GameState.Inst.StartCoroutine(DisplayText(type_str, text_str, state_str, force_time));
+		GameState.Inst.StartCoroutine(DisplayText(type_str, text_str, state_str, force_time, callback));
 	}
-	public IEnumerator DisplayText(string type_str, string text_str, string state_str, float force_time)
+	public IEnumerator DisplayText(string type_str, string text_str, string state_str, float force_time, Action callback)
 	{
 		gameObject.SetActive(true);
 		type.text = type_str;
@@ -50,6 +51,7 @@ public class ChapterCanvas : MonoBehaviour
 		{
 			yield return null;
 		}
+		callback?.Invoke();
 		gameObject.SetActive(false);
 	}
 }

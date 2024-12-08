@@ -10,12 +10,12 @@ public class MoveForward : MonoBehaviour
 
     private void Start()
     {
-        // EventBus.Subscribe<ConfirmSuccessEvent>(OnConfirmClicked);
+        EventBus.Subscribe<TrackStartEvent>(OnConfirmClicked);
     }
-    void OnConfirmClicked(ConfirmSuccessEvent e)
+    void OnConfirmClicked(TrackStartEvent e)
     {
-        StartCoroutine(WaitForDelay());
-    }
+		canMove = true;
+	}
 
     void Update()
     {
@@ -23,11 +23,5 @@ public class MoveForward : MonoBehaviour
         {
             transform.position += Vector3.forward * speed * Time.deltaTime;
         }
-    }
-
-    IEnumerator WaitForDelay()
-    {
-        yield return new WaitForSeconds(wait_time);
-        canMove = true;
     }
 }

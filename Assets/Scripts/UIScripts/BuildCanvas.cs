@@ -45,6 +45,15 @@ public class BuildCanvas : MonoBehaviour
             StartCoroutine(GameState.Inst.IntroduceSpace());
         }
         AudioPlayer.Inst.TransitionToBuild();
+        if (GameState.Inst.tour_mode2)
+        {
+            GameState.Inst.tour_mode2 = false;
+            GameState.Inst.StartCoroutine(HandleTour());
+        }
+	}
+    IEnumerator HandleTour()
+    {
+        yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Pack all the tourists with us!",null, Util.VoiceLine.pack);
 	}
 	public IEnumerator PresetIntroduction()
 	{
@@ -127,11 +136,17 @@ public class BuildCanvas : MonoBehaviour
             DragImage.DragImages[Util.Component.Partner].SetInitialCount(1);
         }
         nonzero_images = new();
-        foreach (var dragImage in DragImage.DragImages)
+		List<Util.Component> components = new() { Util.Component.Pig, Util.Component.Partner, Util.Component.Tourist, Util.Component.WoodenCrate, Util.Component.Wheel, 
+            Util.Component.TurnWheel, Util.Component.MotorWheel, 
+            Util.Component.Umbrella, Util.Component.Rocket};
+
+
+		foreach (var component in components)
         {
-            if (dragImage.Value.Count > 0)
+            var dragImage = DragImage.DragImages[component];
+			if (dragImage.Count > 0)
             {
-                nonzero_images.Add(dragImage.Value);
+                nonzero_images.Add(dragImage);
             }
         }
         items_offset = 0;
