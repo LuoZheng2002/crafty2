@@ -46,8 +46,6 @@ public class AudioPlayer : MonoBehaviour
         musicSource = audioSources[0];
         soundEffectSource = audioSources[1];
 		bossSource = audioSources[2];
-        musicSource.volume = 0.5f;
-        soundEffectSource.volume = 0.2f;
         EventBus.Subscribe<ScreamEvent>(Scream);
         // StartCoroutine(Snore());
         if (is_transition3)
@@ -65,7 +63,6 @@ public class AudioPlayer : MonoBehaviour
     }
 	public void PlaySie()
 	{
-		bossSource.volume = 1.0f;
 		if (bossSource.isPlaying)
 		{
 			bossSource.Stop();
@@ -76,7 +73,6 @@ public class AudioPlayer : MonoBehaviour
 	}
     public void PlayCrash()
     {
-		soundEffectSource.volume = 1.0f;
 		if (soundEffectSource.isPlaying)
 		{
 			soundEffectSource.Stop();
@@ -104,7 +100,7 @@ public class AudioPlayer : MonoBehaviour
 	{
         inst = null;
 	}
-	void Scream(ScreamEvent e)
+	public void Scream(ScreamEvent e)
     {
         if (soundEffectSource.isPlaying)
         {
@@ -149,11 +145,14 @@ public class AudioPlayer : MonoBehaviour
 	}
 	public void Explode()
 	{
+		if (soundEffectSource.isPlaying)
+		{
+			soundEffectSource.Stop();
+		}
 		if (bossSource.isPlaying)
 		{
 			bossSource.Stop();
 		}
-        bossSource.volume = 1.0f;
 		bossSource.clip = explosion;
 		bossSource.loop = false;
 		bossSource.Play();
@@ -175,7 +174,6 @@ public class AudioPlayer : MonoBehaviour
 			soundEffectSource.Stop();
 		}
 		soundEffectSource.clip = motor;
-        soundEffectSource.volume = 0.5f;
 		soundEffectSource.loop = true;
 		soundEffectSource.Play();
 	}
@@ -186,7 +184,6 @@ public class AudioPlayer : MonoBehaviour
 			soundEffectSource.Stop();
 		}
 		soundEffectSource.clip = rocket;
-        soundEffectSource.volume = 0.5f;
 		soundEffectSource.loop = false;
 		soundEffectSource.Play();
 	}
@@ -195,9 +192,15 @@ public class AudioPlayer : MonoBehaviour
 		if (soundEffectSource.clip != yaju_long)
 		{
 			soundEffectSource.Stop();
-			soundEffectSource.volume = 0.2f;
 		}
     }
+	public void StopMusic()
+	{
+		if (musicSource.clip != yaju_long)
+		{
+			musicSource.Stop();
+		}
+	}
     IEnumerator Snore()
     {
         while(true)

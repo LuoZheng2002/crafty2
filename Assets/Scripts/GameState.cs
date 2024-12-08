@@ -157,8 +157,8 @@ public class GameState : MonoBehaviour
 			// CarCore.Inst.VerticalOffset = 2.0f;
 
 
-			GoToCheckpointAsync(Util.WaypointName.Obsidian, true);
-			// StartCoroutine(HandleEnding());
+			// GoToCheckpointAsync(Util.WaypointName.Obsidian, true);
+			StartCoroutine(HandleEnding());
 		}
 		// TransitionToFirstBuild();
 		
@@ -485,7 +485,7 @@ public class GameState : MonoBehaviour
 		CarCore.Inst.DampStart();
 		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "The boss will chase us once we enter the track.", null, VoiceLine.chase_enter);
 		LineCanvas.Top.Hide();
-		yield return DisplayChapter("Side Quest IV", "Groundhog Festival", "Started", null);
+		yield return DisplayChapter("Side Quest III", "Groundhog Festival", "Started", null);
 		CarCore.Inst.DampStop();
 		VehicleComponent.Damp = 2;
 	}
@@ -494,21 +494,21 @@ public class GameState : MonoBehaviour
 	{
 		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "That was a tough one.", null, VoiceLine.tough_one);
 		LineCanvas.Top.Hide();
-		yield return DisplayChapter("Side Quest IV", "Groundhog Festival", "Completed", null);
+		yield return DisplayChapter("Side Quest III", "Groundhog Festival", "Completed", null);
 	}
 	IEnumerator HandleTourStart()
 	{
 		CarCore.Inst.DampStart();
 		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Buckle up, everyone.", null, VoiceLine.buckle_up);
 		LineCanvas.Top.Hide();
-		yield return DisplayChapter("Side Quest III", "Tour de Piggyland", "Started", null);
+		yield return DisplayChapter("Side Quest II", "Tour de Piggyland", "Started", null);
 		CarCore.Inst.DampStop();
 	}
 	IEnumerator HandleTourEnd()
 	{
 		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "The tourists enjoyed this trip, I guess.", null, VoiceLine.tourist_guess);
 		LineCanvas.Top.Hide();
-		yield return DisplayChapter("Side Quest III", "Tour de Piggyland", "Completed", null);
+		yield return DisplayChapter("Side Quest II", "Tour de Piggyland", "Completed", null);
 	}
 
 	IEnumerator HandleBossStart()
@@ -581,6 +581,7 @@ public class GameState : MonoBehaviour
 		GameSave.Inventory[Util.Component.Rocket] = 100;
 		GameSave.Inventory[Util.Component.Umbrella] = 100;
 		yield return GoToCheckpoint(WaypointName.TownWaypoint, true);
+		ChapterCanvas.Inst.DisplayTextAsync("Main Story: Act II", "Defeat Groundhog the Juggernaut", "Completed", 0.5f, null);
 		yield return BlackoutCanvas.Inst.Blackout(1.0f, 1.0f, 0.0f);
 	}
 	bool side_quests_begin = false;
@@ -647,7 +648,7 @@ public class GameState : MonoBehaviour
 		yield return LineCanvas.Bottom.DisplayLine("Groundhog the Juggernaut", "I know you will come, poor little piggies!",null, VoiceLine.i_know_you);
 		yield return new WaitForSeconds(2.0f);
 		yield return LineCanvas.Bottom.DisplayLine("Groundhog the Juggernaut", "You'll never get what you want. Take this!",null, VoiceLine.you_never_get);
-		yield return new WaitForSeconds(2.0f);
+		yield return new WaitForSeconds(3.0f);
 		yield return LineCanvas.Bottom.DisplayLine("Shirley", "Watch out the walls!",null, VoiceLine.watch_out_wall);
 		yield return new WaitForSeconds(2.0f);
 		LineCanvas.Bottom.Hide();
@@ -677,7 +678,7 @@ public class GameState : MonoBehaviour
 		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "A journey of a thousand miles begins with a single step.", null, VoiceLine.A_journey);
 		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Let's climb!", null, VoiceLine.lets_climb);
 		LineCanvas.Top.Hide();
-		yield return DisplayChapter("Side Quest I", "A Bird's Eye View", "Started", null);
+		yield return DisplayChapter("Side Quest IV", "A Bird's Eye View", "Started", null);
 	}
 	IEnumerator OnCenterTop()
 	{
@@ -685,13 +686,13 @@ public class GameState : MonoBehaviour
 		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Woohoo! We made it!", null, VoiceLine.woohoo_we_made);
 		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Although there is barely anything underneath to appreciate.", null, VoiceLine.Although);
 		LineCanvas.Top.Hide();
-		yield return DisplayChapter("Side Quest I", "A Bird's Eye View", "Completed", null);
+		yield return DisplayChapter("Side Quest IV", "A Bird's Eye View", "Completed", null);
 	}
 	IEnumerator OnLoopStart()
 	{
 		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Don't be a coward, my darling.", null, VoiceLine.dont);
 		CarCore.Inst.DampStart();
-		yield return DisplayChapter("Side Quest II", "Loop", "Started", null);
+		yield return DisplayChapter("Side Quest I", "Loop", "Started", null);
 		CarCore.Inst.DampStop();
 		LineCanvas.Top.Hide();
 	}
@@ -700,7 +701,7 @@ public class GameState : MonoBehaviour
 		PlayCanvas.Inst.SetStoryText("Select a Quest");
 		yield return LineCanvas.Top.DisplayLineAndWaitForClick("Shirley", "Awwwww! That's more scary than I anticipated.", null, VoiceLine.awwww);
 		LineCanvas.Top.Hide();
-		yield return DisplayChapter("Side Quest II", "Loop", "Completed", null);
+		yield return DisplayChapter("Side Quest I", "Loop", "Completed", null);
 	}
 	bool prompt_choose_quest1 = false;
 	bool prompt_choose_quest2 = false;
@@ -909,10 +910,6 @@ public class GameState : MonoBehaviour
 		{
 			trailer_menu.HideAll();
 		}
-		if (Input.GetKeyDown(KeyCode.P))
-		{
-			StartCoroutine(HandleEnding());
-		}
 		if (Input.GetKeyDown(KeyCode.H))
 		{
 			play_canvas_hided = !play_canvas_hided;
@@ -925,13 +922,10 @@ public class GameState : MonoBehaviour
 				PlayCanvas.Inst.Show();
 			}
 		}
-		if (Input.GetKeyDown(KeyCode.O))
+		if (Input.GetKeyDown(KeyCode.Return))
 		{
-			StoryCanvas.Inst.Show();
-		}
-		if (Input.GetKeyDown(KeyCode.L))
-		{
-			HealthBar.Inst.Health -= 0.1f;
+			CarCore.Inst.Unfix();
+			CarCore.Inst.DestroyComponents();
 		}
 		//for(int i = 0;i < 7;i++)
 		//{
@@ -1147,6 +1141,7 @@ public class GameState : MonoBehaviour
 		yield return new WaitForSeconds(1.5f);
 		Vector3 original_position = MainCamera.Inst.transform.position;
 		float elapsedTime = 0f;
+		AudioPlayer.Inst.Scream(null);
 		while (elapsedTime < shake_duration)
 		{
 			// Calculate vibration offset using Perlin noise
@@ -1589,7 +1584,7 @@ public class GameState : MonoBehaviour
 		if (prompt_choose_quest2)
 		{
 			prompt_choose_quest2 = false;
-			StartCoroutine(PromptChooseQuest());
+			// StartCoroutine(PromptChooseQuest());
 		}
 		if (side_quests_begin)
 		{

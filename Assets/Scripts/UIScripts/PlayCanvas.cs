@@ -37,6 +37,7 @@ public class PlayCanvas : MonoBehaviour
     public void ScaleStory()
     {
         button_scale.ScaleStart();
+        Debug.Log("Scale start called");
     }
 	public static PlayCanvas Inst
     {
@@ -104,6 +105,7 @@ public class PlayCanvas : MonoBehaviour
 	{
         StoryCanvas.Inst.Show();
         button_scale.ScaleStop();
+		Debug.Log("Scale stop called");
 	}
     public GameObject story;
     public void ShowStory()
