@@ -102,7 +102,7 @@ public class GameState : MonoBehaviour
 	//{
 	//	StartCoroutine(MoveCameraToGrid(false));
 	//}
-	bool official_start = false;
+	bool official_start = true;
 	bool is_trailer = false;
 	void Yikai()
 	{
