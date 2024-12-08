@@ -100,7 +100,6 @@ public class PlayCanvas : MonoBehaviour
             SetRocketFill(RocketFuel);
 		}
 	}
-
 	public void OnStoryClicked()
 	{
         StoryCanvas.Inst.Show();

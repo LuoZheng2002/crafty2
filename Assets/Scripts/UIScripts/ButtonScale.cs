@@ -32,7 +32,7 @@ public class ButtonScale : MonoBehaviour
 	}
 	public void ScaleStop()
 	{
-		if (coroutine != null && gameObject.activeInHierarchy)
+		if (coroutine != null)
 		{
 			StopCoroutine(coroutine);
 			coroutine = null;

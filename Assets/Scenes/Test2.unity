@@ -14946,7 +14946,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3310956572875185534, guid: a4978ca5899b487469eacc1795383bb3, type: 3}
       propertyPath: message
-      value: Rocket
+      value: Tourist
       objectReference: {fileID: 0}
     - target: {fileID: 3572251202838144581, guid: a4978ca5899b487469eacc1795383bb3, type: 3}
       propertyPath: m_Pivot.x
@@ -22249,7 +22249,7 @@ MonoBehaviour:
   main_story_background: {fileID: 631130935}
   go_to_town_image: {fileID: 21300000, guid: 667968672c76c604f86cca18d6401c32, type: 3}
   volcano_image: {fileID: 21300000, guid: 55d6016c6c694f9448fa4613f30fb1f9, type: 3}
-  boss_fight_image: {fileID: 21300000, guid: 0743bb28c7ed66a449dd962349260d80, type: 3}
+  boss_fight_image: {fileID: 21300000, guid: a93c556d0a09c7249ba506f5d029adcb, type: 3}
   description_image: {fileID: 1336056314}
   description: {fileID: 396989344}
   main_story_text: {fileID: 384270414}
