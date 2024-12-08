@@ -591,7 +591,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1001015697
 RectTransform:
   m_ObjectHideFlags: 0
@@ -624,7 +624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0.94477797, a: 0}
+  m_Color: {r: 1, g: 0, b: 0.94477797, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1026,14 +1026,14 @@ RectTransform:
   m_GameObject: {fileID: 1184699084}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1357495736}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -247}
+  m_AnchoredPosition: {x: 0, y: -307.3}
   m_SizeDelta: {x: 1819.1868, y: 314.0994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1184699086
@@ -1791,8 +1791,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030517, y: -277}
-  m_SizeDelta: {x: 1975.0518, y: 407.0708}
+  m_AnchoredPosition: {x: 0.000030517, y: -168.95743}
+  m_SizeDelta: {x: 1975.0518, y: 780.9808}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1556274209
 MonoBehaviour:
@@ -1815,12 +1815,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: dc3cc9a953ebc6044b3f37765af32359, type: 3}
-    m_FontSize: 100
+    m_Font: {fileID: 12800000, guid: 10ad84051a2194b168cbb0ad405a2253, type: 3}
+    m_FontSize: 160
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 1
-    m_MaxSize: 150
+    m_MinSize: 0
+    m_MaxSize: 160
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1829,7 +1829,11 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Zheng Luo    Yikai Li
 
-    Gabriel Froehner    Javier Guerrero'
+    Gabriel Froehner    Javier Guerrero
+
+
+    Music
+    FreeLancer:  Erika Chen'
 --- !u!222 &1556274210
 CanvasRenderer:
   m_ObjectHideFlags: 0
