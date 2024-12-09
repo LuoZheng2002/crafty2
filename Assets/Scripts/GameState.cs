@@ -103,7 +103,7 @@ public class GameState : MonoBehaviour
 	//	StartCoroutine(MoveCameraToGrid(false));
 	//}
 	bool official_start = true;
-	public bool is_trailer = true;
+	public bool is_trailer = false;
 	void Yikai()
 	{
 		Util.unbreakable = true;
@@ -910,18 +910,18 @@ public class GameState : MonoBehaviour
 			OnRetry();
 		}
 		
-		if (Input.GetKeyDown(KeyCode.C))
-		{
-			trailer_menu.ShowTitle();
-		}
-		if (Input.GetKeyDown(KeyCode.V))
-		{
-			trailer_menu.ShowText1();
-		}
-		if (Input.GetKeyDown(KeyCode.B))
-		{
-			trailer_menu.ShowText2();
-		}
+		//if (Input.GetKeyDown(KeyCode.C))
+		//{
+		//	trailer_menu.ShowTitle();
+		//}
+		//if (Input.GetKeyDown(KeyCode.V))
+		//{
+		//	trailer_menu.ShowText1();
+		//}
+		//if (Input.GetKeyDown(KeyCode.B))
+		//{
+		//	trailer_menu.ShowText2();
+		//}
 		if (Input.GetKeyDown(KeyCode.U))
 		{
 			trailer_menu.HideAll();
