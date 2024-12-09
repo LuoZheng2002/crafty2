@@ -3469,6 +3469,7 @@ MonoBehaviour:
   camera_rotation_time: 0.5
   retry_move_time: 0.5
   rise_height: 10
+  is_trailer: 1
   post_process_volume: {fileID: 654378329}
   introduce_space: 0
   platform: {fileID: 187011960}
@@ -17177,12 +17178,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 36823bac41d13ac4fae539802016033e, type: 3}
-    m_FontSize: 100
-    m_FontStyle: 0
+    m_Font: {fileID: 12800000, guid: 10ad84051a2194b168cbb0ad405a2253, type: 3}
+    m_FontSize: 140
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 100
+    m_MaxSize: 140
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -17191,7 +17192,10 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Zheng Luo     Yikai Li
 
-    Gabriel Froehner     Javier Guerrero'
+    Gabriel Froehner     Javier Guerrero
+
+    Music
+    FreeLancer: Erika Chen'
 --- !u!222 &1111727839
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17216,8 +17220,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030518, y: -273}
-  m_SizeDelta: {x: 1766.2754, y: 250.5114}
+  m_AnchoredPosition: {x: 0.000030518, y: -107.8212}
+  m_SizeDelta: {x: 1766.2754, y: 580.869}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1114473787
 PrefabInstance:
@@ -20331,7 +20335,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1382561711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22337,9 +22341,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Presented by
-
-    Deep Dark Fantasy'
+  m_Text: 
 --- !u!1 &1539054548
 GameObject:
   m_ObjectHideFlags: 0

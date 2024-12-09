@@ -103,7 +103,7 @@ public class GameState : MonoBehaviour
 	//	StartCoroutine(MoveCameraToGrid(false));
 	//}
 	bool official_start = true;
-	bool is_trailer = false;
+	public bool is_trailer = true;
 	void Yikai()
 	{
 		Util.unbreakable = true;
@@ -157,8 +157,8 @@ public class GameState : MonoBehaviour
 			// CarCore.Inst.VerticalOffset = 2.0f;
 
 
-			// GoToCheckpointAsync(Util.WaypointName.Obsidian, true);
-			StartCoroutine(HandleEnding());
+			// GoToCheckpointAsync(Util.WaypointName.Hammer, true);
+			StartCoroutine(BeginSideQuest());
 		}
 		// TransitionToFirstBuild();
 		
@@ -569,17 +569,33 @@ public class GameState : MonoBehaviour
 		yield return BeginSideQuest();		
 	}
 
+	bool is_trailer2 = false;
 	IEnumerator BeginSideQuest()
 	{
 		PlayCanvas.Inst.HideDeathCount();		
 		side_quests_begin = true;
-		GameSave.SetGridSize(3, 4, 4);
-		GameSave.Inventory[Util.Component.WoodenCrate] = 100;
-		GameSave.Inventory[Util.Component.Wheel] = 100;
-		GameSave.Inventory[Util.Component.MotorWheel] = 100;
-		GameSave.Inventory[Util.Component.TurnWheel] = 100;
-		GameSave.Inventory[Util.Component.Rocket] = 100;
-		GameSave.Inventory[Util.Component.Umbrella] = 100;
+		if (is_trailer2)
+		{
+			GameSave.SetGridSize(7, 7, 7);
+			GameSave.Inventory[Util.Component.WoodenCrate] = 1000;
+			GameSave.Inventory[Util.Component.Wheel] = 1000;
+			GameSave.Inventory[Util.Component.MotorWheel] = 1000;
+			GameSave.Inventory[Util.Component.TurnWheel] = 1000;
+			GameSave.Inventory[Util.Component.Rocket] = 1000;
+			GameSave.Inventory[Util.Component.Umbrella] = 1000;
+			GameSave.Inventory[Util.Component.Tourist] = 1000;
+		}
+		else
+		{
+			GameSave.SetGridSize(3, 4, 4);
+			GameSave.Inventory[Util.Component.WoodenCrate] = 100;
+			GameSave.Inventory[Util.Component.Wheel] = 100;
+			GameSave.Inventory[Util.Component.MotorWheel] = 100;
+			GameSave.Inventory[Util.Component.TurnWheel] = 100;
+			GameSave.Inventory[Util.Component.Rocket] = 100;
+			GameSave.Inventory[Util.Component.Umbrella] = 100;
+		}
+		
 		yield return GoToCheckpoint(WaypointName.TownWaypoint, true);
 		ChapterCanvas.Inst.DisplayTextAsync("Main Story: Act II", "Defeat Groundhog the Juggernaut", "Completed", 0.5f, null);
 		yield return BlackoutCanvas.Inst.Blackout(1.0f, 1.0f, 0.0f);
@@ -1355,6 +1371,7 @@ public class GameState : MonoBehaviour
 	bool town_waypoint_met = false;
 	IEnumerator TrailerBuild()
 	{
+		PlayCanvas.Inst.SetStoryText("Go to Town");
 		yield return GoToCheckpoint(Util.WaypointName.PreStory1, true);
 		MapImage.Inst.Hide();
 		RebuildButton.Inst.Hide();
