@@ -69,7 +69,7 @@ public class ConfirmButton : MonoBehaviour
 			can_start = PiggyPreview.Inst != null;
 			if (DragImage.DragImages[Util.Component.Partner].Count > 0
 				|| DragImage.DragImages[Util.Component.Pig].Count > 0
-				|| (DragImage.DragImages[Util.Component.Tourist].Count > 0 && !GameState.Inst.is_trailer))
+				|| (DragImage.DragImages[Util.Component.Tourist].Count > 0 && !GameState.Inst.is_trailer2))
 			{
 				can_start = false;
 			}

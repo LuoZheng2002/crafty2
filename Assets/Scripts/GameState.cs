@@ -103,7 +103,7 @@ public class GameState : MonoBehaviour
 	//	StartCoroutine(MoveCameraToGrid(false));
 	//}
 	bool official_start = true;
-	public bool is_trailer = false;
+	private bool is_trailer = false;
 	void Yikai()
 	{
 		Util.unbreakable = true;
@@ -569,7 +569,7 @@ public class GameState : MonoBehaviour
 		yield return BeginSideQuest();		
 	}
 
-	bool is_trailer2 = false;
+	public bool is_trailer2 = false;
 	IEnumerator BeginSideQuest()
 	{
 		PlayCanvas.Inst.HideDeathCount();		
